@@ -1,1 +1,43 @@
 /* Navigation styles */
+
+#main-navigation {
+    display: block;
+    float: left;
+    width: 90px;
+    height: 100vh;
+    background-color: $martinique;
+}
+
+#app-name strong {
+    font-weight: bold;
+}
+
+.nav-button {
+    width: 90px;
+    height: 90px;
+    opacity: .5;
+    @extend %srt;
+    &.active {
+        opacity: 1.0;
+    }
+}
+
+#button-dashboard {
+    background: url(#{$img-path}icon-dashboard.svg) center center no-repeat;
+    background-size: 30px;
+}
+
+#button-members {
+    background: url(#{$img-path}icon-members.svg) center center no-repeat;
+    background-size: 30px;
+}
+
+#button-settings {
+    background: url(#{$img-path}icon-settings.svg) center center no-repeat;
+    background-size: 30px;
+}
+
+#button-visits {
+    background: url(#{$img-path}icon-visits.svg) center center no-repeat;
+    background-size: 30px;
+}

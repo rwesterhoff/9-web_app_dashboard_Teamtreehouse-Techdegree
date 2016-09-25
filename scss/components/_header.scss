@@ -1,1 +1,10 @@
 /* Header styles */
+#main-header {
+	width: 100%;
+	height: 70px;
+	background-color: $blue-violet;
+	color: white;
+}
+#app-notification {
+	@extend %srt;
+}

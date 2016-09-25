@@ -1,1 +1,9 @@
 /* Main styles */
+
+#main-content {
+	display: block;
+	float: left;
+	width: calc(100% - 90px);
+	height: 100vh;
+	background-color: white;
+}
