@@ -1,0 +1,1 @@
+function activateElement(t){function e(){n(),this.classList.add("active")}function n(){for(var t=0;t<a.length;t++)a[t].classList.remove("active")}for(var a=document.getElementsByClassName(t),c=0;c<a.length;c++)a[c].addEventListener("click",e)}activateElement("nav-button");
