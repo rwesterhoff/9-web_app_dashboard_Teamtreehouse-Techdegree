@@ -168,7 +168,7 @@ body {
   font-weight: 300; }
   #app-name strong {
     font-weight: 700; }
-  #app-name #trademark {
+  #app-name .trademark {
     font-size: .6em;
     vertical-align: top; }
 
