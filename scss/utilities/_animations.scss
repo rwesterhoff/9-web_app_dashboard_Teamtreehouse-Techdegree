@@ -1,0 +1,12 @@
+/* Animations */
+@keyframes hide-notifications {
+    from {
+        transform: translate(0,0);
+        opacity: 1;
+    }
+    to {
+
+        transform: translate(20px,0);
+        opacity: 0;
+    }
+}

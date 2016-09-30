@@ -12,7 +12,7 @@
 <body role="application">
     <header id="main-header" role="banner">
         <section id="app-name"><strong>Your</strong>App<span class="trademark">&trade;</span></section>
-        <section id="app-notification" class="active">
+        <section id="app-notification" data-state="inactive">
         </section>
         <section id="app-profile">
             <img src="img/profile-rwesterhoff.jpg" alt="Image of Robin Westerhoff smiling to someone at the left." class="profile-image">
@@ -21,10 +21,10 @@
     </header>
     <nav id="main-navigation" role="navigation">
         <ul id="navigation-buttons">
-            <li id="button-dashboard" class="nav-button active">Dashboard</li>
-            <li id="button-members" class="nav-button">Members</li>
-            <li id="button-visits" class="nav-button">Visits</li>
-            <li id="button-settings" class="nav-button">Settings</li>
+            <li id="button-dashboard" class="nav-button" data-state="active">Dashboard</li>
+            <li id="button-members" class="nav-button" data-state="inactive">Members</li>
+            <li id="button-visits" class="nav-button" data-state="inactive">Visits</li>
+            <li id="button-settings" class="nav-button" data-state="inactive">Settings</li>
         </ul>
     </nav>
     <main id="main-content" role="main">

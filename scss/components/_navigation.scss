@@ -20,7 +20,7 @@
         transition: opacity .15s linear;
         opacity: .5;
         @extend %srt;
-        &.active {
+        &[data-state=active] {
             opacity: 1;
             border-width: 5px;
             border-style: solid;
@@ -44,7 +44,7 @@
             width: 90px;
             height: 68px;
             margin: 15px 0;
-            &.active {
+        &[data-state=active] {
                 border-image: url(#{$img-path}border-left-active.svg) 10%;
             }
         }
