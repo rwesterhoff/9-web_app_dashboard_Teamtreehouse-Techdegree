@@ -148,7 +148,7 @@ Dashboard.prototype.isEmpty = function(obj) {
 var dashboard = new Dashboard(),
     alerts = {
         alert_1: new Alert("Donec sed odio dui.", 'visible'),
-        alert_2: new Alert("Maecenas faucibus mollis interdum.", 'visible'),
+        alert_2: new Alert("Lorum ipsum dolor sit amet. Maecenas faucibus mollis interdum.", 'visible'),
         alert_3: new Alert("Consectetur Ipsum.", 'visible')
     };
 dashboard.displayAll();
