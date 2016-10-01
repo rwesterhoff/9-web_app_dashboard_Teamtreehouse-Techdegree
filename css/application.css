@@ -86,7 +86,7 @@ input::placeholder {
 
 button,
 input[type="submit"],
-li[class*="button"] {
+*[class*="button"] {
   cursor: pointer; }
 
 /* Shared styles */
