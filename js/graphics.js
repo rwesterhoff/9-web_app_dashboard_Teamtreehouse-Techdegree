@@ -3,7 +3,10 @@
 *\ ====================================================================================== */
 Chart.defaults.global.defaultFontFamily = "'Open Sans', sans-serif";
 Chart.defaults.global.legend.display = false;
+Chart.defaults.global.title.display = true;
+Chart.defaults.global.title.padding = 0;
 Chart.defaults.global.maintainAspectRatio = true;
+
 var lineWidgetContainer = document.getElementById("line-widget").getContext("2d"),
     lineWidget = new Chart(lineWidgetContainer, {
         type: 'line',

@@ -14,9 +14,7 @@
         justify-content: space-around;
     }
     .nav-button {
-        width: 15%;
         height: 70px;
-        margin: 0;
         transition: opacity .15s linear;
         opacity: .5;
         @extend %srt;
@@ -30,6 +28,14 @@
         &:focus {
             opacity: 1;
         }
+        @media screen and (max-width: #{$bkp-medium}) {
+            // text-align: center;
+            width: 25%;
+            margin: 0;
+        }
+    }
+    @media screen and (max-width: #{$bkp-medium}) {
+            padding: 0 25px;
     }
     @media screen and (min-width: #{$bkp-medium}) {
         position: relative;
@@ -44,7 +50,7 @@
             width: 90px;
             height: 68px;
             margin: 15px 0;
-        &[data-state=active] {
+            &[data-state=active] {
                 border-image: url(#{$img-path}border-left-active.svg) 10%;
             }
         }
