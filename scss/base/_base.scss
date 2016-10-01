@@ -27,3 +27,7 @@ input[type="submit"],
 *[class*="button"] {
     cursor: pointer;
 }
+
+canvas {
+	    user-select: none;
+}

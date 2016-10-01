@@ -7,27 +7,6 @@
 /* ====================================================================================== *\
     CONTROLS
 *\ ====================================================================================== */
-function Container(id, state) {
-    this.id = id;
-    this.state = state;
-}
-
-Container.prototype.createContainer = function(parent) {
-    var container = document.createElement('section');
-    container.setAttribute('id', this.id);
-    container.setAttribute('data-state', this.state);
-    parent.appendChild(container);
-};
-
-Container.prototype.toHTML = function() {
-    var controlsHTML = '<div';
-    controlsHTML += ' id="' + this.id + '"';
-    controlsHTML += ' data-state="' + this.state + '"';
-    controlsHTML += '>';
-    controlsHTML += '</div>';
-    return controlsHTML;
-};
-
 function Alert(text) {
     this.text = text;
 }
@@ -57,6 +36,7 @@ function Dashboard() {
         }
         if (this.isEmpty(obj)) {
             this.hideNotifications();
+            this.hideAlerts();
         } else {
             this.showNotifications();
             this.displayAlerts();
@@ -64,13 +44,14 @@ function Dashboard() {
         alertsNotification.innerHTML = '<p>' + amount + ' ' + text + '</p>';
     };
     this.displayAlerts = function() {
-        var alertsContainer = new Container('content-notifications', 'visible'),
-            parent = document.getElementById('main-content');
-        alertsContainer.createContainer(parent);
-        var container = alertsContainer.id,
+        var container = 'content-notifications',
             html = alerts;
         this.renderInElement(container, html);
         this.setCloseButton();
+    };
+    this.hideAlerts = function() {
+        var containerAlerts =  document.getElementById('content-notifications');
+        containerAlerts.setAttribute('data-state', 'hidden');
     };
     this.showNotifications = function() {
         alertsNotification.setAttribute('data-state', 'active');
@@ -84,11 +65,12 @@ function Dashboard() {
                 var elementToRemove = this.parentNode;
                 elementToRemove.setAttribute('data-state', 'hidden');
                 setTimeout(function() {
-                    elementToRemove.parentNode.removeChild(elementToRemove)
+                    elementToRemove.parentNode.removeChild(elementToRemove);
                 }, 200);
                 amount -= 1;
                 if (amount === 0) {
                     dashboard.hideNotifications();
+                    dashboard.hideAlerts();
                 }
             };
         for (var i = 0; i < removeAlertsButtons.length; i++) {
@@ -97,6 +79,7 @@ function Dashboard() {
     };
     this.displayAll = function() {
         this.setStates("nav-button");
+        this.setStates("filter-button");
         this.setAlerts(alerts);
     };
 }
@@ -141,14 +124,16 @@ Dashboard.prototype.isEmpty = function(obj) {
     }
     return true;
 };
+
+
 /* ====================================================================================== *\
     APP
 *\ ====================================================================================== */
 
 var dashboard = new Dashboard(),
     alerts = {
-        alert_1: new Alert("Donec sed odio dui.", 'visible'),
-        alert_2: new Alert("Lorum ipsum dolor sit amet. Maecenas faucibus mollis interdum.", 'visible'),
-        alert_3: new Alert("Consectetur Ipsum.", 'visible')
+        alert_1: new Alert("Donec sed odio dui."),
+        alert_2: new Alert("Lorum ipsum dolor sit amet. Maecenas faucibus mollis interdum."),
+        alert_3: new Alert("Consectetur Ipsum.")
     };
 dashboard.displayAll();
