@@ -1,5 +1,4 @@
 /* Main styles */
-
 #main-content {
     display: block;
     float: left;
@@ -71,99 +70,5 @@
     }
     @media screen and (min-width: #{$bkp-medium}) {
         width: calc(100% - 90px);
-    }
-}
-
-#content-notifications {
-    padding: 25px;
-    &[data-state=hidden] {
-        display: none;
-    }
-    &[data-state=visible] {
-        display: block;
-    }
-}
-
-.content-widget {
-    padding: 25px;
-}
-
-.widget-header,
-.widget-filter {
-    display: flex;
-    align-items: center;
-}
-
-.widget-filter {
-    .filter-button {
-        margin-left: 5px;
-        font-size: .8em;
-        font-weight: 700;
-        color: $emperor-grey;
-        padding: 5px 10px;
-        border-radius: 15px;
-        background-color: white;
-        &[data-state=active] {
-            background-color: $pastel-green;
-            color: white;
-        }
-    }
-    @media screen and (min-width: #{$bkp-small}) {
-        margin-left: auto;
-    }
-}
-
-.widget-header {
-    padding-bottom: 25px;
-    flex-direction: column;
-    @media screen and (min-width: #{$bkp-small}) {
-        flex-direction: row;
-    }
-}
-
-.widget-title {
-    text-transform: uppercase;
-    color: $emperor-grey;
-}
-
-.alert {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    min-height: 40px;
-    padding-left: 14px;
-    color: white;
-    border-radius: 4px;
-    background-color: $blue-violet;
-    transition: all 0.2s linear;
-    p {
-        font-size: .9em;
-        font-weight: 300;
-        margin: 13px 0;
-    }
-    strong {
-        font-weight: 700;
-        margin-right: 10px;
-    }
-    button {
-        align-self: flex-start;
-        width: 40px;
-        height: 40px;
-        margin-left: auto;
-        border: none;
-        outline: none;
-        background: transparent url(#{$img-path}icon-close.svg) no-repeat center;
-        background-size: 10px;
-        appearance: none;
-        @extend %srt;
-    }
-    &:not(:last-child) {
-        margin-bottom: 10px;
-    }
-    &[data-state=visible] {
-        opacity: 1;
-    }
-    &[data-state=hidden] {
-        animation: hide-notifications .2s linear forwards;
     }
 }
