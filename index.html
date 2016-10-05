@@ -39,7 +39,7 @@
             </section>
         </header>
         <section id="content-notifications" data-state="visible"></section>
-        <section class="content-widget">
+        <section id="weekly-traffic" class="content-widget">
             <header class="widget-header">
                 <h2 class="widget-title">Traffic</h2>
                 <ul class="widget-filter">
@@ -51,17 +51,36 @@
             </header>
             <canvas id="line-widget" width="8" height="2"></canvas>
         </section>
-        <section class="content-widget split">
+        <section id="daily-traffic" class="content-widget split">
             <header class="widget-header">
                 <h2 class="widget-title">Daily traffic</h2>
             </header>
             <canvas id="bar-widget" width="8" height="4"></canvas>
         </section>
-        <section class="content-widget split">
+        <section id="mobile-users" class="content-widget split">
             <header class="widget-header">
                 <h2 class="widget-title">Mobile User</h2>
             </header>
             <canvas id="doughnut-widget" width="8" height="4"></canvas>
+        </section>
+        <section id="social-stats" class="content-widget">
+            <header class="widget-header">
+                <h2 class="widget-title">Social stats</h2>
+            </header>
+            <ul class="social-container">
+                <li class="social-widget">
+                    <h3 class="social-twitter">Twitter</h3>
+                    <span class="social-likes">10,345</span>
+                </li>
+                <li class="social-widget">
+                    <h3 class="social-facebook">Facebook</h3>
+                    <span class="social-likes">8,739</span>
+                </li>
+                <li class="social-widget">
+                    <h3 class="social-google">Google+</h3>
+                    <span class="social-likes">2,530</span>
+                </li>
+            </ul>
         </section>
     </main>
     <script src="js/app.js"></script>

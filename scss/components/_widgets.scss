@@ -2,8 +2,13 @@
 
 .content-widget {
     padding: 25px;
-    border-bottom: 1px solid $alto-grey;
+    &:not(:last-child) {
+        border-bottom: $alto-grey 1px solid;
+    }
     @media screen and (min-width: #{$bkp-medium}) {
+        content: "";
+        display: table;
+        clear: both;
         &.split {
             float: left;
             overflow: hidden;
@@ -61,5 +66,34 @@
     color: $emperor-grey;
     @media screen and (min-width: #{$bkp-small}) {
         margin-bottom: 0;
+    }
+}
+
+.social-container {
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: #{$bkp-small}) {
+        flex-direction: row;
+    }
+}
+
+.social-widget {
+    flex-grow: 1;
+    color: $emperor-grey;
+    padding: 20px;
+    display: inline-block;
+    width: 25;
+    border: 1px solid $alto-grey;
+    border-radius: 4px;
+    background-color: $alabaster-grey;
+    h3[class^=social] {
+        font-weight: 700;
+        margin: 0;
+        color: $blue-violet;
+    }
+    .social-likes {
+        font-size: 2.6em;
+        font-weight: 100;
+        margin: 0;
     }
 }

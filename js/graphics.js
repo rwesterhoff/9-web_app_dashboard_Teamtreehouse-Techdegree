@@ -17,7 +17,7 @@ var lineWidgetContainer = document.getElementById("line-widget").getContext("2d"
             datasets: [{
                 data: [500, 1000, 750, 1250, 1800, 900, 2000, 1800, 1100, 1350, 1700, 1900],
                 backgroundColor: ['rgba(75, 74, 177, .2)'],
-                borderColor: ['rgb(96, 97, 177)'],
+                borderColor: ['rgba(96, 97, 177,1)'],
                 borderWidth: 1,
                 lineTension: 0,
                 pointBackgroundColor: 'rgba(255,255,255,1)',
