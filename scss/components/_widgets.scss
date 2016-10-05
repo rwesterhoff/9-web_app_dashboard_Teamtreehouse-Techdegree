@@ -10,17 +10,26 @@
     align-items: center;
 }
 
-.widget-filter .filter-button {
-    margin-left: 5px;
-    font-size: .8em;
-    font-weight: 700;
-    color: $emperor-grey;
-    padding: 5px 10px;
-    border-radius: 15px;
-    background-color: white;
-    &[data-state=active] {
-        background-color: $pastel-green;
-        color: white;
+.widget-filter {
+    .filter-button {
+        font-size: .8em;
+        font-weight: 700;
+        width: 25%;
+        padding: 5px 10px;
+        text-align: center;
+        color: $emperor-grey;
+        border-radius: 15px;
+        background-color: white;
+        &[data-state=active] {
+            color: white;
+            background-color: $pastel-green;
+        }
+        @media screen and (min-width: #{$bkp-small}) {
+            margin-left: 5px;
+        }
+    }
+    @media screen and (max-width: #{$bkp-small}) {
+        width: 100%;
     }
     @media screen and (min-width: #{$bkp-small}) {
         margin-left: auto;
@@ -28,8 +37,8 @@
 }
 
 .widget-header {
-    padding-bottom: 25px;
     flex-direction: column;
+    padding-bottom: 25px;
     @media screen and (min-width: #{$bkp-small}) {
         flex-direction: row;
     }

@@ -412,26 +412,33 @@ canvas {
           align-items: center; }
 
 .widget-filter .filter-button {
-  margin-left: 5px;
   font-size: .8em;
   font-weight: 700;
-  color: #535353;
+  width: 25%;
   padding: 5px 10px;
+  text-align: center;
+  color: #535353;
   border-radius: 15px;
   background-color: white; }
   .widget-filter .filter-button[data-state=active] {
-    background-color: #76D76D;
-    color: white; }
+    color: white;
+    background-color: #76D76D; }
   @media screen and (min-width: 568px) {
     .widget-filter .filter-button {
-      margin-left: auto; } }
+      margin-left: 5px; } }
+@media screen and (max-width: 568px) {
+  .widget-filter {
+    width: 100%; } }
+@media screen and (min-width: 568px) {
+  .widget-filter {
+    margin-left: auto; } }
 
 .widget-header {
-  padding-bottom: 25px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
-          flex-direction: column; }
+          flex-direction: column;
+  padding-bottom: 25px; }
   @media screen and (min-width: 568px) {
     .widget-header {
       -webkit-box-orient: horizontal;
