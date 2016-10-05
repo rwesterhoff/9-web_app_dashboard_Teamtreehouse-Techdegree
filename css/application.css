@@ -367,7 +367,7 @@ canvas {
       -ms-flex-direction: row;
           flex-direction: row;
   color: white;
-  border-radius: 5px;
+  border-radius: 4px;
   background-color: #6061B1;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -388,9 +388,10 @@ canvas {
     height: 40px;
     margin-left: auto;
     border: none;
+    outline: none;
     background: transparent;
     background: url(../img/icon-close.svg) no-repeat center;
-    background-size: 12px;
+    background-size: 10px;
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none; }
