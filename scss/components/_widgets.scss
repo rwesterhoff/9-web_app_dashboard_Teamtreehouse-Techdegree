@@ -2,6 +2,13 @@
 
 .content-widget {
     padding: 25px;
+    @media screen and (min-width: #{$bkp-medium}) {
+        &.split {
+            width: 50%;
+            overflow: hidden;
+            float: left;
+        }
+    }
 }
 
 .widget-header,

@@ -2,13 +2,11 @@
 
 #content-notifications {
     padding: 25px;
-    #content-notifications {
-        &[data-state=hidden] {
-            animation: hide-notifications .2s linear forwards;
-        }
-        &[data-state=visible] {
-            display: block;
-        }
+    &[data-state=hidden] {
+        display: none;
+    }
+    &[data-state=visible] {
+        display: block;
     }
 }
 
@@ -44,5 +42,8 @@
     }
     &:not(:last-child) {
         margin-bottom: 10px;
+    }
+    &[data-state=hidden] {
+        animation: hide-notifications .2s linear forwards;
     }
 }
