@@ -352,9 +352,10 @@ canvas {
 /* Alerts */
 #content-notifications {
   padding: 25px; }
-  #content-notifications[data-state=hidden] {
-    display: none; }
-  #content-notifications[data-state=visible] {
+  #content-notifications #content-notifications[data-state=hidden] {
+    -webkit-animation: hide-notifications .2s linear forwards;
+            animation: hide-notifications .2s linear forwards; }
+  #content-notifications #content-notifications[data-state=visible] {
     display: block; }
 
 .alert {
@@ -365,43 +366,36 @@ canvas {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  min-height: 40px;
-  padding-left: 14px;
   color: white;
-  border-radius: 4px;
+  border-radius: 5px;
   background-color: #6061B1;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear; }
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: top;
+      -ms-flex-align: top;
+          align-items: top; }
   .alert p {
     font-size: .9em;
     font-weight: 300;
-    margin: 11px 0; }
+    margin: 11px 0;
+    padding-left: 16px; }
   .alert strong {
     font-weight: 700;
     margin-right: 10px; }
   .alert button {
-    -ms-flex-item-align: start;
-        align-self: flex-start;
     width: 40px;
     height: 40px;
     margin-left: auto;
     border: none;
-    outline: none;
-    background: transparent url(../img/icon-close.svg) no-repeat center;
-    background-size: 10px;
+    background: transparent;
+    background: url(../img/icon-close.svg) no-repeat center;
+    background-size: 12px;
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none; }
   .alert:not(:last-child) {
     margin-bottom: 10px; }
-  .alert[data-state=visible] {
-    opacity: 1; }
-  .alert[data-state=hidden] {
-    -webkit-animation: hide-notifications .2s linear forwards;
-            animation: hide-notifications .2s linear forwards; }
 
 /* Widgets */
 .content-widget {
@@ -416,52 +410,27 @@ canvas {
       -ms-flex-align: center;
           align-items: center; }
 
-.widget-filter {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  width: 100%;
-  -ms-flex-pack: distribute;
-      justify-content: space-around; }
-  .widget-filter .filter-button {
-    font-size: .8em;
-    font-weight: 700;
-    margin-right: 5px;
-    padding: 5px 10px;
-    color: #535353;
-    border-radius: 15px;
-    background-color: white; }
-    .widget-filter .filter-button[data-state=active] {
-      color: white;
-      background-color: #76D76D; }
-    @media screen and (max-width: 568px) {
-      .widget-filter .filter-button {
-        text-align: center;
-        width: 25%;
-        margin: 0; } }
-    @media screen and (min-width: 568px) {
-      .widget-filter .filter-button {
-        margin-left: 5px; } }
+.widget-filter .filter-button {
+  margin-left: 5px;
+  font-size: .8em;
+  font-weight: 700;
+  color: #535353;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: white; }
+  .widget-filter .filter-button[data-state=active] {
+    background-color: #76D76D;
+    color: white; }
   @media screen and (min-width: 568px) {
-    .widget-filter {
-      -webkit-box-pack: end;
-          -ms-flex-pack: end;
-              justify-content: flex-end; } }
+    .widget-filter .filter-button {
+      margin-left: auto; } }
 
 .widget-header {
+  padding-bottom: 25px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
-          flex-direction: column;
-  padding-bottom: 25px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-              -ms-grid-row-align: center;
-          align-items: center; }
+          flex-direction: column; }
   @media screen and (min-width: 568px) {
     .widget-header {
       -webkit-box-orient: horizontal;
