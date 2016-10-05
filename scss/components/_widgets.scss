@@ -6,9 +6,6 @@
         border-bottom: $alto-grey 1px solid;
     }
     @media screen and (min-width: #{$bkp-medium}) {
-        content: "";
-        display: table;
-        clear: both;
         &.split {
             float: left;
             overflow: hidden;

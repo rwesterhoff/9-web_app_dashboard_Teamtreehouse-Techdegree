@@ -51,6 +51,11 @@ table {
 * {
   box-sizing: border-box; }
 
+.clearfix {
+  content: "";
+  display: block;
+  clear: both; }
+
 /* Global Layout Set-up */
 * {
   box-sizing: border-box; }
@@ -409,16 +414,12 @@ canvas {
   .content-widget:not(:last-child) {
     border-bottom: #D7D7D7 1px solid; }
   @media screen and (min-width: 768px) {
-    .content-widget {
-      content: "";
-      display: table;
-      clear: both; }
-      .content-widget.split {
-        float: left;
-        overflow: hidden;
-        width: 50%; }
-        .content-widget.split:not(:last-child) {
-          border-right: #D7D7D7 1px solid; } }
+    .content-widget.split {
+      float: left;
+      overflow: hidden;
+      width: 50%; }
+      .content-widget.split:not(:last-child) {
+        border-right: #D7D7D7 1px solid; } }
 
 .widget-header,
 .widget-filter {

@@ -50,3 +50,9 @@ table {
 * {
 	box-sizing: border-box;
 }
+
+.clearfix {
+	content: "";
+    display: block;
+    clear: both;
+}
