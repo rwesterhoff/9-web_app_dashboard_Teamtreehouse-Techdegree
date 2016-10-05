@@ -2,11 +2,15 @@
 
 .content-widget {
     padding: 25px;
+    border-bottom: 1px solid $alto-grey;
     @media screen and (min-width: #{$bkp-medium}) {
         &.split {
-            width: 50%;
-            overflow: hidden;
             float: left;
+            overflow: hidden;
+            width: 50%;
+            &:not(:last-child) {
+                border-right: $alto-grey 1px solid;
+            }
         }
     }
 }
@@ -45,7 +49,7 @@
 
 .widget-header {
     flex-direction: column;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
     @media screen and (min-width: #{$bkp-small}) {
         flex-direction: row;
     }
@@ -54,7 +58,7 @@
 .widget-title {
     margin-bottom: 10px;
     text-transform: uppercase;
-    color: #535353;
+    color: $emperor-grey;
     @media screen and (min-width: #{$bkp-small}) {
         margin-bottom: 0;
     }

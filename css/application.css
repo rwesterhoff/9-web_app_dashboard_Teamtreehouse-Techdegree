@@ -402,12 +402,15 @@ canvas {
 
 /* Widgets */
 .content-widget {
-  padding: 25px; }
+  padding: 25px;
+  border-bottom: 1px solid #D7D7D7; }
   @media screen and (min-width: 768px) {
     .content-widget.split {
-      width: 50%;
+      float: left;
       overflow: hidden;
-      float: left; } }
+      width: 50%; }
+      .content-widget.split:not(:last-child) {
+        border-right: #D7D7D7 1px solid; } }
 
 .widget-header,
 .widget-filter {
@@ -445,7 +448,7 @@ canvas {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-bottom: 25px; }
+  padding-bottom: 20px; }
   @media screen and (min-width: 568px) {
     .widget-header {
       -webkit-box-orient: horizontal;
