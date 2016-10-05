@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: row;
     color: white;
-    border-radius: 5px;
+    border-radius: 4px;
     background-color: $blue-violet;
     justify-content: flex-start;
     align-items: top;
@@ -35,9 +35,10 @@
         height: 40px;
         margin-left: auto;
         border: none;
+        outline: none;
         background: transparent;
         background: url(#{$img-path}icon-close.svg) no-repeat center;
-        background-size: 12px;
+        background-size: 10px;
         appearance: none;
         @extend %srt;
     }
