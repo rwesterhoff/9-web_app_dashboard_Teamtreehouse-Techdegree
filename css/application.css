@@ -531,13 +531,13 @@ canvas {
       padding: 110px 20px 20px 20px; } }
 
 .social-twitter {
-  background: url(../img/icon-twitter.svg); }
+  background-image: url(../img/icon-twitter.svg); }
 
 .social-facebook {
-  background: url(../img/icon-facebook.svg); }
+  background-image: url(../img/icon-facebook.svg); }
 
 .social-google {
-  background: url(../img/icon-google-plus.svg); }
+  background-image: url(../img/icon-google-plus.svg); }
 
 .social-twitter,
 .social-facebook,

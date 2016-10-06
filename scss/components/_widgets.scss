@@ -127,15 +127,15 @@
 }
 
 .social-twitter {
-    background: url(#{$img-path}icon-twitter.svg);
+    background-image: url(#{$img-path}icon-twitter.svg);
 }
 
 .social-facebook {
-    background: url(#{$img-path}icon-facebook.svg);
+    background-image: url(#{$img-path}icon-facebook.svg);
 }
 
 .social-google {
-    background: url(#{$img-path}icon-google-plus.svg);
+    background-image: url(#{$img-path}icon-google-plus.svg);
 }
 
 .social-twitter,
