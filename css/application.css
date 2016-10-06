@@ -167,6 +167,12 @@ canvas {
     background-position: top right, center center;
     background-size: 7px, auto 20px; }
 
+.profile-image {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 100%; }
+
 #app-profile {
   font-size: .9em;
   font-weight: 300;
@@ -179,11 +185,6 @@ canvas {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
-  #app-profile .profile-image {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    border-radius: 100%; }
   @media screen and (max-width: 568px) {
     #app-profile p {
       display: none; }
