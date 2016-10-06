@@ -51,8 +51,8 @@ table {
 * {
   box-sizing: border-box; }
 
-.clearfix {
-  content: "";
+.clearfix:after {
+  content: " ";
   display: block;
   clear: both; }
 
@@ -60,12 +60,9 @@ table {
 * {
   box-sizing: border-box; }
 
-html {
-  width: 100%;
-  height: 100%; }
-
+html,
 body {
-  min-height: 100%;
+  height: 100%;
   -webkit-font-smoothing: antialiased; }
 
 body,
@@ -237,7 +234,7 @@ canvas {
       position: relative;
       float: left;
       width: 90px;
-      height: 100vh; }
+      min-height: 100%; }
       #main-navigation ul {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -413,14 +410,17 @@ canvas {
   padding: 25px; }
   .content-widget:not(:last-child) {
     border-bottom: #D7D7D7 1px solid; }
-  @media screen and (min-width: 768px) {
-    .content-widget.split {
+
+@media only screen and (min-width: 768px) {
+  .split {
+    padding: 0; }
+    .split .content-widget {
       float: left;
       overflow: hidden;
-      width: 50%; }
-      .content-widget.split:not(:last-child) {
+      width: 50%;
+      border-bottom: 0; }
+      .split .content-widget:not(:last-child) {
         border-right: #D7D7D7 1px solid; } }
-
 .widget-header,
 .widget-filter {
   display: -webkit-box;
@@ -442,13 +442,13 @@ canvas {
   .widget-filter .filter-button[data-state=active] {
     color: white;
     background-color: #76D76D; }
-  @media screen and (min-width: 568px) {
+  @media only screen and (min-width: 568px) {
     .widget-filter .filter-button {
       margin-left: 5px; } }
-@media screen and (max-width: 568px) {
+@media only screen and (max-width: 568px) {
   .widget-filter {
     width: 100%; } }
-@media screen and (min-width: 568px) {
+@media only screen and (min-width: 568px) {
   .widget-filter {
     margin-left: auto; } }
 
@@ -458,7 +458,7 @@ canvas {
       -ms-flex-direction: column;
           flex-direction: column;
   padding-bottom: 20px; }
-  @media screen and (min-width: 568px) {
+  @media only screen and (min-width: 568px) {
     .widget-header {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
@@ -469,7 +469,7 @@ canvas {
   margin-bottom: 10px;
   text-transform: uppercase;
   color: #535353; }
-  @media screen and (min-width: 568px) {
+  @media only screen and (min-width: 568px) {
     .widget-title {
       margin-bottom: 0; } }
 
@@ -481,7 +481,7 @@ canvas {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column; }
-  @media screen and (min-width: 568px) {
+  @media only screen and (min-width: 568px) {
     .social-container {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
@@ -489,17 +489,19 @@ canvas {
               flex-direction: row; } }
 
 .social-widget {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  padding: 20px 20px 20px 110px;
+  height: 110px;
+  text-align: left;
   color: #535353;
-  padding: 20px;
-  display: inline-block;
-  width: 25;
   border: 1px solid #D7D7D7;
   border-radius: 4px;
-  background-color: #FAFAFA; }
-  .social-widget h3[class^=social] {
+  background-color: #FAFAFA;
+  margin: 12.5px 0; }
+  .social-widget:first-child {
+    margin-top: 0; }
+  .social-widget:last-child {
+    margin-bottom: 0; }
+  .social-widget .social-title {
     font-weight: 700;
     margin: 0;
     color: #6061B1; }
@@ -507,5 +509,46 @@ canvas {
     font-size: 2.6em;
     font-weight: 100;
     margin: 0; }
+  @media only screen and (min-width: 568px) {
+    .social-widget {
+      display: inline-block;
+      -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      margin: 0 12.5px; }
+      .social-widget:first-child {
+        margin-left: 0; }
+      .social-widget:last-child {
+        margin-right: 0; } }
+  @media only screen and (min-width: 1024px) {
+    .social-widget {
+      padding: 20px 20px 20px 110px;
+      height: 110px; } }
+  @media only screen and (min-width: 568px) and (max-width: 1024px) {
+    .social-widget {
+      height: auto;
+      text-align: center;
+      padding: 110px 20px 20px 20px; } }
+
+.social-twitter {
+  background: url(../img/icon-twitter.svg); }
+
+.social-facebook {
+  background: url(../img/icon-facebook.svg); }
+
+.social-google {
+  background: url(../img/icon-google-plus.svg); }
+
+.social-twitter,
+.social-facebook,
+.social-google {
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  background-size: 70px; }
+  @media only screen and (min-width: 568px) and (max-width: 1024px) {
+    .social-twitter,
+    .social-facebook,
+    .social-google {
+      background-position: center 20px; } }
 
 /* Footer styles */
