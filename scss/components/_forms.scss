@@ -173,10 +173,10 @@ input:checked + .slider:before {
 input,
 textarea {
     &[data-state=error] {
-        border-color: red;
-        background-color: rgba(red, .05);
+        border-color: $flamingo;
+        background-color: rgba($flamingo, .05);
         &::placeholder {
-            color: red;
+            color: $flamingo;
         }
     }
 }
@@ -186,12 +186,12 @@ p.message {
     padding: 15px;
     background-color: $alto-grey;
     &[data-state=error] {
-        color: red;
-        background-color: rgba(red, .1);
+        color: white;
+        background-color: rgba(#ED6637, 1);
     }
     &[data-state=send] {
         font-weight: 400;
-        color: $pastel-green;
-        background-color: rgba($pastel-green, .1);
+        color: white;
+        background-color: rgba($pastel-green, 1);
     }
 }
