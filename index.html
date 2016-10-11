@@ -162,9 +162,9 @@
                 <header class="widget-header">
                     <h2 class="widget-title">Message user</h2>
                 </header>
-                <form action="" class="message-form">
-                    <input type="text" id="search-user" placeholder="Search user">
-                    <textarea name="message-user" id="message-user" cols="30" widget-rows="10" placeholder="Message for user"></textarea>
+                <form action="" id="message-form">
+                    <input type="text" id="search-user" placeholder="Search user" required>
+                    <textarea name="message-user" id="message-user" cols="30" widget-rows="10" placeholder="Message for user" required></textarea>
                     <input id="button-send" type="submit" value="Send">
                 </form>
             </section>
@@ -172,7 +172,7 @@
                 <header class="widget-header">
                     <h2 class="widget-title">Settings</h2>
                 </header>
-                <form action="" class="settings-form">
+                <form action="" id="settings-form">
                     <div class="switch-container">
                         <p class="switch-label">Send Email Notifications</p>
                         <label class="switch">

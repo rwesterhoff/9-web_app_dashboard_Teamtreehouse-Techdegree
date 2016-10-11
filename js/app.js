@@ -50,7 +50,7 @@ function Dashboard() {
         this.setCloseButton();
     };
     this.hideAlerts = function() {
-        var containerAlerts =  document.getElementById('content-notifications');
+        var containerAlerts = document.getElementById('content-notifications');
         containerAlerts.setAttribute('data-state', 'hidden');
     };
     this.showNotifications = function() {
@@ -77,10 +77,14 @@ function Dashboard() {
             removeAlertsButtons[i].addEventListener("click", removeAlert);
         }
     };
+    this.setForm = function() {
+        this.validateForm("message-form");
+    };
     this.displayAll = function() {
         this.setStates("nav-button");
         this.setStates("filter-button");
         this.setAlerts(alerts);
+        this.setForm();
     };
 }
 Dashboard.prototype.setStates = function(selector) {
@@ -124,7 +128,53 @@ Dashboard.prototype.isEmpty = function(obj) {
     }
     return true;
 };
+Dashboard.prototype.validateForm = function(form) {
+    var form = 'form#' + form,
+        thisForm = document.querySelector(form),
+        inputText = document.querySelectorAll(form + ' input[type=text]'),
+        textArea = document.querySelectorAll(form + ' textarea'),
+        submitButton = document.querySelector(form + ' input[type=submit]'),
+        checkFormElements = function(element) {
+            for (var i = 0; i < element.length; i++) {
+                if (element[i].checkValidity() == false) {
+                    element[i].setAttribute('data-state', 'error');
+                } else {
+                    element[i].removeAttribute('data-state', 'error');
+                }
+            }
 
+        },
+        checkEntireForm = function() {
+            formContainer = document.getElementById(thisForm.id);
+            if (thisForm.checkValidity()) {
+                // alert(submitButton.id);
+                addMessage('Your message is successfully send!', 'send', formContainer);
+            } else {
+                addMessage('You might have missed something!', 'error', formContainer);
+            }
+        },
+        addMessage = function(message, state, element) {
+            var messageBox = document.querySelector('.message'),
+                foo = false;
+            if (messageBox) {
+                messageBox.setAttribute('data-state', state);
+                messageBox.innerText = message;
+            } else {
+                var node = document.createElement("P");
+                var textnode = document.createTextNode(message);
+                node.classList.add('message');
+                node.setAttribute('data-state', state);
+                node.appendChild(textnode);
+                element.appendChild(node);
+            }
+        };
+    submitButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        checkFormElements(inputText);
+        checkFormElements(textArea);
+        checkEntireForm();
+    });
+};
 
 /* ====================================================================================== *\
     APP
