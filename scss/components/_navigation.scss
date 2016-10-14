@@ -16,6 +16,8 @@
     }
     .nav-button {
         cursor: pointer;
+        
+            // outline: none;
         height: 70px;
         transition: opacity .15s linear;
         opacity: .5;

@@ -83,12 +83,6 @@ body {
 p {
   font-size: 0.9rem; }
 
-canvas {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
-
 /* Shared styles */
 #app-notification, #main-navigation .nav-button, #main-content #search-button, .alert button {
   text-indent: -99999px; }
@@ -956,7 +950,6 @@ option:focus {
     margin: 0;
     padding: 0;
     border: none;
-    outline: none;
     background-color: transparent;
     -webkit-appearance: none;
        -moz-appearance: none;
