@@ -136,26 +136,26 @@ Dashboard.prototype.validateForm = function(form) {
         submitButton = document.querySelector(form + ' input[type=submit]'),
         checkFormElements = function(element) {
             for (var i = 0; i < element.length; i++) {
-                if (element[i].checkValidity() == false) {
-                    element[i].setAttribute('data-state', 'error');
-                } else {
+                var isValid = element[i].checkValidity();
+                if (isValid) {
                     element[i].removeAttribute('data-state', 'error');
+                } else {
+                    element[i].setAttribute('data-state', 'error');
                 }
             }
 
         },
         checkEntireForm = function() {
-            formContainer = document.getElementById(thisForm.id);
-            if (thisForm.checkValidity()) {
-                // alert(submitButton.id);
+            var formContainer = document.getElementById(thisForm.id),
+                isValid = thisForm.checkValidity();
+            if (isValid) {
                 addMessage('Your message is successfully send!', 'send', formContainer);
             } else {
                 addMessage('You might have missed something!', 'error', formContainer);
             }
         },
         addMessage = function(message, state, element) {
-            var messageBox = document.querySelector('.message'),
-                foo = false;
+            var messageBox = document.querySelector('.message');
             if (messageBox) {
                 messageBox.setAttribute('data-state', state);
                 messageBox.innerText = message;
