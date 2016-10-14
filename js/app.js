@@ -165,7 +165,7 @@ Dashboard.prototype.validateForm = function(form) {
                 node.classList.add('message');
                 node.setAttribute('data-state', state);
                 node.appendChild(textnode);
-                element.appendChild(node);
+                element.insertBefore(node, submitButton);
             }
         };
     submitButton.addEventListener('click', function(event) {

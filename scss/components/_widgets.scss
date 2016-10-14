@@ -1,10 +1,17 @@
 /* Widgets */
 
+.widget-row {
+    border-bottom: 0;
+    @media only screen and (min-width: #{$bkp-medium}) {
+        border-bottom: $alto-grey 1px solid;
+    }
+}
+
 .content-widget {
     padding: 25px;
     border-right: $alto-grey 1px solid;
     border-bottom: $alto-grey 1px solid;
-    @media only screen and (min-width: #{bkp-medium}) {
+    @media only screen and (min-width: #{$bkp-medium}) {
         border-bottom: 0 !important;
     }
 }
