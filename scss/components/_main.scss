@@ -43,6 +43,8 @@
         border: 1px solid $alto-grey;
         border-radius: 4px;
         background-color: white;
+        @extend %transition;
+        @extend %input-hover-focus;
         @media screen and (min-width: #{$bkp-medium}) {
             width: 380px;
         }

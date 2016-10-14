@@ -3,7 +3,7 @@
 .widget-row {
     border-bottom: 0;
     @media only screen and (min-width: #{$bkp-medium}) {
-        border-bottom: $alto-grey 1px solid;
+        &:not(:last-child){border-bottom: $alto-grey 1px solid;}
     }
 }
 
@@ -34,6 +34,7 @@
 
 .widget-filter {
     .filter-button {
+        cursor: pointer;
         font-size: .8rem;
         font-weight: 700;
         width: 25%;

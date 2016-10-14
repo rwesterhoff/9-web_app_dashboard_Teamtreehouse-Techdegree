@@ -1,0 +1,44 @@
+/* Custom switches */
+
+.switch-container {
+    margin-bottom: 30px;
+}
+
+.switch-light {
+    font-size: .9rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    strong {
+        min-width: calc(50% - 58px);
+        margin-right: 15px;
+        @media screen and (min-width: #{$bkp-xsmall}) and (max-width: #{$bkp-small}) {
+            min-width: calc(75% - 51.5px);
+        }
+        @media screen and (min-width: #{$bkp-medium}) and (max-width: #{$bkp-large}) {
+            min-width: calc(75% - 51.5px);
+        }
+    }
+    input:checked {
+        ~ span {
+            background-color: $blue-violet !important;
+            box-shadow: none !important;
+        }
+        ~ span a {
+            border-color: $blue-violet !important;
+        }
+    }
+}
+
+.switch-body {
+    width: 86px !important;
+    background-color: $alto-grey !important;
+    @extend %cta-text;
+    @extend %input-text;
+    span {
+        color: white !important;
+    }
+    a {
+        outline: none !important;
+    }
+}

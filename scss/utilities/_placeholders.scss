@@ -3,3 +3,43 @@
 %srt {
     text-indent: -99999px;
 }
+
+%font-stack {
+    font-family: $font-stack;
+}
+
+%appearance {
+    appearance: none;
+    outline: none;
+}
+
+%transition {
+    transition: all 0.2s linear;
+}
+
+%cta-text {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+%input-text {
+    font-size: .9rem;
+    font-weight: 300;
+    padding: 0 12px;
+    border-radius: 4px;
+    outline: none;
+    appearance: none;
+    &::placeholder {
+        font-size: .9rem;
+        font-weight: 300;
+        opacity: 1;
+        color: $emperor-grey;
+    }
+}
+
+%input-hover-focus {
+    &:hover,
+    &:focus {
+        border-color: $blue-violet;
+    }
+}

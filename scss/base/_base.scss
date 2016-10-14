@@ -3,23 +3,28 @@
 * {
     box-sizing: border-box;
 }
+
 html {
+	user-select:none;
+	@extend %font-stack;
     min-height: 100%;
 }
+
 html,
 body {
     font-size: 1rem;
-    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    font-family: $font-stack;
     font-weight: 400;
     line-height: 1.1;
+    height: 100%;
 }
+
 p {
-    font-size: 0.9rem;   
+    font-size: 0.9rem;
 }
+
 canvas {
     user-select: none;
 }
