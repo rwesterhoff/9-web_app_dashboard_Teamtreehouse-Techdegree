@@ -57,12 +57,13 @@ button {
 
 input[type='text'],
 textarea,
-select {
+select,
+option {
     width: 100%;
     margin-bottom: 15px;
     color: $emperor-grey;
     border-color: $alto-grey;
-    background-color: $alabaster-grey;
+    background-color: $alabaster-grey !important;
 }
 
 select {
@@ -130,7 +131,7 @@ p.message {
 }
 
 .switch-light {
-    font-size: 1rem;
+    font-size: .9rem;
     z-index: 10;
     display: flex;
     align-items: center;

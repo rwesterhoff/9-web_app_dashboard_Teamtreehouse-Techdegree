@@ -1270,12 +1270,13 @@ button {
 
 input[type='text'],
 textarea,
-select {
+select,
+option {
   width: 100%;
   margin-bottom: 15px;
   color: #535353;
   border-color: #D7D7D7;
-  background-color: #FAFAFA; }
+  background-color: #FAFAFA !important; }
 
 select {
   background: url(../img/icon-arrow-down.svg) no-repeat;
@@ -1337,7 +1338,7 @@ p.message {
   margin-bottom: 30px; }
 
 .switch-light {
-  font-size: 1rem;
+  font-size: .9rem;
   z-index: 10;
   display: -webkit-box;
   display: -ms-flexbox;
