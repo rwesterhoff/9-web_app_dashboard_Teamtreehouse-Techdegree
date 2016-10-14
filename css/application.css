@@ -113,7 +113,9 @@ canvas {
 \* ------------------------------------------------------ */
 /* Header styles */
 #main-header {
-  z-index: 100;
+  position: fixed;
+  width: 100%;
+  z-index: 10000000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -264,7 +266,7 @@ canvas {
   float: left;
   width: 100%;
   min-height: 100%;
-  margin-bottom: 70px;
+  margin: 70px 0;
   background-color: white; }
   #main-content #content-header {
     display: -webkit-box;
@@ -405,7 +407,6 @@ canvas {
 
 .content-widget {
   padding: 25px;
-  border-right: #D7D7D7 1px solid;
   border-bottom: #D7D7D7 1px solid; }
   @media only screen and (min-width: 768px) {
     .content-widget {
@@ -415,7 +416,9 @@ canvas {
   .split .content-widget {
     float: left;
     overflow: hidden;
-    width: 50%; } }
+    width: 50%; }
+    .split .content-widget:not(:last-child) {
+      border-right: #D7D7D7 1px solid; } }
 .widget-header,
 .widget-filter {
   display: -webkit-box;
