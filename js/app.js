@@ -129,11 +129,11 @@ Dashboard.prototype.isEmpty = function(obj) {
     return true;
 };
 Dashboard.prototype.validateForm = function(form) {
-    var form = 'form#' + form,
-        thisForm = document.querySelector(form),
-        inputText = document.querySelectorAll(form + ' input[type=text]'),
-        textArea = document.querySelectorAll(form + ' textarea'),
-        submitButton = document.querySelector(form + ' input[type=submit]'),
+    var formElement = 'form#' + form,
+        thisForm = document.querySelector(formElement),
+        inputText = document.querySelectorAll(formElement + ' input[type=text]'),
+        textArea = document.querySelectorAll(formElement + ' textarea'),
+        submitButton = document.querySelector(formElement + ' input[type=submit]'),
         checkFormElements = function(element) {
             for (var i = 0; i < element.length; i++) {
                 var isValid = element[i].checkValidity();

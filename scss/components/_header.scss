@@ -4,7 +4,7 @@
     position: fixed;
     width: 100%;
     z-index: 10000000;
-
+    article {
         display: flex;
         flex-direction: row;
         width: 100%;
@@ -13,7 +13,7 @@
         color: white;
         background-color: $blue-violet;
         align-items: center;
-
+    }
 }
 
 #app-name {

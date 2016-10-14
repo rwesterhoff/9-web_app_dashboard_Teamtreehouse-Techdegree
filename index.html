@@ -12,13 +12,15 @@
 
 <body role="application">
     <header id="main-header" role="banner">
-        <section id="app-name"><strong>Your</strong>App<span class="trademark">&trade;</span></section>
-        <section id="app-notification" data-state="inactive">
-        </section>
-        <section id="app-profile">
-            <img src="img/profile-rwesterhoff.jpg" alt="Image of Robin Westerhoff smiling to someone at the left." class="profile-image">
-            <p>Robin Westerhoff</p>
-        </section>
+        <article>
+            <h2 id="app-name"><strong>Your</strong>App<span class="trademark">&trade;</span></h2>
+            <div id="app-notification" data-state="inactive">
+            </div>
+            <section id="app-profile">
+                <img src="img/profile-rwesterhoff.jpg" alt="Image of Robin Westerhoff smiling to someone at the left." class="profile-image">
+                <h3>Robin Westerhoff</h3>
+            </section>
+        </article>
     </header>
     <nav id="main-navigation" role="navigation">
         <ul id="navigation-buttons">
@@ -31,14 +33,14 @@
     <main id="main-content" role="main">
         <header id="content-header">
             <h1 id="main-title">Dashboard</h1>
-            <section id="main-search">
-                <form action="" id="search-form">
+            <div id="main-search">
+                <form action="#" id="search-form">
                     <input type="search" id="search-field" placeholder="Search">
                     <input type="submit" id="search-button" value="Search">
                 </form>
-            </section>
+            </div>
         </header>
-        <section id="content-notifications" data-state="visible"></section>
+        <div id="content-notifications" data-state="visible"></div>
         <div class="widget-row clearfix">
             <section id="weekly-traffic" class="content-widget">
                 <header class="widget-header">
@@ -157,14 +159,14 @@
                 </ul>
             </section>
         </div>
-        <section class="widget-row split clearfix">
+        <div class="widget-row split clearfix">
             <section class="content-widget">
                 <header class="widget-header">
                     <h2 class="widget-title">Message user</h2>
                 </header>
-                <form action="" id="message-form">
+                <form action="#" id="message-form">
                     <input type="text" id="search-user" placeholder="Search user" required>
-                    <textarea name="message-user" id="message-user" cols="30" widget-rows="10" placeholder="Message for user" required></textarea>
+                    <textarea name="message-user" id="message-user" cols="30" rows="10" placeholder="Message for user" required></textarea>
                     <input id="button-send" type="submit" value="Send">
                 </form>
             </section>
@@ -172,7 +174,7 @@
                 <header class="widget-header">
                     <h2 class="widget-title">Settings</h2>
                 </header>
-                <form action="" id="settings-form">
+                <form action="#" id="settings-form">
                     <div class="switch-container">
                         <p class="switch-label">Send Email Notifications</p>
                         <label class="switch">
@@ -196,7 +198,7 @@
                     <button id="button-cancel">Cancel</button>
                 </form>
             </section>
-        </section>
+        </div>
     </main>
     <script src="js/app.js"></script>
     <script src="js/graphics.js"></script>
