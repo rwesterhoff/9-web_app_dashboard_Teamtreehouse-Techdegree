@@ -105,12 +105,13 @@ button {
           appearance: none;
   outline: none; }
 
-#main-content #search-form, button,
+#main-navigation .nav-button, #main-content #search-form, .widget-filter .filter-button, .recent-activity a, button,
 input[type=submit],
 select,
 *[class*='switch'], input[type=text],
 textarea,
 option {
+  will-change: auto;
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear; }
 
@@ -803,8 +804,8 @@ option:focus {
 
 /* Navigation styles */
 #main-navigation {
-  z-index: 50;
   position: fixed;
+  z-index: 50;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -821,24 +822,26 @@ option:focus {
     width: 100%;
     -ms-flex-pack: distribute;
         justify-content: space-around; }
+    @media screen and (max-width: 768px) {
+      #main-navigation ul li {
+        width: 25%;
+        margin: 0; } }
   #main-navigation .nav-button {
-    cursor: pointer;
+    display: block;
     height: 70px;
-    -webkit-transition: opacity .15s linear;
-    transition: opacity .15s linear;
-    opacity: .5; }
+    cursor: pointer;
+    opacity: .5;
+    outline: none; }
+    #main-navigation .nav-button:hover, #main-navigation .nav-button:focus {
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+      opacity: 1; }
     #main-navigation .nav-button[data-state=active] {
       opacity: 1;
       border-width: 5px;
       border-style: solid;
       -o-border-image: url(../img/border-bottom-active.svg) 10%;
          border-image: url(../img/border-bottom-active.svg) 10%; }
-    #main-navigation .nav-button:hover, #main-navigation .nav-button:focus {
-      opacity: 1; }
-    @media screen and (max-width: 768px) {
-      #main-navigation .nav-button {
-        width: 25%;
-        margin: 0; } }
   @media screen and (max-width: 768px) {
     #main-navigation {
       padding: 0 25px; } }
@@ -856,6 +859,7 @@ option:focus {
                 flex-direction: column;
         margin: 0 auto; }
       #main-navigation .nav-button {
+        display: block;
         width: 90px;
         height: 68px;
         margin: 15px 0; }
@@ -962,6 +966,9 @@ option:focus {
     width: 38px;
     background: url(../img/icon-search.svg) no-repeat center;
     background-size: 17px; }
+    #main-content #search-button:hover, #main-content #search-button:focus {
+      -webkit-transform: scale(1.2);
+              transform: scale(1.2); }
   @media screen and (min-width: 768px) {
     #main-content {
       position: relative;
@@ -1014,6 +1021,9 @@ option:focus {
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none; }
+    .alert button:hover, .alert button:focus {
+      -webkit-transform: scale(1.2) rotate(180deg);
+              transform: scale(1.2) rotate(180deg); }
   .alert:not(:last-child) {
     margin-bottom: 10px; }
   .alert[data-state=hidden] {
@@ -1063,6 +1073,11 @@ option:focus {
   .widget-filter .filter-button[data-state=active] {
     color: white;
     background-color: #76D76D; }
+    .widget-filter .filter-button[data-state=active]:hover, .widget-filter .filter-button[data-state=active]:focus {
+      background-color: #76D76D; }
+  .widget-filter .filter-button:hover, .widget-filter .filter-button:focus {
+    background-color: #D7D7D7;
+    outline: none; }
   @media only screen and (min-width: 568px) {
     .widget-filter .filter-button {
       margin-left: 5px; } }
@@ -1204,15 +1219,27 @@ option:focus {
 
 .member-email {
   color: #6061B1; }
+  .member-email:hover, .member-email:focus {
+    text-decoration: underline;
+    outline: none; }
 
-.recent-activity {
+.recent-activity a {
   background: url(../img/icon-arrow.svg) no-repeat;
   background-position: center right;
-  background-size: 10px; }
-  .recent-activity:first-child {
-    background-position: 100% 30%; }
-  .recent-activity:last-child {
-    background-position: 100% 70%; }
+  background-size: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: #535353; }
+  .recent-activity a:hover, .recent-activity a:focus {
+    background-size: 12px;
+    outline: none; }
+.recent-activity:first-child {
+  background-position: 100% 30%; }
+.recent-activity:last-child {
+  background-position: 100% 70%; }
 
 .date-added,
 .member-email {

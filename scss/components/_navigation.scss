@@ -1,8 +1,8 @@
 /* Navigation styles */
 
 #main-navigation {
-    z-index: 50;
     position: fixed;
+    z-index: 50;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -13,28 +13,32 @@
         flex-direction: row;
         width: 100%;
         justify-content: space-around;
+        @media screen and (max-width: #{$bkp-medium}) {
+            li {
+                width: 25%;
+                margin: 0;
+            }
+        }
     }
     .nav-button {
-        cursor: pointer;
-        
-            // outline: none;
+        display: block;
         height: 70px;
-        transition: opacity .15s linear;
+        cursor: pointer;
+        // transition: opacity .15s linear;
         opacity: .5;
+        outline: none;
         @extend %srt;
+        @extend %transition;
+        &:hover,
+        &:focus {
+            transform: scale(1.1);
+            opacity: 1;
+        }
         &[data-state=active] {
             opacity: 1;
             border-width: 5px;
             border-style: solid;
             border-image: url(#{$img-path}border-bottom-active.svg) 10%;
-        }
-        &:hover,
-        &:focus {
-            opacity: 1;
-        }
-        @media screen and (max-width: #{$bkp-medium}) {
-            width: 25%;
-            margin: 0;
         }
     }
     @media screen and (max-width: #{$bkp-medium}) {
@@ -51,6 +55,7 @@
             margin: 0 auto;
         }
         .nav-button {
+            display: block;
             width: 90px;
             height: 68px;
             margin: 15px 0;
