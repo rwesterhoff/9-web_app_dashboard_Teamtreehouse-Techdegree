@@ -999,11 +999,16 @@ option:focus {
   display: flex;
   align-items: center; }
 
+.widget-filter li {
+  width: 25%; }
+  @media only screen and (min-width: 568px) {
+    .widget-filter li {
+      margin-left: 5px; } }
 .widget-filter .filter-button {
+  display: block;
   cursor: pointer;
   font-size: .8rem;
   font-weight: 700;
-  width: 25%;
   padding: 5px 10px;
   text-align: center;
   color: #535353;
@@ -1017,9 +1022,6 @@ option:focus {
   .widget-filter .filter-button:hover, .widget-filter .filter-button:focus {
     background-color: #D7D7D7;
     outline: none; }
-  @media only screen and (min-width: 568px) {
-    .widget-filter .filter-button {
-      margin-left: 5px; } }
 @media only screen and (max-width: 568px) {
   .widget-filter {
     width: 100%; } }
