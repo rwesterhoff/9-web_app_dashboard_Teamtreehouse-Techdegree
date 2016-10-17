@@ -74,7 +74,7 @@ body {
 
 body {
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.1;
   height: 100%; }
 
 p {
@@ -999,17 +999,12 @@ option:focus {
   display: flex;
   align-items: center; }
 
-.widget-filter li {
-  width: 25%; }
-  @media only screen and (min-width: 568px) {
-    .widget-filter li {
-      margin-left: 5px; } }
 .widget-filter .filter-button {
+  cursor: pointer;
   font-size: .8rem;
   font-weight: 700;
-  display: block;
+  width: 25%;
   padding: 5px 10px;
-  cursor: pointer;
   text-align: center;
   color: #535353;
   border-radius: 15px;
@@ -1020,8 +1015,11 @@ option:focus {
     .widget-filter .filter-button[data-state=active]:hover, .widget-filter .filter-button[data-state=active]:focus {
       background-color: #76D76D; }
   .widget-filter .filter-button:hover, .widget-filter .filter-button:focus {
-    outline: none;
-    background-color: #D7D7D7; }
+    background-color: #D7D7D7;
+    outline: none; }
+  @media only screen and (min-width: 568px) {
+    .widget-filter .filter-button {
+      margin-left: 5px; } }
 @media only screen and (max-width: 568px) {
   .widget-filter {
     width: 100%; } }
@@ -1148,10 +1146,9 @@ option:focus {
   background-position: right 12px center;
   background-size: 10px; }
   .recent-activity a:hover, .recent-activity a:focus {
+    color: #6061B1;
     outline: none;
-    background-position: right center;
-    background-size: 12px;
-    color: #6061B1; }
+    background-position: right center; }
 .recent-activity:first-child {
   background-position: 100% 30%; }
 .recent-activity:last-child {
