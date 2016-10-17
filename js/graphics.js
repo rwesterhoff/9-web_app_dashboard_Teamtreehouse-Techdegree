@@ -3,6 +3,7 @@
 *\ ====================================================================================== */
 Chart.defaults.global.defaultFontFamily = "'Open Sans', sans-serif";
 Chart.defaults.global.legend.display = false;
+Chart.defaults.global.legend.labels.boxWidth = 12;
 Chart.defaults.doughnut.legend.display = true;
 Chart.defaults.doughnut.legend.position = 'right';
 Chart.defaults.global.title.display = true;
