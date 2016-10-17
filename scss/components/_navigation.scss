@@ -24,14 +24,12 @@
         display: block;
         height: 70px;
         cursor: pointer;
-        // transition: opacity .15s linear;
         opacity: .5;
         outline: none;
         @extend %srt;
         @extend %transition;
         &:hover,
         &:focus {
-            transform: scale(1.1);
             opacity: 1;
         }
         &[data-state=active] {

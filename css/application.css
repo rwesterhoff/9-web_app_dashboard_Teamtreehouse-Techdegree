@@ -77,7 +77,7 @@ body {
 
 body {
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.3;
   height: 100%; }
 
 p {
@@ -833,8 +833,6 @@ option:focus {
     opacity: .5;
     outline: none; }
     #main-navigation .nav-button:hover, #main-navigation .nav-button:focus {
-      -webkit-transform: scale(1.1);
-              transform: scale(1.1);
       opacity: 1; }
     #main-navigation .nav-button[data-state=active] {
       opacity: 1;
@@ -1060,12 +1058,17 @@ option:focus {
       -ms-flex-align: center;
           align-items: center; }
 
+.widget-filter li {
+  width: 25%; }
+  @media only screen and (min-width: 568px) {
+    .widget-filter li {
+      margin-left: 5px; } }
 .widget-filter .filter-button {
-  cursor: pointer;
   font-size: .8rem;
   font-weight: 700;
-  width: 25%;
+  display: block;
   padding: 5px 10px;
+  cursor: pointer;
   text-align: center;
   color: #535353;
   border-radius: 15px;
@@ -1076,11 +1079,8 @@ option:focus {
     .widget-filter .filter-button[data-state=active]:hover, .widget-filter .filter-button[data-state=active]:focus {
       background-color: #76D76D; }
   .widget-filter .filter-button:hover, .widget-filter .filter-button:focus {
-    background-color: #D7D7D7;
-    outline: none; }
-  @media only screen and (min-width: 568px) {
-    .widget-filter .filter-button {
-      margin-left: 5px; } }
+    outline: none;
+    background-color: #D7D7D7; }
 @media only screen and (max-width: 568px) {
   .widget-filter {
     width: 100%; } }
@@ -1224,18 +1224,19 @@ option:focus {
     outline: none; }
 
 .recent-activity a {
-  background: url(../img/icon-arrow.svg) no-repeat;
-  background-position: center right;
-  background-size: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 100%;
-  color: #535353; }
+  color: #535353;
+  background: url(../img/icon-arrow.svg) no-repeat;
+  background-position: center right;
+  background-size: 10px; }
   .recent-activity a:hover, .recent-activity a:focus {
+    outline: none;
     background-size: 12px;
-    outline: none; }
+    color: #6061B1; }
 .recent-activity:first-child {
   background-position: 100% 30%; }
 .recent-activity:last-child {
