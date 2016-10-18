@@ -190,8 +190,8 @@ dashboard.displayAll();
 
 var intViewportWidth = window.innerWidth;
 if (intViewportWidth < 768) {
-    function changeWidth(element) { 
-        document.getElementById(element).setAttribute('width', 500); 
+    function responsiveWidth(element, size) { 
+        document.getElementById(element).setAttribute('width', size); 
     }
-    window.onresize = changeWidth('line-widget');
+    window.onresize = responsiveWidth('line-widget', 500);
 }
