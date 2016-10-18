@@ -1019,7 +1019,8 @@ option:focus {
     background-size: 10px;
     -webkit-appearance: none;
        -moz-appearance: none;
-            appearance: none; }
+            appearance: none;
+    -webkit-tap-highlight-color: transparent; }
     .alert button:hover, .alert button:focus {
       -webkit-transform: scale(1.2) rotate(90deg);
               transform: scale(1.2) rotate(90deg); }
