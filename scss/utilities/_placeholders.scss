@@ -44,11 +44,3 @@
         border-color: $blue-violet;
     }
 }
-
-%clearfix {
-    &:after {
-        content: " ";
-        display: block;
-        clear: both;
-    }
-}

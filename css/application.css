@@ -980,7 +980,8 @@ option:focus {
   #content-notifications[data-state=hidden] {
     display: none; }
   #content-notifications[data-state=visible] {
-    display: block; }
+    display: block;
+    border-bottom: #D7D7D7 1px solid; }
 
 .alert {
   display: -webkit-box;
@@ -1042,8 +1043,6 @@ option:focus {
 
 .widget-row {
   border-bottom: 0; }
-  .widget-row:not(:last-child) {
-    border-right: #D7D7D7 1px solid; }
   @media only screen and (min-width: 768px) and (max-width: 1440px) {
     .widget-row:not(:last-child) {
       border-bottom: #D7D7D7 1px solid; } }
@@ -1054,15 +1053,17 @@ option:focus {
       display: flex;
       float: left;
       width: 50%;
-      border-bottom: 0; } }
+      border-bottom: 0; }
+      .widget-row:not(:last-child) {
+        border-right: #D7D7D7 1px solid; } }
   .widget-row.full {
     clear: both;
     width: 100%; }
 
 .content-widget {
-  padding: 25px;
-  width: 100%;
   overflow: hidden;
+  width: 100%;
+  padding: 25px;
   border-bottom: #D7D7D7 1px solid; }
   @media only screen and (min-width: 768px) {
     .content-widget {

@@ -12,9 +12,6 @@
 
 .widget-row {
     border-bottom: 0;
-    &:not(:last-child) {
-        border-right: $alto-grey 1px solid;
-    }
     @media only screen and (min-width: #{$bkp-medium}) and (max-width: #{$bkp-xlarge}) {
         &:not(:last-child) {
             border-bottom: $alto-grey 1px solid;
@@ -25,6 +22,9 @@
         float: left;
         width: 50%;
         border-bottom: 0;
+        &:not(:last-child) {
+            border-right: $alto-grey 1px solid;
+        }
     }
     &.full {
         clear: both;
@@ -33,9 +33,9 @@
 }
 
 .content-widget {
-    padding: 25px;
-    width:100%;
     overflow: hidden;
+    width: 100%;
+    padding: 25px;
     border-bottom: $alto-grey 1px solid;
     @media only screen and (min-width: #{$bkp-medium}) {
         border-bottom: 0 !important;
