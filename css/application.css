@@ -60,6 +60,10 @@ a {
   display: block;
   clear: both; }
 
+a,
+button {
+  -webkit-tap-highlight-color: none; }
+
 /* Global Layout Set-up */
 * {
   box-sizing: border-box; }
