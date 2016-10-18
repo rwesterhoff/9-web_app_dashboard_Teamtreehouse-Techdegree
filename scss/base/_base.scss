@@ -2,10 +2,10 @@
 
 * {
     box-sizing: border-box;
+	user-select:none;
 }
 
 html {
-	user-select:none;
 	@extend %font-stack;
     min-height: 100%;
 }

@@ -60,19 +60,15 @@ a {
   display: block;
   clear: both; }
 
-a,
-button {
-  -webkit-tap-highlight-color: red; }
-
 /* Global Layout Set-up */
 * {
-  box-sizing: border-box; }
-
-html {
+  box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none;
+          user-select: none; }
+
+html {
   min-height: 100%; }
 
 html,
