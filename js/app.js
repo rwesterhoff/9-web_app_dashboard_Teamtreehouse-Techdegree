@@ -187,3 +187,11 @@ var dashboard = new Dashboard(),
         alert_3: new Alert("Consectetur Ipsum.")
     };
 dashboard.displayAll();
+
+var intViewportWidth = window.innerWidth;
+if (intViewportWidth < 768) {
+    function changeWidth(element) { 
+        document.getElementById(element).setAttribute('width', 500); 
+    }
+    window.onresize = changeWidth('line-widget');
+}

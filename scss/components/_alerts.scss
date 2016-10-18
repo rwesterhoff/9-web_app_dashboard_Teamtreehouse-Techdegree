@@ -34,12 +34,10 @@
         height: 40px;
         margin-left: auto;
         border: none;
-        border-radius: 50%;
         outline: none;
         background: url(#{$img-path}icon-close.svg) no-repeat center;
         background-size: 10px;
         appearance: none;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         @extend %srt;
         &:hover,
         &:focus {

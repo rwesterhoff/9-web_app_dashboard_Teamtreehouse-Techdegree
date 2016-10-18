@@ -1013,14 +1013,12 @@ option:focus {
     height: 40px;
     margin-left: auto;
     border: none;
-    border-radius: 50%;
     outline: none;
     background: url(../img/icon-close.svg) no-repeat center;
     background-size: 10px;
     -webkit-appearance: none;
        -moz-appearance: none;
-            appearance: none;
-    -webkit-tap-highlight-color: transparent; }
+            appearance: none; }
     .alert button:hover, .alert button:focus {
       -webkit-transform: scale(1.2) rotate(90deg);
               transform: scale(1.2) rotate(90deg); }
