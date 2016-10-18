@@ -1013,15 +1013,14 @@ option:focus {
     margin-left: auto;
     border: none;
     outline: none;
-    background: transparent;
     background: url(../img/icon-close.svg) no-repeat center;
     background-size: 10px;
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none; }
     .alert button:hover, .alert button:focus {
-      -webkit-transform: scale(1.2) rotate(180deg);
-              transform: scale(1.2) rotate(180deg); }
+      -webkit-transform: scale(1.2) rotate(90deg);
+              transform: scale(1.2) rotate(90deg); }
   .alert:not(:last-child) {
     margin-bottom: 10px; }
   .alert[data-state=hidden] {
@@ -1029,25 +1028,41 @@ option:focus {
             animation: hide-notifications .2s linear forwards; }
 
 /* Widgets */
-.widget-container.full {
-  clear: both;
-  width: 100%; }
-  @media only screen and (min-width: 1600px) {
-    .widget-container.full {
-      border-bottom: #D7D7D7 1px solid; }
-      .widget-container.full .widget-row:not(:last-child) {
-        border-right: #D7D7D7 1px solid; } }
-@media only screen and (min-width: 768px) and (max-width: 1600px) {
-  .widget-container:not(:last-child) {
+@media screen and (min-width: 768px) {
+  .super-row {
     border-bottom: #D7D7D7 1px solid; } }
-@media only screen and (min-width: 1600px) {
-  .widget-container {
-    float: left;
-    width: 50%;
-    height: 100%; } }
+@media only screen and (min-width: 1440px) {
+  .super-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch; } }
+
+.widget-row {
+  border-bottom: 0; }
+  .widget-row:not(:last-child) {
+    border-right: #D7D7D7 1px solid; }
+  @media only screen and (min-width: 768px) and (max-width: 1440px) {
+    .widget-row:not(:last-child) {
+      border-bottom: #D7D7D7 1px solid; } }
+  @media only screen and (min-width: 1440px) {
+    .widget-row {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      float: left;
+      width: 50%;
+      border-bottom: 0; } }
+  .widget-row.full {
+    clear: both;
+    width: 100%; }
 
 .content-widget {
   padding: 25px;
+  width: 100%;
+  overflow: hidden;
   border-bottom: #D7D7D7 1px solid; }
   @media only screen and (min-width: 768px) {
     .content-widget {

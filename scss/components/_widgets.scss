@@ -1,17 +1,19 @@
 /* Widgets */
 
-.widget-container {
-    //         border-bottom: $alto-grey 1px solid;
-    &.full {
-        clear: both;
-        width: 100%;
-        // border-bottom: 0;
-        @media only screen and (min-width: #{$bkp-xlarge}) {
-            border-bottom: $alto-grey 1px solid;
-            .widget-row:not(:last-child) {
-            border-right: $alto-grey 1px solid;
-        }
-        }
+.super-row {
+    @media screen and (min-width: #{$bkp-medium}) {
+        border-bottom: $alto-grey 1px solid;
+    }
+    @media only screen and (min-width: #{$bkp-xlarge}) {
+        display: flex;
+        align-items: stretch;
+    }
+}
+
+.widget-row {
+    border-bottom: 0;
+    &:not(:last-child) {
+        border-right: $alto-grey 1px solid;
     }
     @media only screen and (min-width: #{$bkp-medium}) and (max-width: #{$bkp-xlarge}) {
         &:not(:last-child) {
@@ -19,15 +21,21 @@
         }
     }
     @media only screen and (min-width: #{$bkp-xlarge}) {
+        display: flex;
         float: left;
         width: 50%;
-        // border-bottom: 0;
-        height: 100%;
+        border-bottom: 0;
+    }
+    &.full {
+        clear: both;
+        width: 100%;
     }
 }
 
 .content-widget {
     padding: 25px;
+    width:100%;
+    overflow: hidden;
     border-bottom: $alto-grey 1px solid;
     @media only screen and (min-width: #{$bkp-medium}) {
         border-bottom: 0 !important;
