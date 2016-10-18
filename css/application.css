@@ -1029,11 +1029,22 @@ option:focus {
             animation: hide-notifications .2s linear forwards; }
 
 /* Widgets */
-.widget-row {
-  border-bottom: 0; }
-  @media only screen and (min-width: 768px) {
-    .widget-row:not(:last-child) {
-      border-bottom: #D7D7D7 1px solid; } }
+.widget-container.full {
+  clear: both;
+  width: 100%; }
+  @media only screen and (min-width: 1600px) {
+    .widget-container.full {
+      border-bottom: #D7D7D7 1px solid; }
+      .widget-container.full .widget-row:not(:last-child) {
+        border-right: #D7D7D7 1px solid; } }
+@media only screen and (min-width: 768px) and (max-width: 1600px) {
+  .widget-container:not(:last-child) {
+    border-bottom: #D7D7D7 1px solid; } }
+@media only screen and (min-width: 1600px) {
+  .widget-container {
+    float: left;
+    width: 50%;
+    height: 100%; } }
 
 .content-widget {
   padding: 25px;
@@ -1064,11 +1075,11 @@ option:focus {
     .widget-filter li {
       margin-left: 5px; } }
 .widget-filter .filter-button {
-  display: block;
-  cursor: pointer;
   font-size: .8rem;
   font-weight: 700;
+  display: block;
   padding: 5px 10px;
+  cursor: pointer;
   text-align: center;
   color: #535353;
   border-radius: 15px;
@@ -1079,8 +1090,8 @@ option:focus {
     .widget-filter .filter-button[data-state=active]:hover, .widget-filter .filter-button[data-state=active]:focus {
       background-color: #76D76D; }
   .widget-filter .filter-button:hover, .widget-filter .filter-button:focus {
-    background-color: #D7D7D7;
-    outline: none; }
+    outline: none;
+    background-color: #D7D7D7; }
 @media only screen and (max-width: 568px) {
   .widget-filter {
     width: 100%; } }

@@ -41,35 +41,37 @@
             </div>
         </header>
         <div id="content-notifications" data-state="visible"></div>
-        <div class="widget-row clearfix">
-            <section id="weekly-traffic" class="content-widget">
-                <header class="widget-header">
-                    <h2 class="widget-title">Traffic</h2>
-                    <ul class="widget-filter">
-                        <li><a href="#" class="filter-button" data-state="inactive">Hourly</a></li>
-                        <li><a href="#" class="filter-button" data-state="inactive">Daily</a></li>
-                        <li><a href="#" class="filter-button" data-state="active">Weekly</a></li>
-                        <li><a href="#" class="filter-button" data-state="inactive">Monthly</a></li>
-                    </ul>
-                </header>
-                <canvas id="line-widget" width="1000" height="250"></canvas>
-            </section>
+        <div class="widget-container clearfix full">
+            <div class="widget-row clearfix">
+                <section id="weekly-traffic" class="content-widget">
+                    <header class="widget-header">
+                        <h2 class="widget-title">Traffic</h2>
+                        <ul class="widget-filter">
+                            <li><a href="#" class="filter-button" data-state="inactive">Hourly</a></li>
+                            <li><a href="#" class="filter-button" data-state="inactive">Daily</a></li>
+                            <li><a href="#" class="filter-button" data-state="active">Weekly</a></li>
+                            <li><a href="#" class="filter-button" data-state="inactive">Monthly</a></li>
+                        </ul>
+                    </header>
+                    <canvas id="line-widget" width="1000" height="250"></canvas>
+                </section>
+            </div>
+            <div class="widget-row clearfix split">
+                <section id="daily-traffic" class="content-widget">
+                    <header class="widget-header">
+                        <h2 class="widget-title">Daily traffic</h2>
+                    </header>
+                    <canvas id="bar-widget" width="500" height="250"></canvas>
+                </section>
+                <section id="mobile-users" class="content-widget">
+                    <header class="widget-header">
+                        <h2 class="widget-title">Mobile User</h2>
+                    </header>
+                    <canvas id="doughnut-widget" width="500" height="250"></canvas>
+                </section>
+            </div>
         </div>
-        <div class="widget-row clearfix split">
-            <section id="daily-traffic" class="content-widget">
-                <header class="widget-header">
-                    <h2 class="widget-title">Daily traffic</h2>
-                </header>
-                <canvas id="bar-widget" width="500" height="250"></canvas>
-            </section>
-            <section id="mobile-users" class="content-widget">
-                <header class="widget-header">
-                    <h2 class="widget-title">Mobile User</h2>
-                </header>
-                <canvas id="doughnut-widget" width="500" height="250"></canvas>
-            </section>
-        </div>
-        <div class="widget-row clearfix">
+        <div class="widget-row clearfix full">
             <section id="social-stats" class="content-widget">
                 <header class="widget-header">
                     <h2 class="widget-title">Social stats</h2>
@@ -163,7 +165,7 @@
                 </ul>
             </section>
         </div>
-        <div class="widget-row split clearfix">
+        <div class="widget-container split clearfix">
             <section class="content-widget">
                 <header class="widget-header">
                     <h2 class="widget-title">Message user</h2>
