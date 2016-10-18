@@ -1013,6 +1013,7 @@ option:focus {
     height: 40px;
     margin-left: auto;
     border: none;
+    border-radius: 50%;
     outline: none;
     background: url(../img/icon-close.svg) no-repeat center;
     background-size: 10px;
