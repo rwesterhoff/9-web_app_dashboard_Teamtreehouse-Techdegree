@@ -62,7 +62,7 @@ a {
 
 a,
 button {
-  -webkit-tap-highlight-color: none; }
+  -webkit-tap-highlight-color: red; }
 
 /* Global Layout Set-up */
 * {
