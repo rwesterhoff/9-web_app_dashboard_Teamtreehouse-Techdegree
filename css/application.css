@@ -105,7 +105,7 @@ button {
           appearance: none;
   outline: none; }
 
-#main-navigation .nav-button, #main-content #search-form, .widget-filter .filter-button, .recent-activity a, button,
+#notification-dropdown[data-state=visible], #notification-dropdown[data-state=hidden], #main-navigation .nav-button, #main-content #search-form, .widget-filter .filter-button, .recent-activity a, button,
 input[type=submit],
 select,
 *[class*='switch'], input[type=text],
@@ -783,28 +783,58 @@ option:focus {
       position: relative; } }
 
 #notification-dropdown {
+  font-size: 0.9rem;
   position: absolute;
   z-index: 100000;
   top: 70px;
   left: 0;
   width: 100%;
-  background-color: #76D76D; }
+  background-color: #D7D7D7;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
   #notification-dropdown[data-state=visible] {
-    display: block; }
+    visibility: visible;
+    opacity: 1; }
+    @media only and (min-width: 768px) {
+      #notification-dropdown[data-state=visible] {
+        -webkit-transform: translateY(5px);
+                transform: translateY(5px); } }
   #notification-dropdown[data-state=hidden] {
-    display: none; }
+    visibility: hidden;
+    opacity: 0; }
+    @media only and (min-width: 768px) {
+      #notification-dropdown[data-state=hidden] {
+        -webkit-transform: translateY(-5px);
+                transform: translateY(-5px); } }
   @media only screen and (min-width: 768px) {
     #notification-dropdown {
       top: 40px;
-      -webkit-transform: translate(calc(-50% + 14px));
-              transform: translate(calc(-50% + 14px));
       width: 320px;
-      border-radius: 4px; } }
+      -webkit-transform: translateX(calc(-50% + 12.5px));
+              transform: translateX(calc(-50% + 12.5px));
+      border-radius: 4px; }
+      #notification-dropdown:before {
+        position: absolute;
+        top: -10px;
+        left: calc( 50% - 5px);
+        content: '\A';
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent #76D76D transparent; } }
+  #notification-dropdown #notification-title,
+  #notification-dropdown .notification-item {
+    padding: 15px; }
+  #notification-dropdown #notification-title {
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: #76D76D;
+    border-bottom: 1px solid white; }
+    @media only screen and (min-width: 768px) {
+      #notification-dropdown #notification-title {
+        border-radius: 4px 4px 0 0; } }
   #notification-dropdown #notification-list {
     display: block;
     width: 100%; }
     #notification-dropdown #notification-list .notification-item {
-      padding: 15px;
       color: #535353; }
       #notification-dropdown #notification-list .notification-item:not(:last-child) {
         border-bottom: 1px solid white; }

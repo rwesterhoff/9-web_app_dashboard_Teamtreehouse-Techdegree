@@ -64,10 +64,8 @@ function Dashboard() {
             var toggleDropdown = function() {
                 var toggleState = alertsDropdown.getAttribute('data-state');
                 if (toggleState === 'hidden') {
-                    // alert('was hidden');
                     alertsDropdown.setAttribute('data-state', 'visible');
                 } else {
-                    // alert('was NOT hidden');
                     alertsDropdown.setAttribute('data-state', 'hidden');
                 }
             };
