@@ -51,7 +51,7 @@
 }
 
 #notification-dropdown {
-    font-size: 0.9rem;
+    font-size: .9rem;
     position: absolute;
     z-index: 100000;
     top: 70px;
@@ -63,17 +63,11 @@
         visibility: visible;
         opacity: 1;
         @extend %transition;
-        @media only and (min-width: #{$bkp-medium}) {
-            transform: translateY(5px);
-        }
     }
     &[data-state=hidden] {
         visibility: hidden;
         opacity: 0;
         @extend %transition;
-        @media only and (min-width: #{$bkp-medium}) {
-            transform: translateY(-5px);
-        }
     }
     @media only screen and (min-width: #{$bkp-medium}) {
         top: 40px;
@@ -95,10 +89,10 @@
         padding: 15px;
     }
     #notification-title {
-        text-transform: uppercase;
         font-weight: 700;
-        background-color: $pastel-green;
+        text-transform: uppercase;
         border-bottom: 1px solid white;
+        background-color: $pastel-green;
         @media only screen and (min-width: #{$bkp-medium}) {
             border-radius: 4px 4px 0 0;
         }

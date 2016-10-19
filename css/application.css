@@ -783,7 +783,7 @@ option:focus {
       position: relative; } }
 
 #notification-dropdown {
-  font-size: 0.9rem;
+  font-size: .9rem;
   position: absolute;
   z-index: 100000;
   top: 70px;
@@ -794,17 +794,9 @@ option:focus {
   #notification-dropdown[data-state=visible] {
     visibility: visible;
     opacity: 1; }
-    @media only and (min-width: 768px) {
-      #notification-dropdown[data-state=visible] {
-        -webkit-transform: translateY(5px);
-                transform: translateY(5px); } }
   #notification-dropdown[data-state=hidden] {
     visibility: hidden;
     opacity: 0; }
-    @media only and (min-width: 768px) {
-      #notification-dropdown[data-state=hidden] {
-        -webkit-transform: translateY(-5px);
-                transform: translateY(-5px); } }
   @media only screen and (min-width: 768px) {
     #notification-dropdown {
       top: 40px;
@@ -824,10 +816,10 @@ option:focus {
   #notification-dropdown .notification-item {
     padding: 15px; }
   #notification-dropdown #notification-title {
-    text-transform: uppercase;
     font-weight: 700;
-    background-color: #76D76D;
-    border-bottom: 1px solid white; }
+    text-transform: uppercase;
+    border-bottom: 1px solid white;
+    background-color: #76D76D; }
     @media only screen and (min-width: 768px) {
       #notification-dropdown #notification-title {
         border-radius: 4px 4px 0 0; } }
