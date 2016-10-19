@@ -797,7 +797,7 @@ option:focus {
       -ms-flex-align: center;
           align-items: center; }
   @media screen and (max-width: 568px) {
-    #app-profile p {
+    #app-profile .profile-name {
       display: none; }
     #app-profile .profile-image {
       margin: 0; } }

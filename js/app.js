@@ -84,6 +84,7 @@ function Dashboard() {
         this.setStates("nav-button");
         this.setStates("filter-button");
         this.setAlerts(alerts);
+        this.setGraphics('line-widget', 500);
         this.setForm();
     };
 }
@@ -100,6 +101,15 @@ Dashboard.prototype.setStates = function(selector) {
         };
     for (var i = 0; i < elementList.length; i++) {
         elementList[i].addEventListener("click", setToActive);
+    }
+};
+Dashboard.prototype.setGraphics = function(element, size) {
+    var intViewportWidth = window.innerWidth,
+        responsiveWidth = function(element, size) {
+            document.getElementById(element).setAttribute('width', size);
+        };
+    if (intViewportWidth < 768) {
+        window.onresize = responsiveWidth(element, size);
     }
 };
 Dashboard.prototype.renderInElement = function(container, html) {
@@ -187,11 +197,3 @@ var dashboard = new Dashboard(),
         alert_3: new Alert("Consectetur Ipsum.")
     };
 dashboard.displayAll();
-
-var intViewportWidth = window.innerWidth;
-if (intViewportWidth < 768) {
-    function responsiveWidth(element, size) { 
-        document.getElementById(element).setAttribute('width', size); 
-    }
-    window.onresize = responsiveWidth('line-widget', 500);
-}

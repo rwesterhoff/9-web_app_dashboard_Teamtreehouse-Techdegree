@@ -62,7 +62,7 @@
     border-left: 1px solid $blue-violet-dark;
     align-items: center;
     @media screen and (max-width: #{$bkp-small}) {
-        p {
+        .profile-name {
             display: none;
         }
         .profile-image {
