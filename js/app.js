@@ -26,7 +26,8 @@ Alert.prototype.toHTML = function() {
     DASHBOARD
 *\ ====================================================================================== */
 function Dashboard() {
-    var alertsNotification = document.getElementById('app-notification');
+    var alertsNotification = document.getElementById('app-notification'),
+        alertsDropdown = document.getElementById('notification-dropdown');
     this.setAlerts = function(obj) {
         amount = this.checkAmount(obj);
         if (amount === 1) {
@@ -41,7 +42,7 @@ function Dashboard() {
             this.showNotifications();
             this.displayAlerts();
         }
-        alertsNotification.innerHTML = '<p>' + amount + ' ' + text + '</p>';
+        // alertsNotification.innerHTML = '<p>' + amount + ' ' + text + '</p>';
     };
     this.displayAlerts = function() {
         var container = 'content-notifications',
@@ -58,6 +59,19 @@ function Dashboard() {
     };
     this.hideNotifications = function() {
         alertsNotification.setAttribute('data-state', 'inactive');
+    };
+    this.setDropdownButton = function() {
+            var toggleDropdown = function() {
+                var toggleState = alertsDropdown.getAttribute('data-state');
+                if (toggleState === 'hidden') {
+                    // alert('was hidden');
+                    alertsDropdown.setAttribute('data-state', 'visible');
+                } else {
+                    // alert('was NOT hidden');
+                    alertsDropdown.setAttribute('data-state', 'hidden');
+                }
+            };
+        alertsNotification.addEventListener('click', toggleDropdown);
     };
     this.setCloseButton = function() {
         var removeAlertsButtons = document.getElementsByClassName('alert-button-close'),
@@ -84,6 +98,7 @@ function Dashboard() {
         this.setStates("nav-button");
         this.setStates("filter-button");
         this.setAlerts(alerts);
+        this.setDropdownButton();
         this.setGraphics('line-widget', 500);
         this.setForm();
     };
