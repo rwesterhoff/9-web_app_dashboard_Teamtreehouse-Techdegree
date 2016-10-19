@@ -1085,7 +1085,7 @@ option:focus {
 @media screen and (min-width: 768px) {
   .super-row {
     border-bottom: #D7D7D7 1px solid; } }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1280px) {
   .super-row {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1096,10 +1096,10 @@ option:focus {
 
 .widget-row {
   border-bottom: 0; }
-  @media only screen and (min-width: 768px) and (max-width: 1440px) {
+  @media only screen and (min-width: 768px) and (max-width: 1280px) {
     .widget-row:not(:last-child) {
       border-bottom: #D7D7D7 1px solid; } }
-  @media only screen and (min-width: 1440px) {
+  @media only screen and (min-width: 1280px) {
     .widget-row {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -1494,14 +1494,8 @@ p.message {
       -ms-flex-align: center;
           align-items: center; }
   .switch-light strong {
-    min-width: calc(50% - 58px);
-    margin-right: 15px; }
-    @media screen and (min-width: 320px) and (max-width: 568px) {
-      .switch-light strong {
-        min-width: calc(75% - 51.5px); } }
-    @media screen and (min-width: 768px) and (max-width: 1024px) {
-      .switch-light strong {
-        min-width: calc(75% - 51.5px); } }
+    margin-right: 15px;
+    min-width: calc(75% - 51.5px); }
   .switch-light input:checked ~ span {
     background-color: #6061B1 !important;
     box-shadow: none !important; }
