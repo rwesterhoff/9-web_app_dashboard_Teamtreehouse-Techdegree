@@ -101,38 +101,21 @@ function Dashboard() {
 
 
         var trafficWidgetContainer = document.getElementById("line-widget").getContext("2d");
-        var checkDataSet = function() {
-            var elementList = document.getElementsByClassName('filter-button'),
-                filterData = function(e) {
-                    console.log('filterred: ' + e.target.id);
-                    if (e.target.id === 'weekly') {
-                        alert('yes!');
-                    }
-                };
-            for (var i = 0; i < elementList.length; i++) {
-                elementList[i].addEventListener("click", filterData);
-            }
-            var data = {
-                weekly: {
-                    labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
-                    datasets: [{
-                        data: [500, 1000, 750, 1250, 1800, 900, 2000, 1800, 1100, 1350, 1700, 1900],
-                        backgroundColor: ['rgba(75, 74, 177, .2)'],
-                        borderColor: ['rgba(96, 97, 177,1)'],
-                        borderWidth: 1,
-                        lineTension: 0,
-                        pointBackgroundColor: 'rgba(255,255,255,1)',
-                        pointBorderWidth: 2,
-                        pointRadius: 6
-                    }]
-                }
-            };
-            return data.weekly;
-
-        };
         var trafficWidget = new Chart(trafficWidgetContainer, {
             type: 'line',
-            data: checkDataSet(),
+            data: {
+                labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
+                datasets: [{
+                    data: [500, 1000, 750, 1250, 1800, 900, 2000, 1800, 1100, 1350, 1700, 1900],
+                    backgroundColor: ['rgba(75, 74, 177, .2)'],
+                    borderColor: ['rgba(96, 97, 177,1)'],
+                    borderWidth: 1,
+                    lineTension: 0,
+                    pointBackgroundColor: 'rgba(255,255,255,1)',
+                    pointBorderWidth: 2,
+                    pointRadius: 6
+                }]
+            },
             options: {
                 scales: {
                     yAxes: [{
