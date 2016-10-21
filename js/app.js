@@ -61,14 +61,14 @@ function Dashboard() {
         alertsNotification.setAttribute('data-state', 'inactive');
     };
     this.setDropdownButton = function() {
-            var toggleDropdown = function() {
-                var toggleState = alertsDropdown.getAttribute('data-state');
-                if (toggleState === 'hidden') {
-                    alertsDropdown.setAttribute('data-state', 'visible');
-                } else {
-                    alertsDropdown.setAttribute('data-state', 'hidden');
-                }
-            };
+        var toggleDropdown = function() {
+            var toggleState = alertsDropdown.getAttribute('data-state');
+            if (toggleState === 'hidden') {
+                alertsDropdown.setAttribute('data-state', 'visible');
+            } else {
+                alertsDropdown.setAttribute('data-state', 'hidden');
+            }
+        };
         alertsNotification.addEventListener('click', toggleDropdown);
     };
     this.setCloseButton = function() {
@@ -89,6 +89,119 @@ function Dashboard() {
             removeAlertsButtons[i].addEventListener("click", removeAlert);
         }
     };
+    this.setGraphics = function() {
+        Chart.defaults.global.defaultFontFamily = "'Open Sans', sans-serif";
+        Chart.defaults.global.legend.display = false;
+        Chart.defaults.global.legend.labels.boxWidth = 12;
+        Chart.defaults.doughnut.legend.display = true;
+        Chart.defaults.doughnut.legend.position = 'right';
+        Chart.defaults.global.title.display = true;
+        Chart.defaults.global.title.padding = 0;
+        Chart.defaults.global.maintainAspectRatio = true;
+
+
+        var trafficWidgetContainer = document.getElementById("line-widget").getContext("2d");
+        var checkDataSet = function() {
+            var elementList = document.getElementsByClassName('filter-button'),
+                filterData = function(e) {
+                    console.log('filterred: ' + e.target.id);
+                    if (e.target.id === 'weekly') {
+                        alert('yes!');
+                    }
+                };
+            for (var i = 0; i < elementList.length; i++) {
+                elementList[i].addEventListener("click", filterData);
+            }
+            var data = {
+                weekly: {
+                    labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
+                    datasets: [{
+                        data: [500, 1000, 750, 1250, 1800, 900, 2000, 1800, 1100, 1350, 1700, 1900],
+                        backgroundColor: ['rgba(75, 74, 177, .2)'],
+                        borderColor: ['rgba(96, 97, 177,1)'],
+                        borderWidth: 1,
+                        lineTension: 0,
+                        pointBackgroundColor: 'rgba(255,255,255,1)',
+                        pointBorderWidth: 2,
+                        pointRadius: 6
+                    }]
+                }
+            };
+            return data.weekly;
+
+        };
+        var trafficWidget = new Chart(trafficWidgetContainer, {
+            type: 'line',
+            data: checkDataSet(),
+            options: {
+                scales: {
+                    yAxes: [{
+                        offsetGridLines: true,
+                        ticks: {
+                            padding: 20
+                        },
+                        gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
+                    }],
+                    xAxes: [{
+                        offsetGridLines: true,
+                        ticks: {
+                            padding: 20
+                        },
+                        gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
+                    }]
+                }
+            }
+        });
+        var dailyTrafficWidgetContainer = document.getElementById("bar-widget").getContext("2d"),
+            dailyTrafficWidget = new Chart(dailyTrafficWidgetContainer, {
+                type: 'bar',
+                data: {
+                    labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                    datasets: [{
+                        data: [50, 100, 75, 125, 180, 90, 200],
+                        backgroundColor: 'rgba(96, 97, 177, 1)',
+                        cornerRadius: 4
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            offsetGridLines: true,
+                            ticks: {
+                                padding: 20
+                            },
+                            gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
+                        }],
+                        xAxes: [{
+                            offsetGridLines: true,
+                            ticks: {
+                                padding: 20
+                            },
+                            gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
+                        }]
+                    }
+                }
+            });
+        var mobileUserWidgetContainer = document.getElementById("doughnut-widget").getContext("2d"),
+            mobileUserWidget = new Chart(mobileUserWidgetContainer, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        "Phone",
+                        "Tablets",
+                        "Desktop"
+                    ],
+                    datasets: [{
+                        data: [300, 50, 100],
+                        backgroundColor: [
+                            'rgb(96, 97, 177)',
+                            "#76D76D",
+                            "#63A2B2"
+                        ]
+                    }]
+                }
+            });
+    };
     this.setForm = function() {
         this.validateForm("message-form");
     };
@@ -97,7 +210,8 @@ function Dashboard() {
         this.setStates("filter-button");
         this.setAlerts(alerts);
         this.setDropdownButton();
-        this.setGraphics('line-widget', 500);
+        this.setGraphics();
+        this.setGraphicsWidth('line-widget', 500);
         this.setForm();
     };
 }
@@ -116,7 +230,7 @@ Dashboard.prototype.setStates = function(selector) {
         elementList[i].addEventListener("click", setToActive);
     }
 };
-Dashboard.prototype.setGraphics = function(element, size) {
+Dashboard.prototype.setGraphicsWidth = function(element, size) {
     var intViewportWidth = window.innerWidth,
         responsiveWidth = function(element, size) {
             document.getElementById(element).setAttribute('width', size);
