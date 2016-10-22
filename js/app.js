@@ -131,17 +131,15 @@ function Dashboard() {
                 var isActive = filter.getAttribute('data-state') === 'active';
                 if (isActive) {
                     var activeId = filter.id;
-                    var dataFilterred = dataTraffic.daily;
+                    var dataFilterred = dataTraffic[activeId];
                     setWidget();
 
-                    console.log('active filter: ' + activeId);
-                    console.log('data is: ' + activeId);
+                    // console.log('active filter: ' + activeId);
+                    // console.log('data is: ' + activeId);
+                    // console.log(dataTraffic[activeId]);
                 }
             }
         };
-
-
-
         var dailyTrafficWidgetContainer = document.getElementById("bar-widget").getContext("2d"),
             dailyTrafficWidget = new Chart(dailyTrafficWidgetContainer, {
                 type: 'bar',
