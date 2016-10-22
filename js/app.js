@@ -107,37 +107,37 @@ function Dashboard() {
         var checkFilter = function() {
             var filters = document.querySelectorAll('.filter-button');
             var setWidget = function() {
-                var trafficWidgetContainer = document.getElementById("line-widget").getContext("2d");
-                var trafficWidget = new Chart(trafficWidgetContainer, {
-                    type: 'line',
-                    data: dataFilterred,
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                offsetGridLines: true,
-                                ticks: {
-                                    padding: 20
-                                },
-                                gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
-                            }],
-                            xAxes: [{
-                                offsetGridLines: true,
-                                ticks: {
-                                    padding: 20
-                                },
-                                gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
-                            }]
+                var trafficWidgetContainer = document.getElementById("line-widget").getContext("2d"),
+                    trafficWidget = new Chart(trafficWidgetContainer, {
+                        type: 'line',
+                        data: dataFilterred,
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    offsetGridLines: true,
+                                    ticks: {
+                                        padding: 20
+                                    },
+                                    gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
+                                }],
+                                xAxes: [{
+                                    offsetGridLines: true,
+                                    ticks: {
+                                        padding: 20
+                                    },
+                                    gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
+                                }]
+                            }
                         }
-                    }
-                });
+                    });
             };
             for (var i = 0; i < filters.length; i++) {
-                var filter = filters[i];
-                var isActive = filter.getAttribute('data-state') === 'active';
+                var filter = filters[i],
+                    isActive = filter.getAttribute('data-state') === 'active';
                 filter.addEventListener('click', checkFilter);
                 if (isActive) {
-                    var activeId = filter.id;
-                    var dataFilterred = dataTraffic[activeId];
+                    var activeId = filter.id,
+                        dataFilterred = dataTraffic[activeId];
                     setWidget();
                 }
             }
@@ -145,14 +145,7 @@ function Dashboard() {
         var dailyTrafficWidgetContainer = document.getElementById("bar-widget").getContext("2d"),
             dailyTrafficWidget = new Chart(dailyTrafficWidgetContainer, {
                 type: 'bar',
-                data: {
-                    labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-                    datasets: [{
-                        data: [50, 100, 75, 125, 180, 90, 200],
-                        backgroundColor: 'rgba(96, 97, 177, 1)',
-                        cornerRadius: 4
-                    }]
-                },
+                data: dataDailyTraffic,
                 options: {
                     scales: {
                         yAxes: [{
@@ -175,21 +168,7 @@ function Dashboard() {
         var mobileUserWidgetContainer = document.getElementById("doughnut-widget").getContext("2d"),
             mobileUserWidget = new Chart(mobileUserWidgetContainer, {
                 type: 'doughnut',
-                data: {
-                    labels: [
-                        "Phone",
-                        "Tablets",
-                        "Desktop"
-                    ],
-                    datasets: [{
-                        data: [300, 50, 100],
-                        backgroundColor: [
-                            'rgb(96, 97, 177)',
-                            "#76D76D",
-                            "#63A2B2"
-                        ]
-                    }]
-                }
+                data: dataMobileUser
             });
         checkFilter();
     };
@@ -220,9 +199,9 @@ Dashboard.prototype.setStates = function(selector) {
         elementList[i].addEventListener("click", setToActive);
     }
 };
-Dashboard.prototype.customWidgetWidth = function(element, size) {
+Dashboard.prototype.customWidgetWidth = function(element, brkPoint, size) {
     var intViewportWidth = window.innerWidth;
-    if (intViewportWidth < 768) {
+    if (intViewportWidth < brkPoint) {
         function responsiveWidth(element, size) {
             document.getElementById(element).setAttribute('width', size);
         }
@@ -287,8 +266,8 @@ Dashboard.prototype.validateForm = function(form) {
                 messageBox.setAttribute('data-state', state);
                 messageBox.innerText = message;
             } else {
-                var node = document.createElement("P");
-                var textnode = document.createTextNode(message);
+                var node = document.createElement("P"),
+                    textnode = document.createTextNode(message);
                 node.classList.add('message');
                 node.setAttribute('data-state', state);
                 node.appendChild(textnode);
@@ -320,62 +299,85 @@ var dashboard = new Dashboard(),
         alert_1: new Alert("Donec sed odio dui."),
         alert_2: new Alert("Lorum ipsum dolor sit amet. Maecenas faucibus mollis interdum."),
         alert_3: new Alert("Consectetur Ipsum.")
-    };
-
-var dataTraffic = {
-    hourly: {
-        labels: ['0-2', '2-4', '4-6', '6-8', '8-10', '10-12', '12-14', '14-16', '16-18', '18-20', '20-22', '22-24'],
-        datasets: [{
-            data: [2, 6, 1, 3, 7, 4, 6, 1, 5, 4, 2, 0, 1],
-            backgroundColor: ['rgba(75, 74, 177, .2)'],
-            borderColor: ['rgba(96, 97, 177,1)'],
-            borderWidth: 1,
-            lineTension: 0,
-            pointBackgroundColor: 'rgba(255,255,255,1)',
-            pointBorderWidth: 2,
-            pointRadius: 6
-        }]
     },
-    daily: {
+    dataTraffic = {
+        hourly: {
+            labels: ['0-2', '2-4', '4-6', '6-8', '8-10', '10-12', '12-14', '14-16', '16-18', '18-20', '20-22', '22-24'],
+            datasets: [{
+                data: [2, 6, 1, 3, 7, 4, 6, 1, 5, 4, 2, 0, 1],
+                backgroundColor: ['rgba(75, 74, 177, .2)'],
+                borderColor: ['rgba(96, 97, 177,1)'],
+                borderWidth: 1,
+                lineTension: 0,
+                pointBackgroundColor: 'rgba(255,255,255,1)',
+                pointBorderWidth: 2,
+                pointRadius: 6
+            }]
+        },
+        daily: {
+            labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+            datasets: [{
+                data: [50, 100, 75, 125, 180, 90, 200, 190],
+                backgroundColor: ['rgba(75, 74, 177, .2)'],
+                borderColor: ['rgba(96, 97, 177,1)'],
+                borderWidth: 1,
+                lineTension: 0,
+                pointBackgroundColor: 'rgba(255,255,255,1)',
+                pointBorderWidth: 2,
+                pointRadius: 6
+            }]
+        },
+        weekly: {
+            labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
+            datasets: [{
+                data: [500, 1000, 750, 1250, 1800, 900, 2000, 1800, 1100, 1350, 1700, 1900],
+                backgroundColor: ['rgba(75, 74, 177, .2)'],
+                borderColor: ['rgba(96, 97, 177,1)'],
+                borderWidth: 1,
+                lineTension: 0,
+                pointBackgroundColor: 'rgba(255,255,255,1)',
+                pointBorderWidth: 2,
+                pointRadius: 6
+            }]
+        },
+        monthly: {
+            labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
+            datasets: [{
+                data: [2000, 3360, 2550, 3850, 3000, 6050, 5000, 6500, 6600, 4000, 4200, 3000, 3200],
+                backgroundColor: ['rgba(75, 74, 177, .2)'],
+                borderColor: ['rgba(96, 97, 177,1)'],
+                borderWidth: 1,
+                lineTension: 0,
+                pointBackgroundColor: 'rgba(255,255,255,1)',
+                pointBorderWidth: 2,
+                pointRadius: 6
+            }]
+        }
+    },
+    dataDailyTraffic = {
         labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         datasets: [{
-            data: [50, 100, 75, 125, 180, 90, 200, 190],
-            backgroundColor: ['rgba(75, 74, 177, .2)'],
-            borderColor: ['rgba(96, 97, 177,1)'],
-            borderWidth: 1,
-            lineTension: 0,
-            pointBackgroundColor: 'rgba(255,255,255,1)',
-            pointBorderWidth: 2,
-            pointRadius: 6
+            data: [50, 100, 75, 125, 180, 90, 200],
+            backgroundColor: 'rgba(96, 97, 177, 1)',
+            cornerRadius: 4
         }]
-    },
-    weekly: {
-        labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
-        datasets: [{
-            data: [500, 1000, 750, 1250, 1800, 900, 2000, 1800, 1100, 1350, 1700, 1900],
-            backgroundColor: ['rgba(75, 74, 177, .2)'],
-            borderColor: ['rgba(96, 97, 177,1)'],
-            borderWidth: 1,
-            lineTension: 0,
-            pointBackgroundColor: 'rgba(255,255,255,1)',
-            pointBorderWidth: 2,
-            pointRadius: 6
-        }]
-    },
-    monthly: {
-        labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
-        datasets: [{
-            data: [2000, 3360, 2550, 3850, 3000, 6050, 5000, 6500, 6600, 4000, 4200, 3000, 3200],
-            backgroundColor: ['rgba(75, 74, 177, .2)'],
-            borderColor: ['rgba(96, 97, 177,1)'],
-            borderWidth: 1,
-            lineTension: 0,
-            pointBackgroundColor: 'rgba(255,255,255,1)',
-            pointBorderWidth: 2,
-            pointRadius: 6
-        }]
-    }
-};
 
-dashboard.customWidgetWidth('line-widget', 500);
+    },
+    dataMobileUser = {
+        labels: [
+            "Phone",
+            "Tablets",
+            "Desktop"
+        ],
+        datasets: [{
+            data: [300, 50, 100],
+            backgroundColor: [
+                'rgb(96, 97, 177)',
+                "#76D76D",
+                "#63A2B2"
+            ]
+        }]
+    };
+
+dashboard.customWidgetWidth('line-widget', 768, 500);
 dashboard.displayAll();
