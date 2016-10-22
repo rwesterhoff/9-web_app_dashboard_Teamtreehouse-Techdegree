@@ -133,10 +133,6 @@ function Dashboard() {
                     var activeId = filter.id;
                     var dataFilterred = dataTraffic[activeId];
                     setWidget();
-
-                    // console.log('active filter: ' + activeId);
-                    // console.log('data is: ' + activeId);
-                    // console.log(dataTraffic[activeId]);
                 }
             }
         };
@@ -315,9 +311,9 @@ var dashboard = new Dashboard(),
 
 var dataTraffic = {
     hourly: {
-        labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
+        labels: ['0-2', '2-4', '4-6', '6-8', '8-10', '10-12', '12-14', '14-16', '16-18', '18-20', '20-22', '22-24'],
         datasets: [{
-            data: [500, 1000, 750, 1250, 1800, 900, 2000, 1800, 1100, 1350, 1700, 1900],
+            data: [2, 6, 1, 3, 7, 4, 6, 1, 5, 4, 2, 0],
             backgroundColor: ['rgba(75, 74, 177, .2)'],
             borderColor: ['rgba(96, 97, 177,1)'],
             borderWidth: 1,
@@ -354,9 +350,9 @@ var dataTraffic = {
         }]
     },
     monthly: {
-        labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
+        labels: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
         datasets: [{
-            data: [500, 1000, 750, 1250, 1800, 900, 2000, 1800, 1100, 1350, 1700, 1900],
+            data: [2000, 3360, 2550, 3850, 3000, 6050, 5000, 6500, 6600, 4000, 4200, 3000, 3200],
             backgroundColor: ['rgba(75, 74, 177, .2)'],
             borderColor: ['rgba(96, 97, 177,1)'],
             borderWidth: 1,
