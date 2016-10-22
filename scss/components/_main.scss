@@ -5,8 +5,11 @@
     float: left;
     width: 100%;
     min-height: 100%;
-    margin: 70px 0;
+    margin-bottom: 70px;
     background-color: white;
+    @media only screen and (min-width: #{$bkp-medium}) {
+        margin-top: 70px;
+    }
     #content-header {
         display: flex;
         flex-direction: row;

@@ -947,8 +947,11 @@ option:focus {
   float: left;
   width: 100%;
   min-height: 100%;
-  margin: 70px 0;
+  margin-bottom: 70px;
   background-color: white; }
+  @media only screen and (min-width: 768px) {
+    #main-content {
+      margin-top: 70px; } }
   #main-content #content-header {
     display: -webkit-box;
     display: -ms-flexbox;
