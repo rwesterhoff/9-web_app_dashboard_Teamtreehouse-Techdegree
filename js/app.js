@@ -360,21 +360,26 @@ var dashboard = new Dashboard(),
             data: [50, 100, 75, 125, 180, 90, 200],
             backgroundColor: 'rgba(96, 97, 177, 1)',
             cornerRadius: 4
+        }, {
+            data: [40, 90, 75, 110, 185, 95, 190],
+            backgroundColor: "#76D76D",
+            cornerRadius: 4
         }]
-
     },
     dataMobileUser = {
         labels: [
             "Phone",
             "Tablets",
-            "Desktop"
+            "Desktop",
+            "Smart TV"
         ],
         datasets: [{
-            data: [300, 50, 100],
+            data: [300, 50, 100, 25],
             backgroundColor: [
                 'rgb(96, 97, 177)',
                 "#76D76D",
-                "#63A2B2"
+                "#63A2B2",
+                "#26649B"
             ]
         }]
     };
