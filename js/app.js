@@ -105,32 +105,32 @@ function Dashboard() {
     };
     this.setGraphics = function() {
         var checkFilter = function() {
-            var filters = document.querySelectorAll('.filter-button');
-            var setWidget = function() {
-                var trafficWidgetContainer = document.getElementById("line-widget").getContext("2d"),
-                    trafficWidget = new Chart(trafficWidgetContainer, {
-                        type: 'line',
-                        data: dataFilterred,
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    offsetGridLines: true,
-                                    ticks: {
-                                        padding: 20
-                                    },
-                                    gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
-                                }],
-                                xAxes: [{
-                                    offsetGridLines: true,
-                                    ticks: {
-                                        padding: 20
-                                    },
-                                    gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
-                                }]
+            var filters = document.querySelectorAll('.filter-button'),
+                setWidget = function() {
+                    var trafficWidgetContainer = document.getElementById("line-widget").getContext("2d"),
+                        trafficWidget = new Chart(trafficWidgetContainer, {
+                            type: 'line',
+                            data: dataFilterred,
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        offsetGridLines: true,
+                                        ticks: {
+                                            padding: 20
+                                        },
+                                        gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
+                                    }],
+                                    xAxes: [{
+                                        offsetGridLines: true,
+                                        ticks: {
+                                            padding: 20
+                                        },
+                                        gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
+                                    }]
+                                }
                             }
-                        }
-                    });
-            };
+                        });
+                };
             for (var i = 0; i < filters.length; i++) {
                 var filter = filters[i],
                     isActive = filter.getAttribute('data-state') === 'active';
