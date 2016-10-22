@@ -90,15 +90,6 @@ function Dashboard() {
         }
     };
     this.setGraphics = function() {
-        Chart.defaults.global.defaultFontFamily = "'Open Sans', sans-serif";
-        Chart.defaults.global.legend.display = false;
-        Chart.defaults.global.legend.labels.boxWidth = 12;
-        Chart.defaults.doughnut.legend.display = true;
-        Chart.defaults.doughnut.legend.position = 'right';
-        Chart.defaults.global.title.display = true;
-        Chart.defaults.global.title.padding = 0;
-        Chart.defaults.global.maintainAspectRatio = true;
-
         var checkFilter = function() {
             var filters = document.querySelectorAll('.filter-button');
             var setWidget = function() {
@@ -197,7 +188,6 @@ function Dashboard() {
         this.setAlerts(alerts);
         this.setDropdownButton();
         this.setGraphics();
-        this.setGraphicsWidth('line-widget', 500);
         this.setForm();
     };
 }
@@ -216,15 +206,15 @@ Dashboard.prototype.setStates = function(selector) {
         elementList[i].addEventListener("click", setToActive);
     }
 };
-Dashboard.prototype.setGraphicsWidth = function(element, size) {
-    var intViewportWidth = window.innerWidth,
-        responsiveWidth = function(element, size) {
-            document.getElementById(element).setAttribute('width', size);
-        };
+Dashboard.prototype.customWidgetWidth = function(element, size) {
+    var intViewportWidth = window.innerWidth;
     if (intViewportWidth < 768) {
-        window.onresize = responsiveWidth(element, size);
+        function responsiveWidth(element, size) {
+            document.getElementById(element).setAttribute('width', size);
+        }
+        window.onload = responsiveWidth(element, size);
     }
-};
+}
 Dashboard.prototype.renderInElement = function(container, html) {
     var content = html,
         element = document.getElementById(container);
@@ -302,6 +292,14 @@ Dashboard.prototype.validateForm = function(form) {
 /* ====================================================================================== *\
     APP
 *\ ====================================================================================== */
+Chart.defaults.global.defaultFontFamily = "'Open Sans', sans-serif";
+Chart.defaults.global.legend.display = false;
+Chart.defaults.global.legend.labels.boxWidth = 12;
+Chart.defaults.doughnut.legend.display = true;
+Chart.defaults.doughnut.legend.position = 'right';
+Chart.defaults.global.title.display = true;
+Chart.defaults.global.title.padding = 0;
+Chart.defaults.global.maintainAspectRatio = true;
 
 var dashboard = new Dashboard(),
     alerts = {
@@ -364,4 +362,6 @@ var dataTraffic = {
         }]
     }
 };
+
+dashboard.customWidgetWidth('line-widget', 500);
 dashboard.displayAll();
