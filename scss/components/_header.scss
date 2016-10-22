@@ -37,7 +37,6 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: auto 20px;
-    // @extend %srt;
     &[data-state=active] {
         background: url(#{$img-path}notification-active.svg),
         url(#{$img-path}icon-bell.svg);
