@@ -1,7 +1,7 @@
 /* Header styles */
 
 #main-header {
-    position: fixed;
+    position: relative;
     z-index: 10000000;
     width: 100%;
     article {
@@ -13,6 +13,9 @@
         color: white;
         background-color: $blue-violet;
         align-items: center;
+    }
+    @media only screen and (min-width: #{$bkp-medium}) {
+        position: fixed;
     }
 }
 

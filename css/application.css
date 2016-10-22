@@ -735,7 +735,7 @@ option:focus {
 \* ------------------------------------------------------ */
 /* Header styles */
 #main-header {
-  position: fixed;
+  position: relative;
   z-index: 10000000;
   width: 100%; }
   #main-header article {
@@ -754,6 +754,9 @@ option:focus {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
+  @media only screen and (min-width: 768px) {
+    #main-header {
+      position: fixed; } }
 
 #app-name {
   font-size: 1.3em;
