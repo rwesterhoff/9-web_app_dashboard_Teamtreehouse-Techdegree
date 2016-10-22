@@ -99,42 +99,49 @@ function Dashboard() {
         Chart.defaults.global.title.padding = 0;
         Chart.defaults.global.maintainAspectRatio = true;
 
+        var checkFilter = function() {
+            var filters = document.querySelectorAll('.filter-button');
+            var setWidget = function() {
+                var trafficWidgetContainer = document.getElementById("line-widget").getContext("2d");
+                var trafficWidget = new Chart(trafficWidgetContainer, {
+                    type: 'line',
+                    data: dataFilterred,
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                offsetGridLines: true,
+                                ticks: {
+                                    padding: 20
+                                },
+                                gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
+                            }],
+                            xAxes: [{
+                                offsetGridLines: true,
+                                ticks: {
+                                    padding: 20
+                                },
+                                gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
+                            }]
+                        }
+                    }
+                });
+            };
+            for (var i = 0; i < filters.length; i++) {
+                var filter = filters[i];
+                var isActive = filter.getAttribute('data-state') === 'active';
+                if (isActive) {
+                    var activeId = filter.id;
+                    var dataFilterred = dataTraffic.daily;
+                    setWidget();
 
-        var trafficWidgetContainer = document.getElementById("line-widget").getContext("2d");
-        var trafficWidget = new Chart(trafficWidgetContainer, {
-            type: 'line',
-            data: {
-                labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
-                datasets: [{
-                    data: [500, 1000, 750, 1250, 1800, 900, 2000, 1800, 1100, 1350, 1700, 1900],
-                    backgroundColor: ['rgba(75, 74, 177, .2)'],
-                    borderColor: ['rgba(96, 97, 177,1)'],
-                    borderWidth: 1,
-                    lineTension: 0,
-                    pointBackgroundColor: 'rgba(255,255,255,1)',
-                    pointBorderWidth: 2,
-                    pointRadius: 6
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        offsetGridLines: true,
-                        ticks: {
-                            padding: 20
-                        },
-                        gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
-                    }],
-                    xAxes: [{
-                        offsetGridLines: true,
-                        ticks: {
-                            padding: 20
-                        },
-                        gridLines: { tickMarkLength: 0, drawTicks: false, offsetGridLines: true }
-                    }]
+                    console.log('active filter: ' + activeId);
+                    console.log('data is: ' + activeId);
                 }
             }
-        });
+        };
+
+
+
         var dailyTrafficWidgetContainer = document.getElementById("bar-widget").getContext("2d"),
             dailyTrafficWidget = new Chart(dailyTrafficWidgetContainer, {
                 type: 'bar',
@@ -184,6 +191,7 @@ function Dashboard() {
                     }]
                 }
             });
+        checkFilter();
     };
     this.setForm = function() {
         this.validateForm("message-form");
@@ -306,4 +314,59 @@ var dashboard = new Dashboard(),
         alert_2: new Alert("Lorum ipsum dolor sit amet. Maecenas faucibus mollis interdum."),
         alert_3: new Alert("Consectetur Ipsum.")
     };
+
+var dataTraffic = {
+    hourly: {
+        labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
+        datasets: [{
+            data: [500, 1000, 750, 1250, 1800, 900, 2000, 1800, 1100, 1350, 1700, 1900],
+            backgroundColor: ['rgba(75, 74, 177, .2)'],
+            borderColor: ['rgba(96, 97, 177,1)'],
+            borderWidth: 1,
+            lineTension: 0,
+            pointBackgroundColor: 'rgba(255,255,255,1)',
+            pointBorderWidth: 2,
+            pointRadius: 6
+        }]
+    },
+    daily: {
+        labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+        datasets: [{
+            data: [50, 100, 75, 125, 180, 90, 200, 190],
+            backgroundColor: ['rgba(75, 74, 177, .2)'],
+            borderColor: ['rgba(96, 97, 177,1)'],
+            borderWidth: 1,
+            lineTension: 0,
+            pointBackgroundColor: 'rgba(255,255,255,1)',
+            pointBorderWidth: 2,
+            pointRadius: 6
+        }]
+    },
+    weekly: {
+        labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
+        datasets: [{
+            data: [500, 1000, 750, 1250, 1800, 900, 2000, 1800, 1100, 1350, 1700, 1900],
+            backgroundColor: ['rgba(75, 74, 177, .2)'],
+            borderColor: ['rgba(96, 97, 177,1)'],
+            borderWidth: 1,
+            lineTension: 0,
+            pointBackgroundColor: 'rgba(255,255,255,1)',
+            pointBorderWidth: 2,
+            pointRadius: 6
+        }]
+    },
+    monthly: {
+        labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
+        datasets: [{
+            data: [500, 1000, 750, 1250, 1800, 900, 2000, 1800, 1100, 1350, 1700, 1900],
+            backgroundColor: ['rgba(75, 74, 177, .2)'],
+            borderColor: ['rgba(96, 97, 177,1)'],
+            borderWidth: 1,
+            lineTension: 0,
+            pointBackgroundColor: 'rgba(255,255,255,1)',
+            pointBorderWidth: 2,
+            pointRadius: 6
+        }]
+    }
+};
 dashboard.displayAll();
