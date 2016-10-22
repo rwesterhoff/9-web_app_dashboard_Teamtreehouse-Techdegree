@@ -27,14 +27,12 @@ Alert.prototype.toHTML = function() {
 *\ ====================================================================================== */
 function Dashboard() {
     var alertsNotification = document.getElementById('app-notification'),
-        alertsDropdown = document.getElementById('notification-dropdown');
+        alertsDropdown = document.getElementById('notification-dropdown'),
+        dropDownTitle = document.getElementById('notification-title');
+
     this.setAlerts = function(obj) {
         amount = this.checkAmount(obj);
-        if (amount === 1) {
-            text = 'Notification';
-        } else {
-            text = 'Notifications';
-        }
+        
         if (this.isEmpty(obj)) {
             this.hideNotifications();
             this.hideAlerts();
@@ -42,13 +40,26 @@ function Dashboard() {
             this.showNotifications();
             this.displayAlerts();
         }
-        // alertsNotification.innerHTML = '<p>' + amount + ' ' + text + '</p>';
+        this.displayNewAlerts();
     };
     this.displayAlerts = function() {
         var container = 'content-notifications',
             html = alerts;
         this.renderInElement(container, html);
         this.setCloseButton();
+    };
+
+    this.displayNewAlerts = function() {
+        if (amount === 0) {
+            text = 'No new notifications'
+            dropDownTitle.innerHTML = text;
+        } else if (amount === 1) {
+            text = 'new notification';
+            dropDownTitle.innerHTML = amount + ' ' + text;
+        } else {
+            text = 'new notifications';
+            dropDownTitle.innerHTML = amount + ' ' + text;
+        }
     };
     this.hideAlerts = function() {
         var containerAlerts = document.getElementById('content-notifications');
@@ -84,6 +95,8 @@ function Dashboard() {
                     dashboard.hideNotifications();
                     dashboard.hideAlerts();
                 }
+                console.log(amount);
+                dashboard.displayNewAlerts();
             };
         for (var i = 0; i < removeAlertsButtons.length; i++) {
             removeAlertsButtons[i].addEventListener("click", removeAlert);
@@ -214,7 +227,7 @@ Dashboard.prototype.customWidgetWidth = function(element, size) {
         }
         window.onload = responsiveWidth(element, size);
     }
-}
+};
 Dashboard.prototype.renderInElement = function(container, html) {
     var content = html,
         element = document.getElementById(container);
