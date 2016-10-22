@@ -1202,11 +1202,13 @@ option:focus {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
           -ms-flex-direction: row;
-              flex-direction: row; } }
+              flex-direction: row;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; } }
 
 .social-widget {
   height: 110px;
-  margin: 12.5px 0;
+  margin: 7.5px 0;
   padding: 20px 20px 20px 110px;
   text-align: left;
   color: #535353;
@@ -1228,14 +1230,14 @@ option:focus {
   @media only screen and (min-width: 568px) {
     .social-widget {
       display: inline-block;
-      margin: 0 12.5px;
-      -webkit-box-flex: 1;
-          -ms-flex-positive: 1;
-              flex-grow: 1; }
-      .social-widget:first-child {
+      width: calc(33.3333% - 10px);
+      margin: 0 7.5px; }
+      .social-widget:first-child, .social-widget:nth-of-type(3n + 1) {
         margin-left: 0; }
-      .social-widget:last-child {
-        margin-right: 0; } }
+      .social-widget:nth-of-type(3n) {
+        margin-right: 0; }
+      .social-widget:nth-of-type(-n + 3) {
+        margin-bottom: 15px; } }
   @media only screen and (min-width: 1024px) {
     .social-widget {
       height: 110px;
@@ -1246,25 +1248,35 @@ option:focus {
       padding: 110px 20px 20px 20px;
       text-align: center; } }
 
-.social-twitter {
+#social-twitter {
   background-image: url(../img/icon-twitter.svg); }
 
-.social-facebook {
+#social-facebook {
   background-image: url(../img/icon-facebook.svg); }
 
-.social-google {
+#social-google {
   background-image: url(../img/icon-google-plus.svg); }
 
-.social-twitter,
-.social-facebook,
-.social-google {
+#social-linkedin {
+  background-image: url(../img/icon-linkedin.svg); }
+
+#social-youtube {
+  background-image: url(../img/icon-youtube.svg); }
+
+#social-twitter,
+#social-facebook,
+#social-google,
+#social-linkedin,
+#social-youtube {
   background-repeat: no-repeat;
   background-position: 20px center;
   background-size: 70px; }
   @media only screen and (min-width: 568px) and (max-width: 1024px) {
-    .social-twitter,
-    .social-facebook,
-    .social-google {
+    #social-twitter,
+    #social-facebook,
+    #social-google,
+    #social-linkedin,
+    #social-youtube {
       background-position: center 20px; } }
 
 .new-member,
