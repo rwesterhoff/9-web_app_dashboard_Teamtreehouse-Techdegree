@@ -384,5 +384,7 @@ var dashboard = new Dashboard(),
         }]
     };
 
-dashboard.customWidgetWidth('line-widget', 768, 500);
+dashboard.customWidgetWidth('line-widget', 768, 750);
+dashboard.customWidgetWidth('bar-widget', 768, 750);
+dashboard.customWidgetWidth('doughnut-widget', 768, 750);
 dashboard.displayAll();
