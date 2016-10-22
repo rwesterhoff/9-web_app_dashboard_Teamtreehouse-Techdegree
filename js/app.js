@@ -48,18 +48,19 @@ function Dashboard() {
         this.renderInElement(container, html);
         this.setCloseButton();
     };
-
     this.displayNewAlerts = function() {
         if (amount === 0) {
             text = 'No new notifications'
-            dropDownTitle.innerHTML = text;
+            content = text;
         } else if (amount === 1) {
             text = 'new notification';
-            dropDownTitle.innerHTML = amount + ' ' + text;
+            content = amount + ' ' + text;
         } else {
             text = 'new notifications';
-            dropDownTitle.innerHTML = amount + ' ' + text;
+            content = amount + ' ' + text;
         }
+        dropDownTitle.innerHTML = content;
+
     };
     this.hideAlerts = function() {
         var containerAlerts = document.getElementById('content-notifications');
