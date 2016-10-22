@@ -129,6 +129,7 @@ function Dashboard() {
             for (var i = 0; i < filters.length; i++) {
                 var filter = filters[i];
                 var isActive = filter.getAttribute('data-state') === 'active';
+                filter.addEventListener('click', checkFilter);
                 if (isActive) {
                     var activeId = filter.id;
                     var dataFilterred = dataTraffic[activeId];
