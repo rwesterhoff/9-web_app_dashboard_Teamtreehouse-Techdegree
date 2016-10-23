@@ -1,5 +1,5 @@
 /* ====================================================================================== *\
-    CONTROLS
+    OBJECTS
 *\ ====================================================================================== */
 function Alert(text) {
     this.text = text;
@@ -12,6 +12,7 @@ Alert.prototype.toHTML = function() {
     controlsHTML += '</div>';
     return controlsHTML;
 };
+
 function Member(key) {
     this.firstName = key.firstName;
     this.lastName = key.lastName;
@@ -21,7 +22,7 @@ function Member(key) {
 }
 
 Member.prototype.toHTML = function() {
-    var newMembersHTML =  '<li class="new-member">';
+    var newMembersHTML = '<li class="new-member">';
     newMembersHTML += '<img src="img/' + this.avatarSrc + '" alt="" class="profile-image">';
     newMembersHTML += '<p class="member-name">' + this.firstName + ' ' + this.lastName;
     newMembersHTML += '<br>';
@@ -30,7 +31,28 @@ Member.prototype.toHTML = function() {
     newMembersHTML += '<span class="date-added">' + this.memberSince + '</span>';
     newMembersHTML += '</li>';
     return newMembersHTML;
+};
+
+function Activity(key) {
+    this.firstName = key.firstName;
+    this.lastName = key.lastName;
+    this.avatarSrc = key.avatarSrc;
+    this.recentActivity = key.recentActivity;
+    this.activityTime = key.activityTime;
 }
+
+Activity.prototype.toHTML = function() {
+    var recentActivityHTML = '<li class="recent-activity>';
+    // recentActivityHTML += '<a href="">';
+    recentActivityHTML += '<img src="img/' + this.avatarSrc + '" alt="" class="profile-image">';
+    // recentActivityHTML += '<p class="member-activity">' + this.firstName + ' ' + this.lastName + ' ' + this.recentActivity;
+    // recentActivityHTML += '<br>';
+    // recentActivityHTML += '<span class="date-added">' + this.activityTime + '</span>';
+    // recentActivityHTML += '</p>';
+    // recentActivityHTML += '</a>';
+    recentActivityHTML += '</li>';
+    return recentActivityHTML;
+};
 /* ====================================================================================== *\
     DASHBOARD
 *\ ====================================================================================== */
@@ -52,29 +74,27 @@ function Dashboard() {
         this.checkNewAlerts();
     };
     this.displayAlerts = function() {
-        var container = 'content-notifications',
-            html = alerts,
-            setCloseButton = function() {
-                var removeAlertsButtons = document.getElementsByClassName('alert-button-close'),
-                    removeAlert = function() {
-                        var elementToRemove = this.parentNode;
-                        elementToRemove.setAttribute('data-state', 'hidden');
-                        setTimeout(function() {
-                            elementToRemove.parentNode.removeChild(elementToRemove);
-                        }, 200);
-                        amount -= 1;
-                        if (amount === 0) {
-                            dashboard.noNewNotifications();
-                            dashboard.hideAlerts();
-                        }
-                        console.log(amount);
-                        dashboard.checkNewAlerts();
-                    };
-                for (var i = 0; i < removeAlertsButtons.length; i++) {
-                    removeAlertsButtons[i].addEventListener("click", removeAlert);
-                }
-            };
-        this.renderInElement(container, html);
+        this.displayModule('content-notifications', alerts);
+        setCloseButton = function() {
+            var removeAlertsButtons = document.getElementsByClassName('alert-button-close'),
+                removeAlert = function() {
+                    var elementToRemove = this.parentNode;
+                    elementToRemove.setAttribute('data-state', 'hidden');
+                    setTimeout(function() {
+                        elementToRemove.parentNode.removeChild(elementToRemove);
+                    }, 200);
+                    amount -= 1;
+                    if (amount === 0) {
+                        dashboard.noNewNotifications();
+                        dashboard.hideAlerts();
+                    }
+                    console.log(amount);
+                    dashboard.checkNewAlerts();
+                };
+            for (var i = 0; i < removeAlertsButtons.length; i++) {
+                removeAlertsButtons[i].addEventListener("click", removeAlert);
+            }
+        };
         setCloseButton();
     };
     this.checkNewAlerts = function() {
@@ -181,10 +201,10 @@ function Dashboard() {
             });
         checkFilter();
     };
-    this.displayNewMembers = function() {
-        var container = 'member-list',
-            html = members
-        this.renderInElement(container, html);
+    this.displayModule = function(id, html) {
+        var container = id,
+            content = html;
+        this.renderInElement(container, content);
     };
     this.setForm = function() {
         this.validateForm("message-form");
@@ -195,7 +215,8 @@ function Dashboard() {
         this.setAlerts(alerts);
         this.setDropdownButton(alertsNotification, alertsDropdown);
         this.setGraphics();
-        this.displayNewMembers()
+        this.displayModule('member-list', members);
+        this.displayModule('activity-list', activity);
         this.setForm();
     };
 }
@@ -426,8 +447,8 @@ var dashboard = new Dashboard(),
             recentActivity: "commented on 'Facebook Changes for 2016'",
             activityTime: "5 hours ago"
         },
-        tony: { 
-            firstName: "Tony", 
+        tony: {
+            firstName: "Tony",
             lastName: "Stubblebine",
             avatarSrc: "avatar-tony.jpg",
             memberSince: "10/12/15",
@@ -441,6 +462,12 @@ var dashboard = new Dashboard(),
         member_2: new Member(memberList.adelle),
         member_3: new Member(memberList.mizko),
         member_4: new Member(memberList.tony)
+    },
+    activity = {
+        activity_1: new Activity(memberList.rem),
+        activity_2: new Activity(memberList.adelle),
+        activity_3: new Activity(memberList.mizko),
+        activity_4: new Activity(memberList.tony)
     };
 
 dashboard.customWidgetWidth('line-widget', 768, 750);
