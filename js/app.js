@@ -1,10 +1,4 @@
 /* ====================================================================================== *\
-    GLOBAL VARIABLES
-*\ ====================================================================================== */
-
-
-
-/* ====================================================================================== *\
     CONTROLS
 *\ ====================================================================================== */
 function Alert(text) {
@@ -12,16 +6,31 @@ function Alert(text) {
 }
 
 Alert.prototype.toHTML = function() {
-    var controlsHTML = '<div';
-    controlsHTML += ' class="alert"';
-    controlsHTML += ' data-state="visible"';
-    controlsHTML += '>';
+    var controlsHTML = '<div class="alert" data-state="visible">';
     controlsHTML += '<p><strong>Alert</strong>' + this.text + '</p>';
     controlsHTML += '<button class="alert-button-close">Close alert</button>';
     controlsHTML += '</div>';
     return controlsHTML;
 };
+function Member(key) {
+    this.firstName = key.firstName;
+    this.lastName = key.lastName;
+    this.avatarSrc = key.avatarSrc;
+    this.memberSince = key.memberSince;
+    this.emailAdress = key.emailAdress;
+}
 
+Member.prototype.toHTML = function() {
+    var newMembersHTML =  '<li class="new-member">';
+    newMembersHTML += '<img src="' + this.avatarSrc + '" alt="" class="profile-image">';
+    newMembersHTML += '<p class="member-name">' + this.firstName + ' ' + this.lastName;
+    newMembersHTML += '<br>';
+    newMembersHTML += '<a href="" class="member-email">' + this.emailAdress + '</a>';
+    newMembersHTML += '</p>';
+    newMembersHTML += '<span class="date-added">' + this.memberSince + '</span>';
+    newMembersHTML += '</li>';
+    return newMembersHTML;
+}
 /* ====================================================================================== *\
     DASHBOARD
 *\ ====================================================================================== */
@@ -172,6 +181,11 @@ function Dashboard() {
             });
         checkFilter();
     };
+    this.displayNewMembers = function() {
+        var container = 'member-list',
+            html = members
+        this.renderInElement(container, html);
+    };
     this.setForm = function() {
         this.validateForm("message-form");
     };
@@ -181,6 +195,7 @@ function Dashboard() {
         this.setAlerts(alerts);
         this.setDropdownButton(alertsNotification, alertsDropdown);
         this.setGraphics();
+        this.displayNewMembers()
         this.setForm();
     };
 }
@@ -382,6 +397,50 @@ var dashboard = new Dashboard(),
                 "#26649B"
             ]
         }]
+    },
+    memberList = {
+        rem: {
+            firstName: "Rem",
+            lastName: "",
+            avatarSrc: "avatar-rem.jpg",
+            memberSince: "10/15/15",
+            emailAdress: "rem128@example.com",
+            recentActivity: "commented on YourApp's SEO tips",
+            activityTime: "4 hours ago"
+        },
+        adelle: {
+            firstName: "Adelle",
+            lastName: "Charles",
+            avatarSrc: "avatar-adelle.jpg",
+            memberSince: "10/14/15",
+            emailAdress: "adelle.charles@example.com",
+            recentActivity: "likes the post 'Facebook Changes for 2016'",
+            activityTime: "5 hours ago"
+        },
+        mizko: {
+            firstName: "Mizko",
+            lastName: "",
+            avatarSrc: "avatar-mizko.jpg",
+            memberSince: "10/13/15",
+            emailAdress: "mizko87@example.com",
+            recentActivity: "commented on 'Facebook Changes for 2016'",
+            activityTime: "5 hours ago"
+        },
+        tony: { 
+            firstName: "Tony", 
+            lastName: "Stubblebine",
+            avatarSrc: "avatar-tony.jpg",
+            memberSince: "10/12/15",
+            emailAdress: "tony.stubble@example.com",
+            recentActivity: "commented on YourApp's SEO tips",
+            activityTime: "1 day ago"
+        }
+    },
+    members = {
+        member_1: new Member('rem'),
+        member_2: new Member('adelle'),
+        member_3: new Member('mizko'),
+        member_4: new Member('tony')
     };
 
 dashboard.customWidgetWidth('line-widget', 768, 750);
