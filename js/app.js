@@ -22,7 +22,7 @@ function Member(key) {
 
 Member.prototype.toHTML = function() {
     var newMembersHTML =  '<li class="new-member">';
-    newMembersHTML += '<img src="' + this.avatarSrc + '" alt="" class="profile-image">';
+    newMembersHTML += '<img src="img/' + this.avatarSrc + '" alt="" class="profile-image">';
     newMembersHTML += '<p class="member-name">' + this.firstName + ' ' + this.lastName;
     newMembersHTML += '<br>';
     newMembersHTML += '<a href="" class="member-email">' + this.emailAdress + '</a>';
@@ -437,10 +437,10 @@ var dashboard = new Dashboard(),
         }
     },
     members = {
-        member_1: new Member('rem'),
-        member_2: new Member('adelle'),
-        member_3: new Member('mizko'),
-        member_4: new Member('tony')
+        member_1: new Member(memberList.rem),
+        member_2: new Member(memberList.adelle),
+        member_3: new Member(memberList.mizko),
+        member_4: new Member(memberList.tony)
     };
 
 dashboard.customWidgetWidth('line-widget', 768, 750);
