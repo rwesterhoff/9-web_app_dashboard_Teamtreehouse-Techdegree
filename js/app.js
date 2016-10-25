@@ -209,6 +209,34 @@ function Dashboard() {
     this.setForm = function() {
         this.validateForm("message-form");
     };
+    this.setAutoSuggest = function() {
+        var searchField = document.getElementById('search-user'),
+            compareValueWithSuggestList = function() {
+                var searchValue = searchField.value,
+                    assembleMemberList = function(obj) {
+                        var people = [];
+                        for (var prop in obj) {
+                            if (obj[prop].lastName === '') {
+                                var member = obj[prop].firstName;
+                            } else {
+                                var member = obj[prop].firstName + ' ' + obj[prop].lastName;
+                            }
+                            people.push(member);
+                        }
+                        return people;
+                    },
+                    suggestList = assembleMemberList(memberList);
+                for (i = 0; i < suggestList.length; i++) {
+                    var listItem = suggestList[i];
+                    if (listItem.toLowerCase().indexOf(searchValue.toLowerCase()) < 0 || searchValue === '' || searchValue === ' ') {
+                        console.log(listItem + ' does not match');
+                    } else {
+                        console.log(listItem + ' matches');
+                    }
+                }
+            };
+        searchField.addEventListener('keyup', compareValueWithSuggestList);
+    };
     this.displayAll = function() {
         this.setStates("nav-button");
         this.setStates("filter-button");
@@ -218,6 +246,7 @@ function Dashboard() {
         this.displayModule('member-list', members);
         this.displayModule('activity-list', activity);
         this.setForm();
+        this.setAutoSuggest();
     };
 }
 Dashboard.prototype.setStates = function(selector) {
@@ -253,6 +282,7 @@ Dashboard.prototype.renderInElement = function(container, html) {
         }
     }
 };
+
 Dashboard.prototype.checkAmount = function(obj) {
     var count = 0;
     for (var i in obj) {

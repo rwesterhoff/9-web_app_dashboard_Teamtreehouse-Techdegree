@@ -1375,6 +1375,11 @@ p.message {
     color: white;
     background-color: #76d76d; }
 
+#suggest-list {
+  display: block;
+  width: 100px;
+  height: 100px; }
+
 /* Custom switches */
 .switch-container {
   margin-bottom: 30px; }
