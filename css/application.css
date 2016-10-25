@@ -1254,7 +1254,11 @@ option:focus {
 
 .member-name,
 .member-activity {
-  line-height: 1.2; }
+  line-height: 1.2;
+  padding-right: 36px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
 
 .date-added {
   margin-left: auto; }

@@ -42,14 +42,14 @@ function Activity(key) {
 }
 
 Activity.prototype.toHTML = function() {
-    var recentActivityHTML = '<li class="recent-activity>';
-    // recentActivityHTML += '<a href="">';
+    var recentActivityHTML = '<li class="recent-activity">';
+    recentActivityHTML += '<a href="">';
     recentActivityHTML += '<img src="img/' + this.avatarSrc + '" alt="" class="profile-image">';
-    // recentActivityHTML += '<p class="member-activity">' + this.firstName + ' ' + this.lastName + ' ' + this.recentActivity;
-    // recentActivityHTML += '<br>';
-    // recentActivityHTML += '<span class="date-added">' + this.activityTime + '</span>';
-    // recentActivityHTML += '</p>';
-    // recentActivityHTML += '</a>';
+    recentActivityHTML += '<p class="member-activity">' + this.firstName + ' ' + this.lastName + ' ' + this.recentActivity;
+    recentActivityHTML += '<br>';
+    recentActivityHTML += '<span class="date-added">' + this.activityTime + '</span>';
+    recentActivityHTML += '</p>';
+    recentActivityHTML += '</a>';
     recentActivityHTML += '</li>';
     return recentActivityHTML;
 };
@@ -99,7 +99,7 @@ function Dashboard() {
     };
     this.checkNewAlerts = function() {
         if (amount === 0) {
-            text = 'No new notifications'
+            text = 'No new notifications';
             content = text;
         } else if (amount === 1) {
             text = 'new notification';
