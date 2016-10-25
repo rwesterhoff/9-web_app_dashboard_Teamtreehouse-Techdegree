@@ -2,17 +2,13 @@
 
 * {
     box-sizing: border-box;
-	user-select:none;
+    user-select: none;
 }
 
 html {
-	@extend %font-stack;
+    @extend %font-stack;
     min-height: 100%;
-}
-
-html,
-body {
-    font-size: 1rem;
+    font-size: 100%;
 }
 
 body {
