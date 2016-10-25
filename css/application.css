@@ -1209,7 +1209,6 @@ option:focus {
   display: flex;
   flex-direction: row;
   padding: 15px 0;
-  justify-content: flex-start;
   align-items: center; }
   .new-member:not(:last-child),
   .recent-activity:not(:last-child) {
@@ -1254,6 +1253,7 @@ option:focus {
 
 .member-name,
 .member-activity {
+  align-self: center;
   line-height: 1.2;
   padding-right: 36px;
   overflow: hidden;
