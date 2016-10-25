@@ -13,7 +13,7 @@ Alert.prototype.toHTML = function() {
     return controlsHTML;
 };
 
-function Member(key) {
+function NewMember(key) {
     this.firstName = key.firstName;
     this.lastName = key.lastName;
     this.avatarSrc = key.avatarSrc;
@@ -21,7 +21,7 @@ function Member(key) {
     this.emailAdress = key.emailAdress;
 }
 
-Member.prototype.toHTML = function() {
+NewMember.prototype.toHTML = function() {
     var newMembersHTML = '<li class="new-member">';
     newMembersHTML += '<img src="img/' + this.avatarSrc + '" alt="" class="profile-image">';
     newMembersHTML += '<p class="member-name">' + this.firstName + ' ' + this.lastName;
@@ -488,10 +488,10 @@ var dashboard = new Dashboard(),
         }
     },
     members = {
-        member_1: new Member(memberList.rem),
-        member_2: new Member(memberList.adelle),
-        member_3: new Member(memberList.mizko),
-        member_4: new Member(memberList.tony)
+        member_1: new NewMember(memberList.rem),
+        member_2: new NewMember(memberList.adelle),
+        member_3: new NewMember(memberList.mizko),
+        member_4: new NewMember(memberList.tony)
     },
     activity = {
         activity_1: new Activity(memberList.rem),
