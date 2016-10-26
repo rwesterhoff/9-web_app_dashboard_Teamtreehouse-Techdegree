@@ -37,12 +37,9 @@ function Activity(key) {
     this.firstName = key.firstName;
     this.lastName = key.lastName;
     this.avatarSrc = key.avatarSrc;
-    // Member.call(this, firstName, lastName, avatarSrc);
     this.recentActivity = key.recentActivity;
     this.activityTime = key.activityTime;
 }
-
-// Activity.prototype = Object.create(Member.prototype);
 
 Activity.prototype.toHTML = function() {
     var recentActivityHTML = '<li class="recent-activity">';
