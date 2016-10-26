@@ -2,7 +2,7 @@
 
 #main-navigation {
     position: fixed;
-    z-index: 50;
+    z-index: 100000;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -27,11 +27,13 @@
         opacity: .5;
         outline: none;
         @extend %srt;
-        @extend %transition;
+        will-change: auto;
+        transition: opacity 0.2s linear;
         &:hover,
         &:focus {
             opacity: 1;
         }
+        @extend %accessible-focus;
         &[data-state=active] {
             opacity: 1;
             border-width: 5px;

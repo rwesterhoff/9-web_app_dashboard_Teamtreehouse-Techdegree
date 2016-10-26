@@ -39,8 +39,17 @@
 }
 
 %input-hover-focus {
-    &:hover,
-    &:focus {
+    &:hover {
         border-color: $blue-violet;
+    }
+}
+
+%accessible-focus {
+    &:focus {
+        background-color: #fc0 !important;
+        outline: none;
+    }
+    &:active {
+        background-color: inherit;
     }
 }

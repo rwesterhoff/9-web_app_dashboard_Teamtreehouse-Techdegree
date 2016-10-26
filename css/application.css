@@ -102,7 +102,7 @@ button {
           appearance: none;
   outline: none; }
 
-#notification-dropdown[data-state=visible], #notification-dropdown[data-state=hidden], #main-navigation .nav-button, #main-content #search-form, .widget-filter .filter-button, .recent-activity a, button,
+#notification-dropdown[data-state=visible], #notification-dropdown[data-state=hidden], #main-content #search-form, .recent-activity a, button,
 input[type=submit],
 select,
 *[class*='switch'], input[type=text],
@@ -150,11 +150,22 @@ input[type=submit], .switch-body {
 #main-content #search-form:hover, input[type=text]:hover,
 textarea:hover,
 select:hover,
-option:hover, #main-content #search-form:focus, input[type=text]:focus,
+option:hover {
+  border-color: #6061B1; }
+
+#app-notification:focus, #main-navigation .nav-button:focus, #main-content #search-field:focus,
+#main-content #search-button:focus, .widget-filter .filter-button a:focus, .member-email:focus, .recent-activity a:focus, input[type=text]:focus,
 textarea:focus,
 select:focus,
-option:focus {
-  border-color: #6061B1; }
+option:focus, button:focus, input[type=submit]:focus, #suggest-list .list-member a:focus {
+  background-color: #fc0 !important;
+  outline: none; }
+#app-notification:active, #main-navigation .nav-button:active, #main-content #search-field:active,
+#main-content #search-button:active, .widget-filter .filter-button a:active, .member-email:active, .recent-activity a:active, input[type=text]:active,
+textarea:active,
+select:active,
+option:active, button:active, input[type=submit]:active, #suggest-list .list-member a:active {
+  background-color: inherit; }
 
 /* Animations */
 @-webkit-keyframes hide-notifications {
@@ -765,19 +776,23 @@ option:focus {
     vertical-align: top; }
 
 #app-notification {
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
   margin: 0 15px 0 auto;
   cursor: pointer;
   background: url(../img/icon-bell.svg);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: auto 20px; }
+  background-size: auto 20px;
+  border-radius: 50%; }
   #app-notification[data-state=active] {
     background: url(../img/notification-active.svg), url(../img/icon-bell.svg);
     background-repeat: no-repeat;
-    background-position: top right, center center;
-    background-size: 7px, auto 20px; }
+    background-position: top 6px right 8px, center center;
+    background-size: 7px, auto 20px;
+    border-radius: 50%; }
+  #app-notification:hover, #app-notification:focus {
+    outline: none; }
   @media only screen and (min-width: 768px) {
     #app-notification {
       position: relative; } }
@@ -858,7 +873,7 @@ option:focus {
 /* Navigation styles */
 #main-navigation {
   position: fixed;
-  z-index: 50;
+  z-index: 100000;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -884,7 +899,10 @@ option:focus {
     height: 70px;
     cursor: pointer;
     opacity: .5;
-    outline: none; }
+    outline: none;
+    will-change: auto;
+    -webkit-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear; }
     #main-navigation .nav-button:hover, #main-navigation .nav-button:focus {
       opacity: 1; }
     #main-navigation .nav-button[data-state=active] {
@@ -1011,7 +1029,8 @@ option:focus {
     background-color: transparent;
     -webkit-appearance: none;
        -moz-appearance: none;
-            appearance: none; }
+            appearance: none;
+    border-radius: 0; }
   #main-content #search-field {
     width: 100%;
     padding: 12px; }
@@ -1060,17 +1079,21 @@ option:focus {
     font-size: .9em;
     font-weight: 300;
     margin: 11px 0;
-    padding-left: 16px; }
+    padding: 0 16px; }
   .alert strong {
     font-weight: 700;
     margin-right: 10px; }
   .alert button {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    right: 5px;
+    top: 5px;
     margin-left: auto;
     border: none;
     outline: none;
     background: url(../img/icon-close.svg) no-repeat center;
+    border-radius: 50%;
     background-size: 10px;
     -webkit-appearance: none;
        -moz-appearance: none;
@@ -1155,15 +1178,15 @@ option:focus {
   text-align: center;
   color: #535353;
   border-radius: 15px;
-  background-color: white; }
+  overflow: hidden; }
   .widget-filter .filter-button[data-state=active] {
     color: white;
     background-color: #76D76D; }
-    .widget-filter .filter-button[data-state=active]:hover, .widget-filter .filter-button[data-state=active]:focus {
-      background-color: #76D76D; }
-  .widget-filter .filter-button:hover, .widget-filter .filter-button:focus {
-    outline: none;
-    background-color: #D7D7D7; }
+  .widget-filter .filter-button a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: red; }
 @media only screen and (max-width: 568px) {
   .widget-filter {
     width: 100%; } }
@@ -1331,7 +1354,6 @@ option:focus {
   background-size: 10px; }
   .recent-activity a:hover, .recent-activity a:focus {
     color: #6061B1;
-    outline: none;
     background-position: right center; }
 .recent-activity:first-child {
   background-position: 100% 30%; }
@@ -1344,6 +1366,7 @@ option:focus {
 
 .member-name,
 .member-activity {
+  display: inline;
   -ms-flex-item-align: center;
       align-self: center;
   line-height: 1.2;
@@ -1351,6 +1374,9 @@ option:focus {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis; }
+
+.member-activity {
+  width: calc(100% - 50px); }
 
 .date-added {
   margin-left: auto; }
@@ -1508,7 +1534,7 @@ p.message {
 #suggest-list {
   font-size: .9rem;
   position: absolute;
-  z-index: 100000;
+  z-index: 100;
   overflow: hidden;
   width: 100%;
   width: 100%;
@@ -1532,10 +1558,6 @@ p.message {
       height: 100%;
       padding: 15px;
       color: #535353; }
-      #suggest-list .list-member a:focus, #suggest-list .list-member a:hover {
-        color: white;
-        outline: none;
-        background-color: #535353; }
   #suggest-list[data-state=hidden] {
     display: none; }
   #suggest-list[data-state=visible] {

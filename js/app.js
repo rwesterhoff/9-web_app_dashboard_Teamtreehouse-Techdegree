@@ -220,7 +220,6 @@ function Dashboard() {
                         var people = [];
                         for (var prop in obj) {
                             if (obj[prop].lastName === '') {
-                                searchResult.push
                                 var member = obj[prop].firstName;
                             } else {
                                 var member = obj[prop].firstName + ' ' + obj[prop].lastName;
@@ -541,5 +540,4 @@ dashboard.displayAll();
 /*TODO
 Hide dropdown if click outside it
 Make alerts dropdown filled dynamically
-Set accessible focusstates
-Make footer sticky to bottom, even when keyboard is up*/
+Set accessible focusstates*/

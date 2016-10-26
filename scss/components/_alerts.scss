@@ -23,27 +23,31 @@
         font-size: .9em;
         font-weight: 300;
         margin: 11px 0;
-        padding-left: 16px;
+        padding: 0 16px;
     }
     strong {
         font-weight: 700;
         margin-right: 10px;
     }
     button {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        right: 5px;
+        top: 5px;
         margin-left: auto;
         border: none;
         outline: none;
         background: url(#{$img-path}icon-close.svg) no-repeat center;
+        border-radius: 50%;
         background-size: 10px;
         appearance: none;
         @extend %srt;
         &:hover,
         &:focus {
             transform: scale(1.2) rotate(90deg);
-
         }
+        @extend %accessible-focus;
     }
     &:not(:last-child) {
         margin-bottom: 10px;

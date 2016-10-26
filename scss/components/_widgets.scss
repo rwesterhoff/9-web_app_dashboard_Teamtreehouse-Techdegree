@@ -75,20 +75,17 @@
         text-align: center;
         color: $emperor-grey;
         border-radius: 15px;
-        background-color: white;
-        @extend %transition;
+        overflow: hidden;
         &[data-state=active] {
             color: white;
             background-color: $pastel-green;
-            &:hover,
-            &:focus {
-                background-color: $pastel-green;
-            }
         }
-        &:hover,
-        &:focus {
-            outline: none;
-            background-color: $alto-grey;
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            @extend %accessible-focus;
         }
     }
     @media only screen and (max-width: #{$bkp-small}) {
@@ -119,6 +116,7 @@
 #line-widget {
     margin-top: -6px;
 }
+
 .social-container {
     display: flex;
     flex-direction: column;
@@ -241,6 +239,7 @@
         text-decoration: underline;
         outline: none;
     }
+    @extend %accessible-focus;
 }
 
 .recent-activity {
@@ -256,9 +255,9 @@
         &:hover,
         &:focus {
             color: $blue-violet;
-            outline: none;
             background-position: right center;
         }
+        @extend %accessible-focus;
     }
     &:first-child {
         background-position: 100% 30%;
@@ -275,12 +274,17 @@
 
 .member-name,
 .member-activity {
+    display: inline;
     align-self: center;
     line-height: 1.2;
     padding-right: 36px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.member-activity {
+    width: calc(100% - 50px);
 }
 
 .date-added {
