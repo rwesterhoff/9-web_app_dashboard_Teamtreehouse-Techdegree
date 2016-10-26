@@ -249,7 +249,6 @@ function Dashboard() {
                 } else {
                     suggestDropDown.setAttribute('data-state', 'hidden');
                 }
-                console.log(suggestDropDown);
             };
         searchField.addEventListener('keyup', compareValueWithSuggestList);
 

@@ -22,7 +22,7 @@ input[type=submit],
 select,
 *[class*='switch'] {
     cursor: pointer;
-    opacity: 0.9;
+    opacity: .9;
     @extend %transition;
     &:hover,
     &:focus {
@@ -98,7 +98,7 @@ textarea {
     height: 110px;
     padding-top: 12px;
     padding-bottom: 12px;
-    resize: none
+    resize: none;
 }
 
 input[type=submit] {
@@ -139,10 +139,13 @@ p.message {
 }
 
 #suggest-list {
-    position: absolute;
     font-size: .9rem;
+    position: absolute;
     z-index: 100000;
     width: 100%;
+    width: 100%;
+    margin-top: -15px;
+    border-radius: 4px;
     background-color: $alto-grey;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
     &[data-state=visible] {
@@ -155,8 +158,6 @@ p.message {
         opacity: 0;
         @extend %transition;
     }
-    width: 100%;
-    margin-top: -15px;
     .list-member {
         padding: 15px;
         color: $emperor-grey;

@@ -1279,7 +1279,7 @@ input[type=submit],
 select,
 *[class*='switch'] {
   cursor: pointer;
-  opacity: 0.9; }
+  opacity: .9; }
   button:hover, button:focus,
   input[type=submit]:hover,
   input[type=submit]:focus,
@@ -1379,14 +1379,15 @@ p.message {
   position: relative; }
 
 #suggest-list {
-  position: absolute;
   font-size: .9rem;
+  position: absolute;
   z-index: 100000;
   width: 100%;
-  background-color: #D7D7D7;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   width: 100%;
-  margin-top: -15px; }
+  margin-top: -15px;
+  border-radius: 4px;
+  background-color: #D7D7D7;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
   #suggest-list[data-state=visible] {
     display: block;
     opacity: 1; }
