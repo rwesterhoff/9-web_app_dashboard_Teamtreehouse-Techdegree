@@ -47,7 +47,7 @@ button {
         color: $emperor-grey;
     }
 }
- 
+
 // Fix white gaps
 form {
     font-size: 0;
@@ -134,8 +134,40 @@ p.message {
     }
 }
 
+.search-wrapper {
+    position: relative;
+}
+
 #suggest-list {
-    display: block;
-    width: 100px;
-    height: 100px;
+    position: absolute;
+    font-size: .9rem;
+    z-index: 100000;
+    width: 100%;
+    background-color: $alto-grey;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+    &[data-state=visible] {
+        display: block;
+        opacity: 1;
+        @extend %transition;
+    }
+    &[data-state=hidden] {
+        display: none;
+        opacity: 0;
+        @extend %transition;
+    }
+    width: 100%;
+    margin-top: -15px;
+    .list-member {
+        padding: 15px;
+        color: $emperor-grey;
+        &:not(:last-child) {
+            border-bottom: 1px solid white;
+        }
+    }
+    &[data-state=hidden] {
+        display: none;
+    }
+    &[data-state=visible] {
+        display: block;
+    }
 }

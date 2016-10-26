@@ -21,6 +21,21 @@ function NewMember(key) {
     this.emailAdress = key.emailAdress;
 }
 
+/*
+function Member(firstName, lastName, avatarSrc) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.avatarSrc = avatarSrc;
+}
+
+function NewMember(firstName, lastName, avatarSrc, memberSince, emailAdress) {
+    Member.call(this, firstName, lastName, avatarSrc);
+    this.memberSince = memberSince;
+    this.emailAdress = emailAdress;
+}
+
+NewMember.prototype = Object.create(Member.prototype);*/
+
 NewMember.prototype.toHTML = function() {
     var newMembersHTML = '<li class="new-member">';
     newMembersHTML += '<img src="img/' + this.avatarSrc + '" alt="" class="profile-image">';
@@ -37,9 +52,12 @@ function Activity(key) {
     this.firstName = key.firstName;
     this.lastName = key.lastName;
     this.avatarSrc = key.avatarSrc;
+    // Member.call(this, firstName, lastName, avatarSrc);
     this.recentActivity = key.recentActivity;
     this.activityTime = key.activityTime;
 }
+
+// Activity.prototype = Object.create(Member.prototype);
 
 Activity.prototype.toHTML = function() {
     var recentActivityHTML = '<li class="recent-activity">';
@@ -211,12 +229,16 @@ function Dashboard() {
     };
     this.setAutoSuggest = function() {
         var searchField = document.getElementById('search-user'),
+            suggestDropDown = document.getElementById('suggest-list'),
             compareValueWithSuggestList = function() {
                 var searchValue = searchField.value,
+                    searchResult = [],
+                    suggestHTML = '',
                     assembleMemberList = function(obj) {
                         var people = [];
                         for (var prop in obj) {
                             if (obj[prop].lastName === '') {
+                                searchResult.push
                                 var member = obj[prop].firstName;
                             } else {
                                 var member = obj[prop].firstName + ' ' + obj[prop].lastName;
@@ -229,13 +251,24 @@ function Dashboard() {
                 for (i = 0; i < suggestList.length; i++) {
                     var listItem = suggestList[i];
                     if (listItem.toLowerCase().indexOf(searchValue.toLowerCase()) < 0 || searchValue === '' || searchValue === ' ') {
-                        console.log(listItem + ' does not match');
+                        // do nothing
                     } else {
-                        console.log(listItem + ' matches');
+                        suggestHTML += '<li class="list-member">',
+                        suggestHTML += listItem;
+                        suggestHTML += '</li>';
+                        searchResult.push(listItem);
                     }
                 }
+                suggestDropDown.innerHTML = suggestHTML;
+                if (suggestDropDown.hasChildNodes()) {
+                    suggestDropDown.setAttribute('data-state', 'visible');
+                } else {
+                    suggestDropDown.setAttribute('data-state', 'hidden');
+                }
+                console.log(suggestDropDown);
             };
         searchField.addEventListener('keyup', compareValueWithSuggestList);
+        
     };
     this.displayAll = function() {
         this.setStates("nav-button");

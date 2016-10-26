@@ -102,7 +102,7 @@ input[type=submit],
 select,
 *[class*='switch'], input[type=text],
 textarea,
-option {
+option, #suggest-list[data-state=visible], #suggest-list[data-state=hidden] {
   will-change: auto;
   transition: all 0.2s linear; }
 
@@ -786,10 +786,10 @@ option:focus {
   background-color: #D7D7D7;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); }
   #notification-dropdown[data-state=visible] {
-    visibility: visible;
+    display: block;
     opacity: 1; }
   #notification-dropdown[data-state=hidden] {
-    visibility: hidden;
+    display: none;
     opacity: 0; }
   @media only screen and (min-width: 768px) {
     #notification-dropdown {
@@ -1375,10 +1375,33 @@ p.message {
     color: white;
     background-color: #76d76d; }
 
+.search-wrapper {
+  position: relative; }
+
 #suggest-list {
-  display: block;
-  width: 100px;
-  height: 100px; }
+  position: absolute;
+  font-size: .9rem;
+  z-index: 100000;
+  width: 100%;
+  background-color: #D7D7D7;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  margin-top: -15px; }
+  #suggest-list[data-state=visible] {
+    display: block;
+    opacity: 1; }
+  #suggest-list[data-state=hidden] {
+    display: none;
+    opacity: 0; }
+  #suggest-list .list-member {
+    padding: 15px;
+    color: #535353; }
+    #suggest-list .list-member:not(:last-child) {
+      border-bottom: 1px solid white; }
+  #suggest-list[data-state=hidden] {
+    display: none; }
+  #suggest-list[data-state=visible] {
+    display: block; }
 
 /* Custom switches */
 .switch-container {
