@@ -230,25 +230,41 @@ function Dashboard() {
                         return people;
                     },
                     suggestList = assembleMemberList(memberList);
+
+                // populate dropdown with suggestions
                 for (i = 0; i < suggestList.length; i++) {
                     var listItem = suggestList[i];
                     if (listItem.toLowerCase().indexOf(searchValue.toLowerCase()) < 0 || searchValue === '' || searchValue === ' ') {
                         // do nothing
                     } else {
-                        suggestHTML += '<li class="list-member">',
-                        suggestHTML += '<a href="">',
+                        suggestHTML += '<li class="list-member">';
+                        suggestHTML += '<a href="">';
                         suggestHTML += listItem;
-                        suggestHTML += '</a>',
+                        suggestHTML += '</a>';
                         suggestHTML += '</li>';
                         searchResult.push(listItem);
                     }
                 }
+
+                // show or hide dropdown
                 suggestDropDown.innerHTML = suggestHTML;
                 if (suggestDropDown.hasChildNodes()) {
                     suggestDropDown.setAttribute('data-state', 'visible');
                 } else {
                     suggestDropDown.setAttribute('data-state', 'hidden');
                 }
+
+                // update input with selected suggestion
+                var dropDownChildren = suggestDropDown.childNodes;
+                for (var i = 0; i < dropDownChildren.length; i++) {
+                    console.log(dropDownChildren[i]);
+                    dropDownChildren[i].addEventListener("click", function(event) {
+                        event.preventDefault();
+                        searchField.value = this.innerText;
+                        suggestDropDown.setAttribute('data-state', 'hidden');
+                    });
+                }
+
             };
         searchField.addEventListener('keyup', compareValueWithSuggestList);
 
