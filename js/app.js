@@ -44,7 +44,7 @@ function Activity(key) {
 Activity.prototype.toHTML = function() {
     var recentActivityHTML = '<li class="recent-activity">';
     recentActivityHTML += '<a href="">';
-    recentActivityHTML += '<img src="img/' + this.avatarSrc + '" alt="" class="profile-image">';
+    recentActivityHTML += '<img src="img/' + this.avatarSrc + '" alt="Profile image of ' + this.firstName + ' " class="profile-image">';
     recentActivityHTML += '<p class="member-activity">' + this.firstName + ' ' + this.lastName + ' ' + this.recentActivity;
     recentActivityHTML += '<br>';
     recentActivityHTML += '<span class="date-added">' + this.activityTime + '</span>';
@@ -536,3 +536,9 @@ dashboard.customWidgetWidth('line-widget', 768, 750);
 dashboard.customWidgetWidth('bar-widget', 768, 750);
 dashboard.customWidgetWidth('doughnut-widget', 768, 750);
 dashboard.displayAll();
+
+
+/*TODO
+Hide dropdown if click outside it
+Make alerts dropdown filled dynamically
+Set accessible focusstates*/
