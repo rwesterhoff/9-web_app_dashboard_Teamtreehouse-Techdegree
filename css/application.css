@@ -1375,7 +1375,7 @@ p.message {
     color: white;
     background-color: #76d76d; }
 
-.search-wrapper {
+#message-form {
   position: relative; }
 
 #suggest-list {

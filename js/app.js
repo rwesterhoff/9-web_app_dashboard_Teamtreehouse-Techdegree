@@ -236,7 +236,9 @@ function Dashboard() {
                         // do nothing
                     } else {
                         suggestHTML += '<li class="list-member">',
+                        suggestHTML += '<a href="">',
                         suggestHTML += listItem;
+                        suggestHTML += '</a>',
                         suggestHTML += '</li>';
                         searchResult.push(listItem);
                     }
