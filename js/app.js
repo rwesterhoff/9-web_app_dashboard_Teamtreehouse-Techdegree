@@ -541,4 +541,5 @@ dashboard.displayAll();
 /*TODO
 Hide dropdown if click outside it
 Make alerts dropdown filled dynamically
-Set accessible focusstates*/
+Set accessible focusstates
+Make footer sticky to bottom, even when keyboard is up*/
