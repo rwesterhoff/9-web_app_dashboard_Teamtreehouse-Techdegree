@@ -21,21 +21,6 @@ function NewMember(key) {
     this.emailAdress = key.emailAdress;
 }
 
-/*
-function Member(firstName, lastName, avatarSrc) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.avatarSrc = avatarSrc;
-}
-
-function NewMember(firstName, lastName, avatarSrc, memberSince, emailAdress) {
-    Member.call(this, firstName, lastName, avatarSrc);
-    this.memberSince = memberSince;
-    this.emailAdress = emailAdress;
-}
-
-NewMember.prototype = Object.create(Member.prototype);*/
-
 NewMember.prototype.toHTML = function() {
     var newMembersHTML = '<li class="new-member">';
     newMembersHTML += '<img src="img/' + this.avatarSrc + '" alt="" class="profile-image">';
@@ -268,7 +253,7 @@ function Dashboard() {
                 console.log(suggestDropDown);
             };
         searchField.addEventListener('keyup', compareValueWithSuggestList);
-        
+
     };
     this.displayAll = function() {
         this.setStates("nav-button");
