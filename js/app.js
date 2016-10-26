@@ -1,27 +1,58 @@
 /* ====================================================================================== *\
-    GLOBAL VARIABLES
-*\ ====================================================================================== */
-
-
-
-/* ====================================================================================== *\
-    CONTROLS
+    OBJECTS
 *\ ====================================================================================== */
 function Alert(text) {
     this.text = text;
 }
 
 Alert.prototype.toHTML = function() {
-    var controlsHTML = '<div';
-    controlsHTML += ' class="alert"';
-    controlsHTML += ' data-state="visible"';
-    controlsHTML += '>';
+    var controlsHTML = '<div class="alert" data-state="visible">';
     controlsHTML += '<p><strong>Alert</strong>' + this.text + '</p>';
     controlsHTML += '<button class="alert-button-close">Close alert</button>';
     controlsHTML += '</div>';
     return controlsHTML;
 };
 
+function NewMember(key) {
+    this.firstName = key.firstName;
+    this.lastName = key.lastName;
+    this.avatarSrc = key.avatarSrc;
+    this.memberSince = key.memberSince;
+    this.emailAdress = key.emailAdress;
+}
+
+NewMember.prototype.toHTML = function() {
+    var newMembersHTML = '<li class="new-member">';
+    newMembersHTML += '<img src="img/' + this.avatarSrc + '" alt="" class="profile-image">';
+    newMembersHTML += '<p class="member-name">' + this.firstName + ' ' + this.lastName;
+    newMembersHTML += '<br>';
+    newMembersHTML += '<a href="" class="member-email">' + this.emailAdress + '</a>';
+    newMembersHTML += '</p>';
+    newMembersHTML += '<span class="date-added">' + this.memberSince + '</span>';
+    newMembersHTML += '</li>';
+    return newMembersHTML;
+};
+
+function Activity(key) {
+    this.firstName = key.firstName;
+    this.lastName = key.lastName;
+    this.avatarSrc = key.avatarSrc;
+    this.recentActivity = key.recentActivity;
+    this.activityTime = key.activityTime;
+}
+
+Activity.prototype.toHTML = function() {
+    var recentActivityHTML = '<li class="recent-activity">';
+    recentActivityHTML += '<a href="">';
+    recentActivityHTML += '<img src="img/' + this.avatarSrc + '" alt="" class="profile-image">';
+    recentActivityHTML += '<p class="member-activity">' + this.firstName + ' ' + this.lastName + ' ' + this.recentActivity;
+    recentActivityHTML += '<br>';
+    recentActivityHTML += '<span class="date-added">' + this.activityTime + '</span>';
+    recentActivityHTML += '</p>';
+    recentActivityHTML += '</a>';
+    recentActivityHTML += '</li>';
+    return recentActivityHTML;
+};
 /* ====================================================================================== *\
     DASHBOARD
 *\ ====================================================================================== */
@@ -43,34 +74,32 @@ function Dashboard() {
         this.checkNewAlerts();
     };
     this.displayAlerts = function() {
-        var container = 'content-notifications',
-            html = alerts,
-            setCloseButton = function() {
-                var removeAlertsButtons = document.getElementsByClassName('alert-button-close'),
-                    removeAlert = function() {
-                        var elementToRemove = this.parentNode;
-                        elementToRemove.setAttribute('data-state', 'hidden');
-                        setTimeout(function() {
-                            elementToRemove.parentNode.removeChild(elementToRemove);
-                        }, 200);
-                        amount -= 1;
-                        if (amount === 0) {
-                            dashboard.noNewNotifications();
-                            dashboard.hideAlerts();
-                        }
-                        console.log(amount);
-                        dashboard.checkNewAlerts();
-                    };
-                for (var i = 0; i < removeAlertsButtons.length; i++) {
-                    removeAlertsButtons[i].addEventListener("click", removeAlert);
-                }
-            };
-        this.renderInElement(container, html);
+        this.displayModule('content-notifications', alerts);
+        setCloseButton = function() {
+            var removeAlertsButtons = document.getElementsByClassName('alert-button-close'),
+                removeAlert = function() {
+                    var elementToRemove = this.parentNode;
+                    elementToRemove.setAttribute('data-state', 'hidden');
+                    setTimeout(function() {
+                        elementToRemove.parentNode.removeChild(elementToRemove);
+                    }, 200);
+                    amount -= 1;
+                    if (amount === 0) {
+                        dashboard.noNewNotifications();
+                        dashboard.hideAlerts();
+                    }
+                    console.log(amount);
+                    dashboard.checkNewAlerts();
+                };
+            for (var i = 0; i < removeAlertsButtons.length; i++) {
+                removeAlertsButtons[i].addEventListener("click", removeAlert);
+            }
+        };
         setCloseButton();
     };
     this.checkNewAlerts = function() {
         if (amount === 0) {
-            text = 'No new notifications'
+            text = 'No new notifications';
             content = text;
         } else if (amount === 1) {
             text = 'new notification';
@@ -172,8 +201,57 @@ function Dashboard() {
             });
         checkFilter();
     };
+    this.displayModule = function(id, html) {
+        var container = id,
+            content = html;
+        this.renderInElement(container, content);
+    };
     this.setForm = function() {
         this.validateForm("message-form");
+    };
+    this.setAutoSuggest = function() {
+        var searchField = document.getElementById('search-user'),
+            suggestDropDown = document.getElementById('suggest-list'),
+            compareValueWithSuggestList = function() {
+                var searchValue = searchField.value,
+                    searchResult = [],
+                    suggestHTML = '',
+                    assembleMemberList = function(obj) {
+                        var people = [];
+                        for (var prop in obj) {
+                            if (obj[prop].lastName === '') {
+                                searchResult.push
+                                var member = obj[prop].firstName;
+                            } else {
+                                var member = obj[prop].firstName + ' ' + obj[prop].lastName;
+                            }
+                            people.push(member);
+                        }
+                        return people;
+                    },
+                    suggestList = assembleMemberList(memberList);
+                for (i = 0; i < suggestList.length; i++) {
+                    var listItem = suggestList[i];
+                    if (listItem.toLowerCase().indexOf(searchValue.toLowerCase()) < 0 || searchValue === '' || searchValue === ' ') {
+                        // do nothing
+                    } else {
+                        suggestHTML += '<li class="list-member">',
+                        suggestHTML += '<a href="">',
+                        suggestHTML += listItem;
+                        suggestHTML += '</a>',
+                        suggestHTML += '</li>';
+                        searchResult.push(listItem);
+                    }
+                }
+                suggestDropDown.innerHTML = suggestHTML;
+                if (suggestDropDown.hasChildNodes()) {
+                    suggestDropDown.setAttribute('data-state', 'visible');
+                } else {
+                    suggestDropDown.setAttribute('data-state', 'hidden');
+                }
+            };
+        searchField.addEventListener('keyup', compareValueWithSuggestList);
+
     };
     this.displayAll = function() {
         this.setStates("nav-button");
@@ -181,7 +259,10 @@ function Dashboard() {
         this.setAlerts(alerts);
         this.setDropdownButton(alertsNotification, alertsDropdown);
         this.setGraphics();
+        this.displayModule('member-list', members);
+        this.displayModule('activity-list', activity);
         this.setForm();
+        this.setAutoSuggest();
     };
 }
 Dashboard.prototype.setStates = function(selector) {
@@ -217,6 +298,7 @@ Dashboard.prototype.renderInElement = function(container, html) {
         }
     }
 };
+
 Dashboard.prototype.checkAmount = function(obj) {
     var count = 0;
     for (var i in obj) {
@@ -382,6 +464,56 @@ var dashboard = new Dashboard(),
                 "#26649B"
             ]
         }]
+    },
+    memberList = {
+        rem: {
+            firstName: "Rem",
+            lastName: "",
+            avatarSrc: "avatar-rem.jpg",
+            memberSince: "10/15/15",
+            emailAdress: "rem128@example.com",
+            recentActivity: "commented on YourApp's SEO tips",
+            activityTime: "4 hours ago"
+        },
+        adelle: {
+            firstName: "Adelle",
+            lastName: "Charles",
+            avatarSrc: "avatar-adelle.jpg",
+            memberSince: "10/14/15",
+            emailAdress: "adelle.charles@example.com",
+            recentActivity: "likes the post 'Facebook Changes for 2016'",
+            activityTime: "5 hours ago"
+        },
+        mizko: {
+            firstName: "Mizko",
+            lastName: "",
+            avatarSrc: "avatar-mizko.jpg",
+            memberSince: "10/13/15",
+            emailAdress: "mizko87@example.com",
+            recentActivity: "commented on 'Facebook Changes for 2016'",
+            activityTime: "5 hours ago"
+        },
+        tony: {
+            firstName: "Tony",
+            lastName: "Stubblebine",
+            avatarSrc: "avatar-tony.jpg",
+            memberSince: "10/12/15",
+            emailAdress: "tony.stubble@example.com",
+            recentActivity: "commented on YourApp's SEO tips",
+            activityTime: "1 day ago"
+        }
+    },
+    members = {
+        member_1: new NewMember(memberList.rem),
+        member_2: new NewMember(memberList.adelle),
+        member_3: new NewMember(memberList.mizko),
+        member_4: new NewMember(memberList.tony)
+    },
+    activity = {
+        activity_1: new Activity(memberList.rem),
+        activity_2: new Activity(memberList.adelle),
+        activity_3: new Activity(memberList.mizko),
+        activity_4: new Activity(memberList.tony)
     };
 
 dashboard.customWidgetWidth('line-widget', 768, 750);

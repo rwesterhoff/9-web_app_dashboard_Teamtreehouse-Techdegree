@@ -22,7 +22,7 @@ input[type=submit],
 select,
 *[class*='switch'] {
     cursor: pointer;
-    opacity: 0.9;
+    opacity: .9;
     @extend %transition;
     &:hover,
     &:focus {
@@ -47,7 +47,7 @@ button {
         color: $emperor-grey;
     }
 }
- 
+
 // Fix white gaps
 form {
     font-size: 0;
@@ -98,7 +98,7 @@ textarea {
     height: 110px;
     padding-top: 12px;
     padding-bottom: 12px;
-    resize: none
+    resize: none;
 }
 
 input[type=submit] {
@@ -131,5 +131,44 @@ p.message {
         font-weight: 400;
         color: white;
         background-color: rgba($pastel-green, 1);
+    }
+}
+
+#message-form {
+    position: relative;
+}
+
+#suggest-list {
+    font-size: .9rem;
+    position: absolute;
+    z-index: 100000;
+    width: 100%;
+    width: 100%;
+    margin-top: -15px;
+    border-radius: 4px;
+    background-color: $alto-grey;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+    &[data-state=visible] {
+        display: block;
+        opacity: 1;
+        @extend %transition;
+    }
+    &[data-state=hidden] {
+        display: none;
+        opacity: 0;
+        @extend %transition;
+    }
+    .list-member {
+        padding: 15px;
+        color: $emperor-grey;
+        &:not(:last-child) {
+            border-bottom: 1px solid white;
+        }
+    }
+    &[data-state=hidden] {
+        display: none;
+    }
+    &[data-state=visible] {
+        display: block;
     }
 }

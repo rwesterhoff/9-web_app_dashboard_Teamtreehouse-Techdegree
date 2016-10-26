@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Robin Westerhoff's Dashboard | Teamtreehouse Frontend development techdegree</title>
-    <script src="js/node_modules/chart.js/dist/Chart.bundle.js"></script>
+    <script src="js/node_modules/chart.js/dist/Chart.bundle.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="css/application.css">
@@ -61,7 +61,7 @@
                             <li><a id="monthly" ref="#" class="filter-button" data-state="inactive">Monthly</a></li>
                         </ul>
                     </header>
-                    <canvas id="line-widget" width="1000" height="250"></canvas>
+                    <canvas id="line-widget" width="1084" height="250"></canvas>
                 </section>
             </div>
             <div class="widget-row clearfix split">
@@ -116,71 +116,14 @@
                     <header class="widget-header">
                         <h2 class="widget-title">New members</h2>
                     </header>
-                    <ul class="member-list">
-                        <li class="new-member">
-                            <img src="http://lorempixel.com/40/40/people" alt="" class="profile-image">
-                            <p class="member-name">Name Surname
-                                <br><a href="" class="member-email">member@email.com</a>
-                            </p>
-                            <span class="date-added">10/15/15</span>
-                        </li>
-                        <li class="new-member">
-                            <img src="http://lorempixel.com/40/40/people" alt="" class="profile-image">
-                            <p class="member-name">Name Surname
-                                <br><a href="" class="member-email">member@email.com</a>
-                            </p> <span class="date-added">10/15/15</span>
-                        </li>
-                        <li class="new-member">
-                            <img src="http://lorempixel.com/40/40/people" alt="" class="profile-image">
-                            <p class="member-name">Name Surname
-                                <br><a href="" class="member-email">member@email.com</a>
-                            </p> <span class="date-added">10/15/15</span>
-                        </li>
-                        <li class="new-member">
-                            <img src="http://lorempixel.com/40/40/people" alt="" class="profile-image">
-                            <p class="member-name">Name Surname
-                                <br><a href="" class="member-email">member@email.com</a>
-                            </p> <span class="date-added">10/15/15</span>
-                        </li>
+                    <ul id="member-list" class="member-list">
                     </ul>
                 </section>
                 <section class="content-widget">
                     <header class="widget-header">
                         <h2 class="widget-title">Recent Activity</h2>
                     </header>
-                    <ul class="activity-list">
-                        <li class="recent-activity">
-                            <a href=""><img src="http://lorempixel.com/40/40/people" alt="" class="profile-image">
-                                <p class="member-activity">Name's activity
-                                    <br>
-                                    <span class="date-added">4 hours ago</span>
-                                </p>
-                            </a>
-                        </li>
-                        <li class="recent-activity">
-                            <a href=""><img src="http://lorempixel.com/40/40/people" alt="" class="profile-image">
-                                <p class="member-activity">Name's activity
-                                    <br>
-                                    <span class="date-added">4 hours ago</span>
-                                </p>
-                            </a>
-                        </li>
-                        <li class="recent-activity">
-                            <a href=""><img src="http://lorempixel.com/40/40/people" alt="" class="profile-image">
-                                <p class="member-activity">Name's activity
-                                    <br>
-                                    <span class="date-added">4 hours ago</span>
-                                </p>
-                            </a>
-                        </li>
-                        <li class="recent-activity">
-                            <a href=""><img src="http://lorempixel.com/40/40/people" alt="" class="profile-image">
-                                <p class="member-activity">Name's activity
-                                    <br>
-                                    <span class="date-added">4 hours ago</span>
-                                </p>
-                            </a>
-                        </li>
+                    <ul id="activity-list" class="activity-list">
                     </ul>
                 </section>
             </div>
@@ -190,7 +133,9 @@
                         <h2 class="widget-title">Message user</h2>
                     </header>
                     <form action="#" id="message-form">
-                        <input type="text" id="search-user" placeholder="Search user" required>
+                        <input type="text" id="search-user" placeholder="Search user"  autocomplete="off" required>
+                        <ul id='suggest-list'>
+                        </ul>
                         <textarea name="message-user" id="message-user" cols="30" rows="10" placeholder="Message for user" required></textarea>
                         <input id="button-send" type="submit" value="Send">
                     </form>
@@ -235,7 +180,6 @@
         </div>
     </main>
     <script src="js/app.js"></script>
-    <script src="js/graphics.js"></script>
 </body>
 
 </html>

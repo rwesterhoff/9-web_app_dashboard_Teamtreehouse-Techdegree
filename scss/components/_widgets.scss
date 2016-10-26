@@ -116,6 +116,9 @@
     }
 }
 
+#line-widget {
+    margin-top: -6px;
+}
 .social-container {
     display: flex;
     flex-direction: column;
@@ -214,7 +217,6 @@
     display: flex;
     flex-direction: row;
     padding: 15px 0;
-    justify-content: flex-start;
     align-items: center;
     &:not(:last-child) {
         border-bottom: $alto-grey 1px solid;
@@ -272,7 +274,12 @@
 
 .member-name,
 .member-activity {
+    align-self: center;
     line-height: 1.2;
+    padding-right: 36px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .date-added {
