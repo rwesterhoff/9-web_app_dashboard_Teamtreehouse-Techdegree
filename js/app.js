@@ -228,42 +228,45 @@ function Dashboard() {
                         }
                         return people;
                     },
+                    populateDropDown = function() {
+                        for (i = 0; i < suggestList.length; i++) {
+                            var listItem = suggestList[i];
+                            if (listItem.toLowerCase().indexOf(searchValue.toLowerCase()) < 0 || searchValue === '' || searchValue === ' ') {
+                                // do nothing
+                            } else {
+                                suggestHTML += '<li class="list-member">';
+                                suggestHTML += '<a href="">';
+                                suggestHTML += listItem;
+                                suggestHTML += '</a>';
+                                suggestHTML += '</li>';
+                                searchResult.push(listItem);
+                            }
+                        }
+                        toggleDropdown();
+                    },
+                    toggleDropdown = function() {
+                        suggestDropDown.innerHTML = suggestHTML;
+                        if (suggestDropDown.hasChildNodes()) {
+                            suggestDropDown.setAttribute('data-state', 'visible');
+                        } else {
+                            suggestDropDown.setAttribute('data-state', 'hidden');
+                        }
+                        updateInput();
+                    },
+                    updateInput = function() {
+                        var dropDownChildren = suggestDropDown.childNodes,
+                        injectInput = function(event) {
+                                event.preventDefault();
+                                searchField.value = this.innerText;
+                                suggestDropDown.setAttribute('data-state', 'hidden');
+                            };
+                        for (var i = 0; i < dropDownChildren.length; i++) {
+                            console.log(dropDownChildren[i]);
+                            dropDownChildren[i].addEventListener("click", injectInput);
+                        }
+                    },
                     suggestList = assembleMemberList(memberList);
-
-                // populate dropdown with suggestions
-                for (i = 0; i < suggestList.length; i++) {
-                    var listItem = suggestList[i];
-                    if (listItem.toLowerCase().indexOf(searchValue.toLowerCase()) < 0 || searchValue === '' || searchValue === ' ') {
-                        // do nothing
-                    } else {
-                        suggestHTML += '<li class="list-member">';
-                        suggestHTML += '<a href="">';
-                        suggestHTML += listItem;
-                        suggestHTML += '</a>';
-                        suggestHTML += '</li>';
-                        searchResult.push(listItem);
-                    }
-                }
-
-                // show or hide dropdown
-                suggestDropDown.innerHTML = suggestHTML;
-                if (suggestDropDown.hasChildNodes()) {
-                    suggestDropDown.setAttribute('data-state', 'visible');
-                } else {
-                    suggestDropDown.setAttribute('data-state', 'hidden');
-                }
-
-                // update input with selected suggestion
-                var dropDownChildren = suggestDropDown.childNodes;
-                for (var i = 0; i < dropDownChildren.length; i++) {
-                    console.log(dropDownChildren[i]);
-                    dropDownChildren[i].addEventListener("click", function(event) {
-                        event.preventDefault();
-                        searchField.value = this.innerText;
-                        suggestDropDown.setAttribute('data-state', 'hidden');
-                    });
-                }
-
+                    populateDropDown();
             };
         searchField.addEventListener('keyup', compareValueWithSuggestList);
 
@@ -296,11 +299,11 @@ Dashboard.prototype.setStates = function(selector) {
     }
 };
 Dashboard.prototype.customWidgetWidth = function(element, brkPoint, size) {
-    var intViewportWidth = window.innerWidth;
-    if (intViewportWidth < brkPoint) {
-        function responsiveWidth(element, size) {
+    var intViewportWidth = window.innerWidth,
+        responsiveWidth = function(element, size) {
             document.getElementById(element).setAttribute('width', size);
-        }
+        };
+    if (intViewportWidth < brkPoint) {
         window.onload = responsiveWidth(element, size);
     }
 };
@@ -536,6 +539,7 @@ dashboard.customWidgetWidth('bar-widget', 768, 750);
 dashboard.customWidgetWidth('doughnut-widget', 768, 750);
 dashboard.displayAll();
 
+console.log(amount);
 
 /*TODO
 Hide dropdown if click outside it
