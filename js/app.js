@@ -255,7 +255,7 @@ function Dashboard() {
                     },
                     updateInput = function() {
                         var dropDownChildren = suggestDropDown.childNodes,
-                        injectInput = function(event) {
+                            injectInput = function(event) {
                                 event.preventDefault();
                                 searchField.value = this.innerText;
                                 suggestDropDown.setAttribute('data-state', 'hidden');
@@ -266,10 +266,76 @@ function Dashboard() {
                         }
                     },
                     suggestList = assembleMemberList(memberList);
-                    populateDropDown();
+                populateDropDown();
             };
         searchField.addEventListener('keyup', compareValueWithSuggestList);
 
+    };
+    this.setLocalStorage = function() {
+        var buttonSave = document.getElementById('button-save'),
+            buttonCancel = document.getElementById('button-cancel'),
+            emailSwitch = document.getElementById('switch-email'),
+            publicSwitch = document.getElementById('switch-public'),
+            storageAvailable = function(type) {
+                try {
+                    var storage = window[type],
+                        x = '__storage_test__';
+                    storage.setItem(x, x);
+                    storage.removeItem(x);
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            },
+            getLocalStorage = function() {
+                if (!localStorage.emailSettings || !localStorage.publicSettings || !localStorage.timeZoneSettings) {
+                    populateStorage();
+                } else {
+                    setSettings();
+                }
+            },
+            setSettings = function() {
+                //Set email
+                if (localStorage.emailSettings === "true") {
+                    emailSwitch.checked = true;
+                } else {
+                    emailSwitch.checked = false;
+                }
+                //Set public profile
+                if (localStorage.publicSettings === "true") {
+                    publicSwitch.checked = true;
+                } else {
+                    publicSwitch.checked = false;
+                }
+                //Set timezone
+                if (localStorage.timeZoneSettings) {
+                    document.getElementById('select-timezone').selectedIndex = parseInt(localStorage.timeZoneSettings);
+                }
+            },
+            populateStorage = function() {
+                //Get email
+                if (emailSwitch.checked) {
+                    localStorage.emailSettings = "true";
+                } else {
+                    localStorage.emailSettings = "false";
+                }
+                //Get public profile
+                if (publicSwitch.checked) {
+                    localStorage.publicSettings = "true";
+                } else {
+                    localStorage.publicSettings = "false";
+                }
+                //Get timezone
+                localStorage.timeZoneSettings = document.getElementById('select-timezone').selectedIndex;
+                setSettings();
+            };
+        if (storageAvailable('localStorage')) {
+            getLocalStorage();
+        }
+        buttonSave.addEventListener('click', function(e) {
+            e.preventDefault();
+            populateStorage();
+        });
     };
     this.displayAll = function() {
         this.setStates("nav-button");
@@ -281,6 +347,7 @@ function Dashboard() {
         this.displayModule('activity-list', activity);
         this.setForm();
         this.setAutoSuggest();
+        this.setLocalStorage();
     };
 }
 Dashboard.prototype.setStates = function(selector) {
