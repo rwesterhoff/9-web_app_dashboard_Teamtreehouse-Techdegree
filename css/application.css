@@ -800,7 +800,7 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
 #notification-dropdown {
   font-size: .9rem;
   position: absolute;
-  z-index: 100000;
+  z-index: 200;
   top: 70px;
   left: 0;
   width: 100%;
@@ -816,8 +816,8 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     #notification-dropdown {
       top: 40px;
       width: 320px;
-      -webkit-transform: translateX(calc(-50% + 12.5px));
-              transform: translateX(calc(-50% + 12.5px));
+      -webkit-transform: translateX(calc(-50% + 18.5px));
+              transform: translateX(calc(-50% + 18.5px));
       border-radius: 4px; }
       #notification-dropdown:before {
         position: absolute;
@@ -1482,6 +1482,11 @@ select {
   background: url(../img/icon-arrow-down.svg) no-repeat;
   background-position: right 12px center;
   background-size: 16px; }
+
+option:checked {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
 
 button {
   color: white;

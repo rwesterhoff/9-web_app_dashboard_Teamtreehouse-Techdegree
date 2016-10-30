@@ -89,6 +89,12 @@ select {
     background-size: 16px;
 }
 
+option:checked {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 button {
     color: white;
     border-color: $alto-grey;

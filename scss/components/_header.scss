@@ -63,7 +63,7 @@
 #notification-dropdown {
     font-size: .9rem;
     position: absolute;
-    z-index: 100000;
+    z-index: 200;
     top: 70px;
     left: 0;
     width: 100%;
@@ -84,7 +84,7 @@
     @media only screen and (min-width: #{$bkp-medium}) {
         top: 40px;
         width: 320px;
-        transform: translateX(calc(-50% + 12.5px));
+        transform: translateX(calc(-50% + 18.5px));
         border-radius: 4px;
         &:before {
             position: absolute;
