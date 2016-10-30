@@ -70,22 +70,18 @@
         font-size: .8rem;
         font-weight: 700;
         display: block;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
         padding: 5px 10px;
         cursor: pointer;
         text-align: center;
         color: $emperor-grey;
         border-radius: 15px;
-        overflow: hidden;
+        @extend %accessible-focus;
         &[data-state=active] {
             color: white;
             background-color: $pastel-green;
-        }
-        a {
-            display: block;
-            width: 100%;
-            height: 100%;
-            background-color: red;
-            @extend %accessible-focus;
         }
     }
     @media only screen and (max-width: #{$bkp-small}) {
@@ -234,12 +230,12 @@
 
 .member-email {
     color: $blue-violet;
+    @extend %accessible-focus;
     &:hover,
     &:focus {
         text-decoration: underline;
         outline: none;
     }
-    @extend %accessible-focus;
 }
 
 .recent-activity {
@@ -252,12 +248,12 @@
         background-position: right 12px center;
         background-size: 10px;
         @extend %transition;
+        @extend %accessible-focus;
         &:hover,
         &:focus {
             color: $blue-violet;
             background-position: right center;
         }
-        @extend %accessible-focus;
     }
     &:first-child {
         background-position: 100% 30%;
@@ -274,13 +270,13 @@
 
 .member-name,
 .member-activity {
-    display: inline;
-    align-self: center;
     line-height: 1.2;
-    padding-right: 36px;
+    display: inline;
     overflow: hidden;
+    padding-right: 36px;
     white-space: nowrap;
     text-overflow: ellipsis;
+    align-self: center;
 }
 
 .member-activity {

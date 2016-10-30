@@ -27,7 +27,6 @@
         opacity: .5;
         outline: none;
         @extend %srt;
-        will-change: auto;
         transition: opacity 0.2s linear;
         &:hover,
         &:focus {
