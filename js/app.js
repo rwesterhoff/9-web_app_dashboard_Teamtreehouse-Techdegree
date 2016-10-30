@@ -610,5 +610,4 @@ console.log(amount);
 
 /*TODO
 Hide dropdown if click outside it
-Make alerts dropdown filled dynamically
-Set accessible focusstates*/
+Make alerts dropdown filled dynamically*/
