@@ -262,22 +262,25 @@
         background-position: 100% 70%;
     }
     p {
-        padding-left: 23px;
-        &[data-activity=post] {
+        span {
+            padding-left: 20px;
+            background-color: yellow;
+        }
+        &[data-activity=post] span{
             background: url(#{$img-path}icon-post.svg);
         }
-        &[data-activity=comment] {
+        &[data-activity=comment] span{
             background: url(#{$img-path}icon-comment.svg);
         }
-        &[data-activity=like] {
+        &[data-activity=like] span{
             background: url(#{$img-path}icon-like.svg);
         }
-        &[data-activity=post],
-        &[data-activity=comment],
-        &[data-activity=like] {
-            background-position: left top;
+        &[data-activity=post] span,
+        &[data-activity=comment] span,
+        &[data-activity=like] span{
+            background-position: left center;
             background-repeat: no-repeat;
-            background-size: 18px;
+            background-size: 15px;
         }
     }
 }

@@ -1328,18 +1328,25 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
 .recent-activity:last-child {
   background-position: 100% 70%; }
 
-.recent-activity p {
-  padding-left: 23px; }
-  .recent-activity p[data-activity=post] {
-    background: url(../img/icon-post.svg); }
-  .recent-activity p[data-activity=comment] {
-    background: url(../img/icon-comment.svg); }
-  .recent-activity p[data-activity=like] {
-    background: url(../img/icon-like.svg); }
-  .recent-activity p[data-activity=post], .recent-activity p[data-activity=comment], .recent-activity p[data-activity=like] {
-    background-position: left top;
-    background-repeat: no-repeat;
-    background-size: 18px; }
+.recent-activity p span {
+  padding-left: 20px;
+  background-color: yellow; }
+
+.recent-activity p[data-activity=post] span {
+  background: url(../img/icon-post.svg); }
+
+.recent-activity p[data-activity=comment] span {
+  background: url(../img/icon-comment.svg); }
+
+.recent-activity p[data-activity=like] span {
+  background: url(../img/icon-like.svg); }
+
+.recent-activity p[data-activity=post] span,
+.recent-activity p[data-activity=comment] span,
+.recent-activity p[data-activity=like] span {
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 15px; }
 
 .date-added,
 .member-email {
