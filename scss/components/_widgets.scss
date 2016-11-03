@@ -261,6 +261,25 @@
     &:last-child {
         background-position: 100% 70%;
     }
+    p {
+        padding-left: 23px;
+        &[data-activity=post] {
+            background: url(#{$img-path}icon-post.svg);
+        }
+        &[data-activity=comment] {
+            background: url(#{$img-path}icon-comment.svg);
+        }
+        &[data-activity=like] {
+            background: url(#{$img-path}icon-like.svg);
+        }
+        &[data-activity=post],
+        &[data-activity=comment],
+        &[data-activity=like] {
+            background-position: left top;
+            background-repeat: no-repeat;
+            background-size: 18px;
+        }
+    }
 }
 
 .date-added,

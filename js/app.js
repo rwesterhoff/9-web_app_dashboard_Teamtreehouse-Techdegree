@@ -38,6 +38,7 @@ function Activity(key) {
     this.lastName = key.lastName;
     this.avatarSrc = key.avatarSrc;
     this.recentActivity = key.recentActivity;
+    this.dataActivity = key.dataActivity;
     this.activityTime = key.activityTime;
 }
 
@@ -45,7 +46,7 @@ Activity.prototype.toHTML = function() {
     var recentActivityHTML = '<li class="recent-activity">';
     recentActivityHTML += '<a href="">';
     recentActivityHTML += '<img src="img/' + this.avatarSrc + '" alt="Profile image of ' + this.firstName + ' " class="profile-image">';
-    recentActivityHTML += '<p class="member-activity">' + this.firstName + ' ' + this.lastName + ' ' + this.recentActivity;
+    recentActivityHTML += '<p class="member-activity" data-activity="' + this.dataActivity + '">' + this.firstName + ' ' + this.lastName + ' ' + this.recentActivity;
     recentActivityHTML += '<br>';
     recentActivityHTML += '<span class="date-added">' + this.activityTime + '</span>';
     recentActivityHTML += '</p>';
@@ -558,6 +559,7 @@ var dashboard = new Dashboard(),
             memberSince: "10/15/15",
             emailAdress: "rem128@example.com",
             recentActivity: "commented on YourApp's SEO tips",
+            dataActivity: "comment",
             activityTime: "4 hours ago"
         },
         adelle: {
@@ -567,6 +569,7 @@ var dashboard = new Dashboard(),
             memberSince: "10/14/15",
             emailAdress: "adelle.charles@example.com",
             recentActivity: "likes the post 'Facebook Changes for 2016'",
+            dataActivity: "like",
             activityTime: "5 hours ago"
         },
         mizko: {
@@ -576,6 +579,7 @@ var dashboard = new Dashboard(),
             memberSince: "10/13/15",
             emailAdress: "mizko87@example.com",
             recentActivity: "commented on 'Facebook Changes for 2016'",
+            dataActivity: "comment",
             activityTime: "5 hours ago"
         },
         tony: {
@@ -584,7 +588,8 @@ var dashboard = new Dashboard(),
             avatarSrc: "avatar-tony.jpg",
             memberSince: "10/12/15",
             emailAdress: "tony.stubble@example.com",
-            recentActivity: "commented on YourApp's SEO tips",
+            recentActivity: "posted YourApp's SEO tips",
+            dataActivity: "post",
             activityTime: "1 day ago"
         }
     },

@@ -1,6 +1,5 @@
 @charset "UTF-8";
-/* ------------------------------------------------------ *\
-	BASE
+/* ------------------------------------------------------ *	BASE
 \* ------------------------------------------------------ */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -159,6 +158,7 @@ select:focus,
 option:focus, button:focus, input[type=submit]:focus, #suggest-list .list-member a:focus {
   background-color: #fc0 !important;
   outline: none; }
+
 #app-notification:active, #main-navigation .nav-button:active, #main-content #search-field:active,
 #main-content #search-button:active, .widget-filter .filter-button:active, .member-email:active, .recent-activity a:active, input[type=text]:active,
 textarea:active,
@@ -185,6 +185,7 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     -webkit-transform: translate(20px, 0);
             transform: translate(20px, 0);
     opacity: 0; } }
+
 /*
 * CSS TOGGLE SWITCH
 *
@@ -211,13 +212,13 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
  */
 @media only screen {
   /* Checkbox
-   */
+ */
   .switch-light {
     position: relative;
     display: block;
     /* simulate default browser focus outlines on the switch,
-     * when the inputs are focused.
-     */ }
+   * when the inputs are focused.
+   */ }
     .switch-light::after {
       clear: both;
       content: "";
@@ -233,7 +234,7 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     .switch-light label,
     .switch-light > span {
       /* breathing room for bootstrap/foundation classes.
-       */
+     */
       line-height: 2em;
       vertical-align: middle; }
     .switch-light input:focus ~ span a,
@@ -242,7 +243,7 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
       outline-style: solid;
       outline-color: Highlight;
       /* Chrome/Opera gets its native focus styles.
-       */ } }
+     */ } }
     @media only screen and (-webkit-min-device-pixel-ratio: 0) {
       .switch-light input:focus ~ span a,
       .switch-light input:focus + label {
@@ -251,31 +252,27 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
 
 @media only screen {
   /* don't hide the input from screen-readers and keyboard access
-   */
+ */
   .switch-light input {
     position: absolute;
     opacity: 0;
     z-index: 3; }
-
   .switch-light input:checked ~ span a {
     right: 0%; }
-
   /* inherit from label
-   */
+ */
   .switch-light strong {
     font-weight: inherit; }
-
   .switch-light > span {
     position: relative;
     overflow: hidden;
     display: block;
     min-height: 2em;
     /* overwrite 3rd party classes padding
-     * eg. bootstrap .well
-     */
+   * eg. bootstrap .well
+   */
     padding: 0;
     text-align: left; }
-
   .switch-light span span {
     position: relative;
     z-index: 2;
@@ -287,7 +284,6 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none; }
-
   .switch-light a {
     position: absolute;
     right: 50%;
@@ -297,28 +293,27 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     width: 50%;
     height: 100%;
     padding: 0; }
-
   /* Radio Switch
-   */
+ */
   .switch-toggle {
     position: relative;
     display: block;
     /* simulate default browser focus outlines on the switch,
-     * when the inputs are focused.
-     */
+   * when the inputs are focused.
+   */
     /* For callout panels in foundation
-    */
+  */
     padding: 0 !important;
     /* 2 items
-     */
+   */
     /* 3 items
-     */
+   */
     /* 4 items
-     */
+   */
     /* 5 items
-     */
+   */
     /* 6 items
-     */ }
+   */ }
     .switch-toggle::after {
       clear: both;
       content: "";
@@ -334,7 +329,7 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     .switch-toggle label,
     .switch-toggle > span {
       /* breathing room for bootstrap/foundation classes.
-       */
+     */
       line-height: 2em;
       vertical-align: middle; }
     .switch-toggle input:focus ~ span a,
@@ -343,12 +338,13 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
       outline-style: solid;
       outline-color: Highlight;
       /* Chrome/Opera gets its native focus styles.
-       */ } }
+     */ } }
     @media only screen and (-webkit-min-device-pixel-ratio: 0) {
       .switch-toggle input:focus ~ span a,
       .switch-toggle input:focus + label {
         outline-color: -webkit-focus-ring-color;
         outline-style: auto; } }
+
 @media only screen {
     .switch-toggle input {
       position: absolute;
@@ -420,17 +416,15 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
       left: 66.4%; }
     .switch-toggle label:nth-child(2):nth-last-child(12) ~ input:checked:nth-child(11) + label ~ a {
       left: 83%; }
-
   /* Candy Theme
-   * Based on the "Sort Switches / Toggles (PSD)" by Ormal Clarck
-   * http://www.premiumpixels.com/freebies/sort-switches-toggles-psd/
-   */
+ * Based on the "Sort Switches / Toggles (PSD)" by Ormal Clarck
+ * http://www.premiumpixels.com/freebies/sort-switches-toggles-psd/
+ */
   .switch-toggle.switch-candy,
   .switch-light.switch-candy > span {
     background-color: #2d3035;
     border-radius: 3px;
     box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.2); }
-
   .switch-light.switch-candy span span,
   .switch-light.switch-candy input:checked ~ span span:first-child,
   .switch-toggle.switch-candy label {
@@ -438,13 +432,11 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     font-weight: bold;
     text-align: center;
     text-shadow: 1px 1px 1px #191b1e; }
-
   .switch-light.switch-candy input ~ span span:first-child,
   .switch-light.switch-candy input:checked ~ span span:nth-child(2),
   .switch-candy input:checked + label {
     color: #333;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
-
   .switch-candy a {
     border: 1px solid #333;
     border-radius: 3px;
@@ -452,15 +444,12 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     background-color: #70c66b;
     background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2), transparent);
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent); }
-
   .switch-candy-blue a {
     background-color: #38a3d4; }
-
   .switch-candy-yellow a {
     background-color: #f5e560; }
-
   /* iOS Theme
-  */
+*/
   .switch-ios.switch-light span span {
     color: #888b92; }
   .switch-ios.switch-light a {
@@ -525,9 +514,8 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
       vertical-align: middle; }
   .switch-ios input:checked + label {
     color: #3e4043; }
-
   /* Holo Theme
-   */
+ */
   .switch-toggle.switch-holo,
   .switch-light.switch-holo > span {
     background-color: #464747;
@@ -535,42 +523,34 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     box-shadow: inset rgba(0, 0, 0, 0.1) 0 1px 0;
     color: #fff;
     text-transform: uppercase; }
-
   .switch-holo label {
     color: #fff; }
-
   .switch-holo > span span {
     opacity: 0;
     -webkit-transition: all 0.1s;
     transition: all 0.1s; }
     .switch-holo > span span:first-of-type {
       opacity: 1; }
-
   .switch-holo > span span,
   .switch-holo label {
     font-size: 85%;
     line-height: 2.15625rem; }
-
   .switch-holo a {
     background-color: #666;
     border-radius: 1px;
     box-shadow: inset rgba(255, 255, 255, 0.2) 0 1px 0, inset rgba(0, 0, 0, 0.3) 0 -1px 0; }
-
   /* Selected ON switch-light
-  */
+*/
   .switch-holo.switch-light input:checked ~ span a {
     background-color: #0E88B1; }
-
   .switch-holo.switch-light input:checked ~ span span:first-of-type {
     opacity: 0; }
-
   .switch-holo.switch-light input:checked ~ span span:last-of-type {
     opacity: 1; }
-
   /* Material Theme
-   */
+ */
   /* switch-light
-   */
+ */
   .switch-light.switch-material a {
     top: -0.1875rem;
     width: 1.75rem;
@@ -580,14 +560,12 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.14), 0 0.1875rem 0.125rem -0.125rem rgba(0, 0, 0, 0.2), 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.12);
     -webkit-transition: right 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     transition: right 0.28s cubic-bezier(0.4, 0, 0.2, 1); }
-
   .switch-material.switch-light {
     overflow: visible; }
     .switch-material.switch-light::after {
       clear: both;
       content: "";
       display: table; }
-
   .switch-material.switch-light > span {
     overflow: visible;
     position: relative;
@@ -597,28 +575,23 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     min-height: auto;
     border-radius: 1rem;
     background: rgba(0, 0, 0, 0.26); }
-
   .switch-material.switch-light span span {
     position: absolute;
     clip: rect(0 0 0 0); }
-
   .switch-material.switch-light input:checked ~ span a {
     right: 0;
     background: #3f51b5;
     box-shadow: 0 0.1875rem 0.25rem 0 rgba(0, 0, 0, 0.14), 0 0.1875rem 0.1875rem -0.125rem rgba(0, 0, 0, 0.2), 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.12); }
-
   .switch-material.switch-light input:checked ~ span {
     background: rgba(63, 81, 181, 0.5); }
-
   /* switch-toggle
-   */
+ */
   .switch-toggle.switch-material {
     overflow: visible; }
     .switch-toggle.switch-material::after {
       clear: both;
       content: "";
       display: table; }
-
   .switch-toggle.switch-material a {
     top: 48%;
     width: 0.375rem !important;
@@ -632,11 +605,9 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     transition: -webkit-transform 0.4s ease-in;
     transition: transform 0.4s ease-in;
     transition: transform 0.4s ease-in, -webkit-transform 0.4s ease-in; }
-
   .switch-toggle.switch-material label {
     color: rgba(0, 0, 0, 0.54);
     font-size: 1em; }
-
   .switch-toggle.switch-material label:before {
     content: '';
     position: absolute;
@@ -649,12 +620,10 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     border: 0.125rem solid rgba(0, 0, 0, 0.54);
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%); }
-
   .switch-toggle.switch-material input:checked + label:before {
     border-color: #3f51b5; }
-
   /* ripple
-   */
+ */
   .switch-light.switch-material > span:before,
   .switch-light.switch-material > span:after,
   .switch-toggle.switch-material label:after {
@@ -675,18 +644,15 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     transform: scale(0);
     -webkit-transition: opacity 0.4s ease-in;
     transition: opacity 0.4s ease-in; }
-
   .switch-light.switch-material > span:after {
     left: auto;
     right: 0;
     margin-left: 0;
     margin-right: -1.25rem; }
-
   .switch-toggle.switch-material label:after {
     width: 3.25rem;
     height: 3.25rem;
     margin-top: -0.75rem; }
-
   @-webkit-keyframes materialRipple {
     0% {
       -webkit-transform: scale(0); }
@@ -711,20 +677,19 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
   .switch-toggle.switch-material input:checked + label:after {
     -webkit-animation: materialRipple 0.4s ease-in;
     animation: materialRipple 0.4s ease-in; }
-
   /* trick to prevent the default checked ripple animation from showing
-   * when the page loads.
-   * the ripples are hidden by default, and shown only when the input is focused.
-   */
+ * when the page loads.
+ * the ripples are hidden by default, and shown only when the input is focused.
+ */
   .switch-light.switch-material.switch-light input ~ span:before,
   .switch-light.switch-material.switch-light input ~ span:after,
   .switch-material.switch-toggle input + label:after {
     visibility: hidden; }
-
   .switch-light.switch-material.switch-light input:focus:checked ~ span:before,
   .switch-light.switch-material.switch-light input:focus:not(:checked) ~ span:after,
   .switch-material.switch-toggle input:focus:checked + label:after {
     visibility: visible; } }
+
 /* Bugfix for older Webkit, including mobile Webkit. Adapted from
  * http://css-tricks.com/webkit-sibling-bug/
  */
@@ -732,13 +697,14 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
   .switch-light,
   .switch-toggle {
     -webkit-animation: webkitSiblingBugfix infinite 1s; } }
+
 @-webkit-keyframes webkitSiblingBugfix {
   from {
     -webkit-transform: translate3d(0, 0, 0); }
   to {
     -webkit-transform: translate3d(0, 0, 0); } }
-/* ------------------------------------------------------ *\
-	COMPONENTS
+
+/* ------------------------------------------------------ *	COMPONENTS
 \* ------------------------------------------------------ */
 /* Header styles */
 #main-header {
@@ -1109,6 +1075,7 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
 @media screen and (min-width: 768px) {
   .super-row {
     border-bottom: #D7D7D7 1px solid; } }
+
 @media only screen and (min-width: 1280px) {
   .super-row {
     display: -webkit-box;
@@ -1153,6 +1120,7 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
     width: 50%; }
     .split .content-widget:not(:last-child) {
       border-right: #D7D7D7 1px solid; } }
+
 .widget-header,
 .widget-filter {
   display: -webkit-box;
@@ -1167,6 +1135,7 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
   @media only screen and (min-width: 568px) {
     .widget-filter li {
       margin-left: 5px; } }
+
 .widget-filter .filter-button {
   font-size: .8rem;
   font-weight: 700;
@@ -1182,9 +1151,11 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
   .widget-filter .filter-button[data-state=active] {
     color: white;
     background-color: #76D76D; }
+
 @media only screen and (max-width: 568px) {
   .widget-filter {
     width: 100%; } }
+
 @media only screen and (min-width: 568px) {
   .widget-filter {
     margin-left: auto; } }
@@ -1350,10 +1321,25 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
   .recent-activity a:hover, .recent-activity a:focus {
     color: #6061B1;
     background-position: right center; }
+
 .recent-activity:first-child {
   background-position: 100% 30%; }
+
 .recent-activity:last-child {
   background-position: 100% 70%; }
+
+.recent-activity p {
+  padding-left: 23px; }
+  .recent-activity p[data-activity=post] {
+    background: url(../img/icon-post.svg); }
+  .recent-activity p[data-activity=comment] {
+    background: url(../img/icon-comment.svg); }
+  .recent-activity p[data-activity=like] {
+    background: url(../img/icon-like.svg); }
+  .recent-activity p[data-activity=post], .recent-activity p[data-activity=comment], .recent-activity p[data-activity=like] {
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 18px; }
 
 .date-added,
 .member-email {
@@ -1368,6 +1354,7 @@ option:active, button:active, input[type=submit]:active, #suggest-list .list-mem
   white-space: nowrap;
   text-overflow: ellipsis;
   -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
       align-self: center; }
 
 .member-activity {
