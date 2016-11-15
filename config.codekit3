@@ -7,7 +7,7 @@
 		"uuidString": "FDA47FA2-BB68-4FDE-A23A-2D62B2888E34"
 		}
 	],
-"creatorBuild": "25428",
+"creatorBuild": "25444",
 "files": {
 	"\/.gitignore": {
 		"ft": 8192,
@@ -135,6 +135,16 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"\/img\/icon-comment.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/img\/icon-comment.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"\/img\/icon-dashboard.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -165,6 +175,16 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"\/img\/icon-like.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/img\/icon-like.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"\/img\/icon-linkedin.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -180,6 +200,16 @@
 		"miP": 0,
 		"oA": 2,
 		"oAP": "\/img\/icon-members.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/img\/icon-post.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/img\/icon-post.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,
